@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--This section defines the datat types for later configuration commands-->
+	<xs:element name="Measurement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Configuration">
+					<xs:complexType>
+						<xs:sequence>			
+							<xs:element name="Stage" type="stg" minOccurs="0"/>
+							<xs:element name="Microscope" type="micro"/>
+							<xs:element name="Elveflow" type="pmp"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Loop">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Duration" type="dur"/>
+							<xs:element name="Image" type="img"/>							
+							<xs:element name="Microscope" type="microIMG"/>		
+							<xs:element name="Position" type="pos" maxOccurs="50"/>	
+							<xs:element name="Elveflow" type="pmp"/>					
+							<xs:element name="Arduino" type="ardno"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+
+
+	<xs:simpleType name="posX">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="posY">
+		<xs:restriction base="xs:decimal">
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="velY">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.1"/>
+			<xs:maxInclusive value="20.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="accX">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.01"/>
+			<xs:maxInclusive value="20.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:simpleType name="accY">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.01"/>
+			<xs:maxInclusive value="20.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Defines elements for the microscope element-->
+
+	<xs:simpleType name="obj">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="flt">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UV"/>
+			<xs:enumeration value="Cy5"/>
+			<xs:enumeration value="RFP"/>
+			<xs:enumeration value="CFP"/>
+			<xs:enumeration value="GFP"/>
+			<xs:enumeration value="BF"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="pri">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Ocular"/>
+			<xs:enumeration value="Camera"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="lin">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="100.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="focus">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="3000000.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!-- Configures the SOLA Engine -->
+	<xs:simpleType name="sin">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="100.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Indicates the duration of a measurement-->
+	<xs:simpleType name="dur">
+		<xs:restriction base="xs:time"/>
+	</xs:simpleType>
+
+
+	<!-- Configures a single Valve-->
+	<xs:complexType name="ardnoPMP">
+		<xs:sequence>
+			<xs:element name="Time" type="xs:time"/>
+			<xs:choice>
+				<xs:element name="Feed" type="xs:integer"/>
+				<xs:element name="Pump" type="xs:decimal"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:simpleType name="chn">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Configures Elveflow-->
+	<xs:complexType name="pmp">
+		<xs:sequence minOccurs="1" maxOccurs="4">
+			<xs:element name="Channel" type="chn"/>
+			<xs:element name="Pressure" type="xs:decimal"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+
+	<!-- Indicates the name, saving directory and aquisition interval of an automatized measurement-->
+	<xs:complexType name="img">
+		<xs:all>
+			<xs:element name="Prefix" type="xs:string"/>
+			<xs:element name="AquisitionInterval" type="xs:time"/>
+			<xs:element name="SaveDir" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+
+
+	<!-- Container for Stage Configuration-->
+	<xs:complexType name="stg">
+		<xs:all>
+			<xs:element name="VelocityX">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0.1"/>
+						<xs:maxInclusive value="20.00"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VelocityY" type="velY"/>
+			<xs:element name="AccelerationX" type="accX"/>
+			<xs:element name="AccelerationY" type="accY"/>
+		</xs:all>
+	</xs:complexType>
+
+	<!-- Container for microscope Configuration-->
+	<xs:complexType name="micro">
+		<xs:all>
+			<xs:element name="Objective" type="obj"/>
+			<xs:element name="Filter" type="flt"/>
+			<xs:element name="Prism" type="pri"/>
+			<xs:element name="Lamp" type="lin"/>				
+			<xs:element name="SOLA" type="sin"/>
+			<xs:element name="Focus" type="focus" minOccurs="0"/>
+		</xs:all>
+	</xs:complexType>
+
+
+	<!-- Container for microscope Configuration-->
+	<xs:complexType name="microIMG">
+		<xs:sequence>
+			<xs:element name="Objective" type="obj" maxOccurs="4"/>
+			<xs:element name="Filter" type="loopFLT" maxOccurs="6" />			
+			<xs:element name="Prism" type="pri"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="loopFLT">
+		<xs:sequence>
+			<xs:element name="Color" type="flt"/>
+			<xs:choice>
+				<xs:element name="SOLA" type="sin"/>			
+				<xs:element name="Lamp" type="lin"/>					
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Container for different valve configuration-->
+	<xs:complexType name="ardno">
+		<xs:sequence maxOccurs="24">
+			<xs:element name="Step" type="ardnoPMP" maxOccurs="8"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="pos">
+		<xs:sequence>
+			<xs:element name="X" type="posX"/>
+			<xs:element name="Y" type="posY"/>					
+			<xs:element name="Focus" type="focus" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
