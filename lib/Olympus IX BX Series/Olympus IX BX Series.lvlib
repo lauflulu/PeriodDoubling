@@ -34,7 +34,7 @@
 			</Item>
 			<Item Name="BX2A - IX2 Frame Control Unit" Type="Folder">
 				<Item Name="Configure_BX2A - IX2 Frame Control Unit.mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/BX2A - IX2 Frame Control Unit/Configure_BX2A - IX2 Frame Control Unit.mnu"/>
-				<Item Name="Configure Filter Wheel.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/BX2A - IX2 Frame Control Unit/Configure Filter Wheel.vi"/>
+				<Item Name="Configure Filter Wheel.vi" Type="VI" URL="../Public/Configure/BX2A - IX2 Frame Control Unit/Configure Filter Wheel.vi"/>
 				<Item Name="Configure Lamp.vi" Type="VI" URL="../Public/Configure/BX2A - IX2 Frame Control Unit/Configure Lamp.vi"/>
 				<Item Name="Lamp Enabled.vi" Type="VI" URL="../Public/Configure/BX2A - IX2 Frame Control Unit/Lamp Enabled.vi"/>
 				<Item Name="Select Condenser Switching.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/BX2A - IX2 Frame Control Unit/Select Condenser Switching.vi"/>
