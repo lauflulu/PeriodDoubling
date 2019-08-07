@@ -14,20 +14,20 @@
 			<Item Name="Action - Status.mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Action - Status.mnu"/>
 			<Item Name="Check Lamp Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Check Lamp Status.vi"/>
 			<Item Name="Get Auto Focusing Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Get Auto Focusing Status.vi"/>
-			<Item Name="Get Limit Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Get Limit Status.vi"/>
-			<Item Name="Get Movement Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Get Movement Status.vi"/>
+			<Item Name="Get Limit Status.vi" Type="VI" URL="../Public/Action - Status/Get Limit Status.vi"/>
+			<Item Name="Get Movement Status.vi" Type="VI" URL="../Public/Action - Status/Get Movement Status.vi"/>
 			<Item Name="Login Device.vi" Type="VI" URL="../Public/Action - Status/Login Device.vi"/>
 			<Item Name="Logout Device.vi" Type="VI" URL="../Public/Action - Status/Logout Device.vi"/>
 			<Item Name="Move Aberration Correction Lens.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Move Aberration Correction Lens.vi"/>
 			<Item Name="Move Focusing Unit.vi" Type="VI" URL="../Public/Action - Status/Move Focusing Unit.vi"/>
-			<Item Name="Move To Start Position Enabled.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Move To Start Position Enabled.vi"/>
-			<Item Name="Origin Initialization.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Origin Initialization.vi"/>
+			<Item Name="Move To Start Position Enabled.vi" Type="VI" URL="../Public/Action - Status/Move To Start Position Enabled.vi"/>
+			<Item Name="Origin Initialization.vi" Type="VI" URL="../Public/Action - Status/Origin Initialization.vi"/>
 		</Item>
 		<Item Name="Configure" Type="Folder">
 			<Item Name="Active-Pasive Auto Focus Control Unit (A1M - P1M)" Type="Folder">
 				<Item Name="Configure_Active-Pasive Auto Focus Control Unit (A1M - P1M).mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Configure_Active-Pasive Auto Focus Control Unit (A1M - P1M).mnu"/>
 				<Item Name="Configure Auto Focusing.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Configure Auto Focusing.vi"/>
-				<Item Name="Get AF Control Parameter.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Get AF Control Parameter.vi"/>
+				<Item Name="Get AF Control Parameter.vi" Type="VI" URL="../Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Get AF Control Parameter.vi"/>
 				<Item Name="Select AF Parameter Table.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Select AF Parameter Table.vi"/>
 				<Item Name="Set AF Control Parameter.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Set AF Control Parameter.vi"/>
 				<Item Name="Set AF Software Limits.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Active-Pasive Auto Focus Control Unit (A1M - P1M)/Set AF Software Limits.vi"/>
@@ -56,7 +56,7 @@
 			</Item>
 			<Item Name="Universal Focus Control Unit (UFC)" Type="Folder">
 				<Item Name="Configure_Universal Focus Control Unit (UFC).mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Universal Focus Control Unit (UFC)/Configure_Universal Focus Control Unit (UFC).mnu"/>
-				<Item Name="Configure Jog.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Universal Focus Control Unit (UFC)/Configure Jog.vi"/>
+				<Item Name="Configure Jog.vi" Type="VI" URL="../Public/Configure/Universal Focus Control Unit (UFC)/Configure Jog.vi"/>
 				<Item Name="Set Software Limits.vi" Type="VI" URL="../Public/Configure/Universal Focus Control Unit (UFC)/Set Software Limits.vi"/>
 			</Item>
 			<Item Name="Configure.mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Configure/Configure.mnu"/>
@@ -73,9 +73,9 @@
 	</Item>
 	<Item Name="Private" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
-		<Item Name="Convert Error Code.vi" Type="VI" URL="../Private/Convert Error Code.vi"/>
-		<Item Name="Olympus Command.vi" Type="VI" URL="../Private/Olympus Command.vi"/>
-		<Item Name="Remove Termination Character.vi" Type="VI" URL="../Private/Remove Termination Character.vi"/>
+		<Item Name="Convert Error Code.vi" Type="VI" URL="../Public/Convert Error Code.vi"/>
+		<Item Name="Olympus Command.vi" Type="VI" URL="../Public/Olympus Command.vi"/>
+		<Item Name="Remove Termination Character.vi" Type="VI" URL="../Public/Remove Termination Character.vi"/>
 	</Item>
 	<Item Name="Olympus IX BX Series Readme.html" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Olympus IX BX Series Readme.html"/>
 </Library>
