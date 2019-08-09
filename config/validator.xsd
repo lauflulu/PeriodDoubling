@@ -9,7 +9,6 @@
 						<xs:sequence>			
 							<xs:element name="Stage" type="stg" minOccurs="0"/>
 							<xs:element name="Microscope" type="micro"/>
-							<xs:element name="Elveflow" type="pmp"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
@@ -19,8 +18,7 @@
 							<xs:element name="Duration" type="dur"/>
 							<xs:element name="Image" type="img"/>							
 							<xs:element name="Microscope" type="microIMG"/>		
-							<xs:element name="Position" type="pos" maxOccurs="50"/>	
-							<xs:element name="Elveflow" type="pmp"/>					
+							<xs:element name="Position" type="pos" maxOccurs="50"/>				
 							<xs:element name="Arduino" type="ardno"/>
 						</xs:sequence>
 					</xs:complexType>
@@ -144,13 +142,6 @@
 		</xs:restriction>
 	</xs:simpleType>
 
-	<!-- Configures Elveflow-->
-	<xs:complexType name="pmp">
-		<xs:sequence minOccurs="1" maxOccurs="4">
-			<xs:element name="Channel" type="chn"/>
-			<xs:element name="Pressure" type="xs:decimal"/>
-		</xs:sequence>
-	</xs:complexType>
 
 
 

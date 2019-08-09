@@ -2,20 +2,13 @@
 <Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="validator.xsd">
 	<Configuration>
 		<Microscope>
-			<Objective>10</Objective>
+			<Objective>4</Objective>
 			<Filter>BF</Filter>
 			<Prism>Ocular</Prism>
-			<Lamp>75</Lamp>			
+			<Lamp>0</Lamp>			
 			<SOLA>0.0</SOLA>
 		</Microscope>
-		<Elveflow>
-			<Channel>1</Channel>
-			<Pressure>250</Pressure>
-			<Channel>2</Channel>
-			<Pressure>350</Pressure>
-			<Channel>4</Channel>
-			<Pressure>500</Pressure>
-		</Elveflow>
+
 	</Configuration>
 	<Loop>  
 		<Duration>00:12:00</Duration>
@@ -53,14 +46,6 @@
 			<X>-1.6</X>
 			<Y>2.5</Y>
 		</Position>
-		<Elveflow>
-			<Channel>1</Channel>
-			<Pressure>250</Pressure>
-			<Channel>2</Channel>
-			<Pressure>350</Pressure>
-			<Channel>4</Channel>
-			<Pressure>500</Pressure>
-		</Elveflow>
 		<Arduino>
 			<Step>
 				<Time>00:00:10.0000</Time>
