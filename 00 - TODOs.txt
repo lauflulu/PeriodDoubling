@@ -1,0 +1,27 @@
+PRIO 0
+DONE Thread für Live-Modus
+DONE SHUTDOWN FOR CAMERA
+
+- Asynchrone Pumpzyklen mit Feedback !
+- Fokus am Mikroskop
+- Change exposure time during live mode
+- Exposure-Quelle-Filter kopppeln
+- Objektiv - z-Movement koppeln
+- Bild speichern
+- Stage Positionen anfahren
+- Single Chip Pumpen testen
+- Lampenknöpfe
+- Andor Temp Color if stabilized
+
+
+
+
+PRIO1
+- allgemeines Error-Handling
+- Dokumentation
+
+PRIO2
+- Umstrukturierung mit Queued Message Handler (mehr Events und Sub-VIs)
+
+IDEA
+- Correct PDMS angle in camera pictures and implement it also in the Stage movement
