@@ -12,7 +12,7 @@
 		<Property Name="NI.LibItem.Scope" Type="Int">1</Property>
 		<Item Name="Action - Status" Type="Folder">
 			<Item Name="Action - Status.mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Action - Status.mnu"/>
-			<Item Name="Check Lamp Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Check Lamp Status.vi"/>
+			<Item Name="Check Lamp Status.vi" Type="VI" URL="../Public/Action - Status/Check Lamp Status.vi"/>
 			<Item Name="Get Auto Focusing Status.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/Action - Status/Get Auto Focusing Status.vi"/>
 			<Item Name="Get Limit Status.vi" Type="VI" URL="../Public/Action - Status/Get Limit Status.vi"/>
 			<Item Name="Get Movement Status.vi" Type="VI" URL="../Public/Action - Status/Get Movement Status.vi"/>
@@ -68,13 +68,13 @@
 		</Item>
 		<Item Name="dir.mnu" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/dir.mnu"/>
 		<Item Name="Close.vi" Type="VI" URL="../Public/Close.vi"/>
+		<Item Name="Olympus Command.vi" Type="VI" URL="../Public/Olympus Command.vi"/>
 		<Item Name="Initialize.vi" Type="VI" URL="../Public/Initialize.vi"/>
 		<Item Name="VI Tree.vi" Type="VI" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Public/VI Tree.vi"/>
 	</Item>
 	<Item Name="Private" Type="Folder">
 		<Property Name="NI.LibItem.Scope" Type="Int">2</Property>
 		<Item Name="Convert Error Code.vi" Type="VI" URL="../Public/Convert Error Code.vi"/>
-		<Item Name="Olympus Command.vi" Type="VI" URL="../Public/Olympus Command.vi"/>
 		<Item Name="Remove Termination Character.vi" Type="VI" URL="../Public/Remove Termination Character.vi"/>
 	</Item>
 	<Item Name="Olympus IX BX Series Readme.html" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Olympus IX BX Series Readme.html"/>
