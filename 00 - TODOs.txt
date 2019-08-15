@@ -2,6 +2,8 @@ PRIO 0
 DONE Thread für Live-Modus
 DONE SHUTDOWN FOR CAMERA
 
+- Fokus Case
+
 - Asynchrone Pumpzyklen mit Feedback !
 - Fokus am Mikroskop
 - Change exposure time during live mode
