@@ -1,16 +1,17 @@
 PRIO 0
 DONE Thread für Live-Modus
 DONE SHUTDOWN FOR CAMERA
+DONE Fokus Case
+DONE Change exposure time during live mode
+DONE Stage Positionen anfahren
 
-- Fokus Case
-
+- Export Stage List
 - Asynchrone Pumpzyklen mit Feedback !
-- Fokus am Mikroskop
-- Change exposure time during live mode
+- Fokus am Mikroskop (Test Jogsens, INITORIG und INITSTART)
 - Exposure-Quelle-Filter kopppeln
 - Objektiv - z-Movement koppeln
 - Bild speichern
-- Stage Positionen anfahren
+
 - Single Chip Pumpen testen
 - Lampenknöpfe
 - Andor Temp Color if stabilized

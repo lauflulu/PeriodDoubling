@@ -20,8 +20,8 @@
 		<Item Name="TangoConnect.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnect.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
-				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/TANGO_DLL/Tango_DLL.lvlib"/>
+				<Item Name="Tango_DLL.dll" Type="Document" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.dll"/>
+				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
@@ -83,6 +83,7 @@
 			</Item>
 			<Item Name="AndorCreaterErrorCluster.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorCreaterErrorCluster.vi"/>
 			<Item Name="AndorLiveMode.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorLiveMode.vi"/>
+			<Item Name="AndorSDK.lvlib" Type="Library" URL="../../lib/ANDOR/Andor SDK/AndorSDK.lvlib"/>
 			<Item Name="ArdnoChannel2Valves.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoChannel2Valves.vi"/>
 			<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFeed.vi"/>
 			<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFlush.vi"/>

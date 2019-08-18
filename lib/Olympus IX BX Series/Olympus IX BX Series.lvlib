@@ -15,9 +15,9 @@
 			<Item Name="Get Limit Status.vi" Type="VI" URL="../Public/Action - Status/Get Limit Status.vi"/>
 			<Item Name="Get Movement Status.vi" Type="VI" URL="../Public/Action - Status/Get Movement Status.vi"/>
 			<Item Name="Login Device.vi" Type="VI" URL="../Public/Action - Status/Login Device.vi"/>
+			<Item Name="Move Focusing Unit.vi" Type="VI" URL="../Public/Action - Status/Move Focusing Unit.vi"/>
 			<Item Name="Logout Device.vi" Type="VI" URL="../Public/Action - Status/Logout Device.vi"/>
 			<Item Name="Move Aberration Correction Lens.vi" Type="VI" URL="../Public/Action - Status/Move Aberration Correction Lens.vi"/>
-			<Item Name="Move Focusing Unit.vi" Type="VI" URL="../Public/Action - Status/Move Focusing Unit.vi"/>
 			<Item Name="Move To Start Position Enabled.vi" Type="VI" URL="../Public/Action - Status/Move To Start Position Enabled.vi"/>
 			<Item Name="Origin Initialization.vi" Type="VI" URL="../Public/Action - Status/Origin Initialization.vi"/>
 		</Item>
