@@ -6,6 +6,7 @@ DONE Change exposure time during live mode
 DONE Stage Positionen anfahren
 
 - Export Stage List
+- eine Queue für continuous loop
 - Asynchrone Pumpzyklen mit Feedback !
 - Fokus am Mikroskop (Test Jogsens, INITORIG und INITSTART)
 - Exposure-Quelle-Filter kopppeln

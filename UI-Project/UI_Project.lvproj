@@ -16,6 +16,7 @@
 		</Item>
 		<Item Name="AndorReturn2Error.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorReturn2Error.vi"/>
 		<Item Name="Connect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Connect.vi"/>
+		<Item Name="ExportPosList.vi" Type="VI" URL="../../config/ExportPosList.vi"/>
 		<Item Name="Olympus IX BX Series.lvlib" Type="Library" URL="../../lib/Olympus IX BX Series/Olympus IX BX Series.lvlib"/>
 		<Item Name="TangoConnect.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnect.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
