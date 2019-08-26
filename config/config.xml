@@ -8,7 +8,7 @@
 			<Lamp>0</Lamp>			
 			<SOLA>0.0</SOLA>
 		</Microscope>
-
+		
 	</Configuration>
 	<Loop>  
 		<Duration>00:12:00</Duration>
@@ -17,34 +17,41 @@
 			<AquisitionInterval>00:04:00</AquisitionInterval>
 			<SaveDir>./TestImages/</SaveDir>
 		</Image>
-		<Microscope>
-			<Objective>20</Objective>
-			<Objective>40</Objective>
-			<Filter>
-				<Color>BF</Color>
-				<Lamp>50.0</Lamp>
-			</Filter>
-			<Filter>
-				<Color>GFP</Color>
-				<SOLA>20.0</SOLA>
-			</Filter>
-			<Filter>
-				<Color>RFP</Color>
-				<SOLA>30.0</SOLA>
-			</Filter>
-			<Prism>Camera</Prism>		
-		</Microscope>
 		<Position>
 			<X>0</X>
 			<Y>0</Y>
+			<Settings>
+				<Objective>4</Objective>
+				<Filter>BF</Filter>			
+				<Prism>Camera</Prism>	
+				<Lamp>10.0</Lamp>	
+				<SOLA>0</SOLA>
+				<Focus>486.265</Focus>
+			</Settings>
 		</Position>
 		<Position>
 			<X>3.5</X>
 			<Y>7.5</Y>
+			<Settings>
+				<Objective>4</Objective>
+				<Filter>BF</Filter>			
+				<Prism>Camera</Prism>	
+				<Lamp>10.0</Lamp>	
+				<SOLA>0</SOLA>
+				<Focus>486.265</Focus>
+			</Settings>
 		</Position>
 		<Position>
 			<X>-1.6</X>
 			<Y>2.5</Y>
+			<Settings>
+				<Objective>4</Objective>
+				<Filter>BF</Filter>			
+				<Prism>Camera</Prism>	
+				<Lamp>10.0</Lamp>	
+				<SOLA>0</SOLA>
+				<Focus>486.265</Focus>
+			</Settings>
 		</Position>
 		<Arduino>
 			<Step>
