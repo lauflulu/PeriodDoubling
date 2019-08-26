@@ -4,6 +4,10 @@ DONE SHUTDOWN FOR CAMERA
 DONE Fokus Case
 DONE Change exposure time during live mode
 DONE Stage Positionen anfahren
+DONE Bild speichern
+DONE Single Chip Pumpen testen
+
+- Adapt and run Matlab script within labview to perform calibration
 
 - Export Stage List
 - eine Queue für continuous loop
@@ -11,11 +15,11 @@ DONE Stage Positionen anfahren
 - Fokus am Mikroskop (Test Jogsens, INITORIG und INITSTART)
 - Exposure-Quelle-Filter kopppeln
 - Objektiv - z-Movement koppeln
-- Bild speichern
 
-- Single Chip Pumpen testen
 - Lampenknöpfe
 - Andor Temp Color if stabilized
+
+
 
 
 
