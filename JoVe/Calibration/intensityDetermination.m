@@ -14,14 +14,14 @@ function [intensities] = intensityDetermination(images, XCoords, YCoords)
 % point. 
 
 %% Variable determination
-numOfChambers = size(images,1);
-timePoints = size(images{1,1},1);
+numOfChambers = 1;%currently only for degbugging %size(images,3);
+timePoints = size(images,3);
 intensities = zeros(numOfChambers,timePoints); % Zeros(rows, col)
 
 %% The intensities within the ROI is determined. 
 for i = 1:timePoints
     for j = 1:numOfChambers
-        currIm = images{j,1}{i,1};
+        currIm =  images(:,:,i); %images{j,1}{i,1};
         intensities(j,i) = mean(currIm(sub2ind(size(currIm),XCoords{j,1},YCoords{j,1})));
     end
 end

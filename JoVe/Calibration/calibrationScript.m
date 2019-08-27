@@ -6,13 +6,15 @@
 % https://docs.openmicroscopy.org/bio-formats/5.7.1/users/matlab/index.html
 % 
 
-%% Select the correct .ND2 file:
-[fileName,pathName,filterIndex] = uigetfile('.tiff');
-%nd2 = bfopen(char(join({pathName,fileName},'')));
-nd2 = fopen([pathName,fileName]);
+%% Select the correct .Tiff file:
+[fileName,pathName,filterIndex] = uigetfile("*.tif");
+img = loadTiffFast([pathName,fileName]);
+if ndims(img)<3 
+    img(:, :, 2) = 0; 
+end
 
 %% Set the intensity range with which to view all images during ROI selection
-desiredIntensity = selectIntensity(nd2{1,1}{2,1});
+desiredIntensity = selectIntensity(img(:, :, 1));
 intensityRange = [0, desiredIntensity];
 
 %% ROI selection for all chambers
@@ -23,20 +25,20 @@ intensityRange = [0, desiredIntensity];
 % of the microfluidic flow channel. Draw the area by selecting the corners
 % of a polygon (left mouse click) and accept the polygon by
 % double-clicking within the borders of the polygon. 
-[xCoordinates, yCoordinates] = regionOfInterestDetermination(nd2, intensityRange);
+[xCoordinates, yCoordinates] = regionOfInterestDetermination(img, intensityRange);
 
 %% Determine the intensities of the ROI within all images
-intensities = intensityDetermination(nd2, xCoordinates, yCoordinates);
+intensities = intensityDetermination(img, xCoordinates, yCoordinates);
 
 %% Plot the intensity curves and view the refresh ratio
 [final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities);
-RR1 = refreshPerReactor(1,1)
-RR2 = refreshPerReactor(2,1)
-RR3 = refreshPerReactor(3,1)
-RR4 = refreshPerReactor(4,1)
-RR5 = refreshPerReactor(5,1)
-RR6 = refreshPerReactor(6,1)
-RR7 = refreshPerReactor(7,1)
-RR8 = refreshPerReactor(8,1)
+% RR1 = refreshPerReactor(1,1)
+% RR2 = refreshPerReactor(2,1)
+% RR3 = refreshPerReactor(3,1)
+% RR4 = refreshPerReactor(4,1)
+% RR5 = refreshPerReactor(5,1)
+% RR6 = refreshPerReactor(6,1)
+% RR7 = refreshPerReactor(7,1)
+% RR8 = refreshPerReactor(8,1)
 
 %% This is the end of the script. 

@@ -11,14 +11,14 @@ function [XCoordinates, YCoordinates] = regionOfInterestDetermination(images, in
 % intensity range used to make the images visable. 
 
 %% Show each of the images and determine the region of interest.
-XCoordinates = cell([size(images,1), 1]);
-YCoordinates = cell([size(images,1), 1]);
+XCoordinates = cell([size(images,3), 1]);
+YCoordinates = cell([size(images,3), 1]);
 
-for i = 1:size(images,1)
+for i = 1:size(images,3)
     % Select each image and proceed to select the desired range.
     % Selection is acheived by selecting the corner points of the region of
     % interest in a clockwise manner, starting at the top-left corner.
-    imageFull = images{i,1}{2,1};
+    imageFull = images(:,:,i);
     imshow(imageFull,intensityRange);
 
     mask = roipoly;
