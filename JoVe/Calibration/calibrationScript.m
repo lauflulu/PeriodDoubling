@@ -7,9 +7,9 @@
 % 
 
 %% Select the correct .ND2 file:
-[fileName,pathName,filterIndex] = uigetfile('.nd2');
+[fileName,pathName,filterIndex] = uigetfile('.tiff');
 %nd2 = bfopen(char(join({pathName,fileName},'')));
-nd2 = bfopen([pathName,fileName]);
+nd2 = fopen([pathName,fileName]);
 
 %% Set the intensity range with which to view all images during ROI selection
 desiredIntensity = selectIntensity(nd2{1,1}{2,1});
