@@ -6,11 +6,25 @@ DONE Change exposure time during live mode
 DONE Stage Positionen anfahren
 DONE Bild speichern
 DONE Single Chip Pumpen testen
+DONE Adapt and run Matlab script within labview to perform calibration
+DONE Export Stage List
 
-- Adapt and run Matlab script within labview to perform calibration
+CRUCIAL
+- Queue for continuous loop still buggy
+- Change Parser for optimized config file scheme
+  + <Exposure>
+  + <Pos> Focus,
+  + general Microscope settings for every image
+  + 
+- Decimal Separator of Position List
+- Only-Pos List instead of complete-Pos List
+- General Microscope Settings
+- Config .tif Stack as Output format (How to stack??)
+  - Adapt Matlab for tif stack (former .nd2 file --> not possible on Olympus HW)
 
-- Export Stage List
-- eine Queue für continuous loop
+
+PRIO0
+
 - Asynchrone Pumpzyklen mit Feedback !
 - Fokus am Mikroskop (Test Jogsens, INITORIG und INITSTART)
 - Exposure-Quelle-Filter kopppeln

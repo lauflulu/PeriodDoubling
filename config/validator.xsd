@@ -16,7 +16,8 @@
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="Duration" type="dur"/>
-							<xs:element name="Image" type="img"/>	
+							<xs:element name="Image" type="img"/>								
+							<xs:element name="Microscope" type="micro" maxOccurs="6"/>
 							<xs:element name="Position" type="pos" maxOccurs="50"/>				
 							<xs:element name="Arduino" type="ardno"/>
 						</xs:sequence>
@@ -179,6 +180,7 @@
 			<xs:element name="Prism" type="pri"/>
 			<xs:element name="Lamp" type="lin"/>				
 			<xs:element name="SOLA" type="sin"/>
+			<xs:element name="Exposure" type="xs:decimal" minOccurs="0"/>			
 			<xs:element name="Focus" type="focus" minOccurs="0"/>
 		</xs:all>
 	</xs:complexType>
@@ -214,8 +216,9 @@
 	<xs:complexType name="pos">
 		<xs:sequence>
 			<xs:element name="X" type="posX"/>
-			<xs:element name="Y" type="posY"/>					
-			<xs:element name="Settings" type="micro" />
+			<xs:element name="Y" type="posY"/>		
+			<xs:element name="Focus" type="focus"/>
+			<xs:element name="Settings" type="micro" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 

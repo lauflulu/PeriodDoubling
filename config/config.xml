@@ -6,9 +6,10 @@
 			<Filter>BF</Filter>
 			<Prism>Ocular</Prism>
 			<Lamp>0</Lamp>			
-			<SOLA>0.0</SOLA>
+			<SOLA>0.0</SOLA>			
+			<Exposure>50</Exposure>
 		</Microscope>
-		
+
 	</Configuration>
 	<Loop>  
 		<Duration>00:12:00</Duration>
@@ -17,40 +18,51 @@
 			<AquisitionInterval>00:04:00</AquisitionInterval>
 			<SaveDir>./TestImages/</SaveDir>
 		</Image>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>BF</Filter>
+			<Prism>Camera</Prism>
+			<Lamp>9.5</Lamp>			
+			<SOLA>0.0</SOLA>
+			<Exposure>50</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>GFP</Filter>
+			<Prism>Camera</Prism>
+			<Lamp>0</Lamp>			
+			<SOLA>2.5</SOLA>			
+			<Exposure>150</Exposure>
+		</Microscope>
 		<Position>
 			<X>0</X>
 			<Y>0</Y>
-			<Settings>
-				<Objective>4</Objective>
-				<Filter>BF</Filter>			
-				<Prism>Camera</Prism>	
-				<Lamp>10.0</Lamp>	
-				<SOLA>0</SOLA>
-				<Focus>486.265</Focus>
-			</Settings>
+			<Focus>486.265</Focus>
 		</Position>
 		<Position>
 			<X>3.5</X>
-			<Y>7.5</Y>
+			<Y>7.5</Y>			
+			<Focus>486.265</Focus>
 			<Settings>
 				<Objective>4</Objective>
 				<Filter>BF</Filter>			
 				<Prism>Camera</Prism>	
 				<Lamp>10.0</Lamp>	
-				<SOLA>0</SOLA>
-				<Focus>486.265</Focus>
+				<SOLA>0</SOLA>				
+				<Exposure>50</Exposure>
 			</Settings>
 		</Position>
 		<Position>
 			<X>-1.6</X>
-			<Y>2.5</Y>
+			<Y>2.5</Y>			
+			<Focus>486.265</Focus>
 			<Settings>
 				<Objective>4</Objective>
 				<Filter>BF</Filter>			
 				<Prism>Camera</Prism>	
 				<Lamp>10.0</Lamp>	
-				<SOLA>0</SOLA>
-				<Focus>486.265</Focus>
+				<SOLA>0</SOLA>				
+				<Exposure>50</Exposure>
 			</Settings>
 		</Position>
 		<Arduino>
