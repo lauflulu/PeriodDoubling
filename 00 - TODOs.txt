@@ -10,6 +10,11 @@ DONE Adapt and run Matlab script within labview to perform calibration
 DONE Export Stage List
 
 CRUCIAL
+- Review Time Calculation procedure
+  + Timing of physical change
+  + Timing of pumps
+  + Duration for light source availability
+  + Transfer Timing and Process Finish Events/Handlers
 - Queue for continuous loop still buggy
 - Change Parser for optimized config file scheme
   + <Exposure>
