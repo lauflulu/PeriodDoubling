@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Library LVVersion="12008004">
+<Library LVVersion="18008000">
 	<Property Name="NI.Lib.Description" Type="Str">These VIs can be used to write multi-page tiffs using BitMiracle's LibTiff.NET library.
 It supports U8 and U16 image datatypes.  Data will be compressed with DEFLATE-algorithm if not told otherwise.
 
@@ -7,8 +7,8 @@ Open a file for write with tiffOpenFor Write.
 Subsequent calls of tiffWriteImaqToTiff with the current index and total number of pages will write the data to the file.
 Close it with tiffClose.</Property>
 	<Property Name="NI.Lib.HelpPath" Type="Str"></Property>
-	<Property Name="NI.Lib.Icon" Type="Bin">%A#!"!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)/!!!*Q(C=\&gt;4.&lt;3*"%-8R:]O(P:+"21IP"6)AB5K"[RZ*I6)A"6+I$9%53'(]\[&lt;ER1=7L&lt;1L)9NO?DS][9_@?Y;2:PEBP7GZ6X\^M@S_0LIOF_06I/P4]6EO*\?P,V_SPR^`_`I.`ZWC:XG7\VV_XPU2`0@@Q9P'CYB7N+1&amp;T2L,,E6?Z%6?Z%6?Z%G?Z%G?Z%G?Z%%?Z%%?Z%%?Z#9XO=F.&lt;H+4TUIO=J',(&amp;+R?,&amp;1-7ER1&gt;%:CIJ$Y3E]B;@Q]&amp;7&amp;J`!5HM*4?/CCQF.Y#E`B+4Q-5_%J0)7H]"1?JJK3GJ5=4_&amp;B?C7?R*.Y%E`C95EFHA31,*:-H%Q#1]H&amp;Z#4R**\%Q[E34_**0)EH]8":C3@R**\%EXA9-H=FJW:5=DR-I]!4?!*0Y!E]4+X!%XA#4_!*0#SHQ".Y!E3Q9$!Z"!7$AA\"F]!4?0CDQ".Y!E`A#4R=GH=IZMY-T;DE?)T(?)T(?)S(+71]RG-]RG-]4#PD-2\D-2\D93E:D`%9DY'926F?:D)TU(1SA@(QG5_,ZVX++@'M5D_][I&gt;3`&lt;#J(S,VQ['_[?K&lt;K&lt;Z*[MV8&lt;[J[M^3&lt;I0\HV'AV2LW)?P$IK$0(%_V)/^$WN"VN3^P1VL46'0K0/Z\0:ZV/*RW02RU/"_XX?_VW/WWX7WUW'[X8;[V7K]`8Q$PV]Y8Q#/_FBT#][HI.^OA$2RX-MA!!!!!</Property>
-	<Property Name="NI.Lib.SourceVersion" Type="Int">302022660</Property>
+	<Property Name="NI.Lib.Icon" Type="Bin">'!#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!)/!!!*Q(C=\&gt;4.&lt;3*"%-8R:]O(P:+"21IP"6)AB5K"[RZ*I6)A"6+I$9%53'(]\[&lt;ER1=7L&lt;1L)9NO?DS][9_@?Y;2:PEBP7GZ6X\^M@S_0LIOF_06I/P4]6EO*\?P,V_SPR^`_`I.`ZWC:XG7\VV_XPU2`0@@Q9P'CYB7N+1&amp;T2L,,E6?Z%6?Z%6?Z%G?Z%G?Z%G?Z%%?Z%%?Z%%?Z#9XO=F.&lt;H+4TUIO=J',(&amp;+R?,&amp;1-7ER1&gt;%:CIJ$Y3E]B;@Q]&amp;7&amp;J`!5HM*4?/CCQF.Y#E`B+4Q-5_%J0)7H]"1?JJK3GJ5=4_&amp;B?C7?R*.Y%E`C95EFHA31,*:-H%Q#1]H&amp;Z#4R**\%Q[E34_**0)EH]8":C3@R**\%EXA9-H=FJW:5=DR-I]!4?!*0Y!E]4+X!%XA#4_!*0#SHQ".Y!E3Q9$!Z"!7$AA\"F]!4?0CDQ".Y!E`A#4R=GH=IZMY-T;DE?)T(?)T(?)S(+71]RG-]RG-]4#PD-2\D-2\D93E:D`%9DY'926F?:D)TU(1SA@(QG5_,ZVX++@'M5D_][I&gt;3`&lt;#J(S,VQ['_[?K&lt;K&lt;Z*[MV8&lt;[J[M^3&lt;I0\HV'AV2LW)?P$IK$0(%_V)/^$WN"VN3^P1VL46'0K0/Z\0:ZV/*RW02RU/"_XX?_VW/WWX7WUW'[X8;[V7K]`8Q$PV]Y8Q#/_FBT#][HI.^OA$2RX-MA!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">402685952</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
