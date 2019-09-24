@@ -8,6 +8,8 @@ DONE Bild speichern
 DONE Single Chip Pumpen testen
 DONE Adapt and run Matlab script within labview to perform calibration
 DONE Export Stage List
+DONE Config .tif Stack as Output format (How to stack??)
+DONE Adapt Matlab for tif stack (former .nd2 file --> not possible on Olympus HW)
 
 CRUCIAL
 - Review Time Calculation procedure
@@ -24,8 +26,7 @@ CRUCIAL
 - Decimal Separator of Position List
 - Only-Pos List instead of complete-Pos List
 - General Microscope Settings
-- Config .tif Stack as Output format (How to stack??)
-  - Adapt Matlab for tif stack (former .nd2 file --> not possible on Olympus HW)
+
 
 
 PRIO0
