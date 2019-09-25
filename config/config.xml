@@ -19,7 +19,7 @@
 			<SaveDir>./TestImages/</SaveDir>
 		</Image>
 		<Microscope>
-			<Objective>20x</Objective>
+			<Objective>20</Objective>
 			<Filter>BF</Filter>
 			<Prism>Camera</Prism>
 			<Lamp>9.5</Lamp>			

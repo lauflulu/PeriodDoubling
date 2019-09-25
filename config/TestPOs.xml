@@ -2,123 +2,36 @@
 <LVData>
 <Version>18.0</Version>
 <Position>
-<X>187,0</X>
-<Y>-495,9</Y>
+<X>60415.1</X>
+<Y>40337.1</Y>
+<Focus>419.78</Focus>
 <Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
+<Objective>4</Objective>
 <Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
+<Intensity>9.2</Intensity>
 </Settings>
 </Position>
+
 <Position>
-<X>-1586,7</X>
-<Y>-495,9</Y>
+<X>57455.3</X>
+<Y>43292.3</Y>
+<Focus>419.78</Focus>
 <Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
+<Objective>4</Objective>
 <Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
+<Intensity>9.2</Intensity>
 </Settings>
 </Position>
+
 <Position>
-<X>-1586,7</X>
-<Y>-2361,8</Y>
+<X>57455.3</X>
+<Y>43292.3</Y>
+<Focus>408.78</Focus>
 <Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
+<Objective>4</Objective>
 <Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
+<Intensity>9.2</Intensity>
 </Settings>
 </Position>
-<Position>
-<X>1901,7</X>
-<Y>1957,1</Y>
-<Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>495,65</Focus>
-</Settings>
-</Position>
-<Position>
-<X>1901,7</X>
-<Y>1957,1</Y>
-<Settings>
-<Objective>x 10</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>5,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>495,65</Focus>
-</Settings>
-</Position>
-<Position>
-<X>187,0</X>
-<Y>-495,9</Y>
-<Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
-</Settings>
-</Position>
-<Position>
-<X>-1586,7</X>
-<Y>-495,9</Y>
-<Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
-</Settings>
-</Position>
-<Position>
-<X>-1586,7</X>
-<Y>-2361,8</Y>
-<Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>486,00</Focus>
-</Settings>
-</Position>
-<Position>
-<X>1901,7</X>
-<Y>1957,1</Y>
-<Settings>
-<Objective>x 4</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>10,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>495,65</Focus>
-</Settings>
-</Position>
-<Position>
-<X>1901,7</X>
-<Y>1957,1</Y>
-<Settings>
-<Objective>x 10</Objective>
-<Filter>BF (empty)</Filter>
-<Prism>Camera</Prism>
-<Lamp>5,0</Lamp>
-<SOLA>0</SOLA>
-<Focus>495,65</Focus>
-</Settings>
-</Position>
+
 </LVData>
