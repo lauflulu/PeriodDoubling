@@ -15,22 +15,14 @@
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
 		<Item Name="AndorReturn2Error.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorReturn2Error.vi"/>
+		<Item Name="ArdnoAllValvesClosed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoAllValvesClosed.vi"/>
 		<Item Name="Connect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Connect.vi"/>
 		<Item Name="ExportPosList.vi" Type="VI" URL="../../config/ExportPosList.vi"/>
 		<Item Name="Olympus IX BX Series.lvlib" Type="Library" URL="../../lib/Olympus IX BX Series/Olympus IX BX Series.lvlib"/>
 		<Item Name="TangoConnect.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnect.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
-				<Item Name="Get Most Recent Image16.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Most Recent Image16.vi"/>
-				<Item Name="Save As Bmp.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As Bmp.vi"/>
-				<Item Name="Save As EDF.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As EDF.vi"/>
-				<Item Name="Save As FITS.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As FITS.vi"/>
-				<Item Name="Save As Raw.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As Raw.vi"/>
-				<Item Name="Save As Sif.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As Sif.vi"/>
-				<Item Name="Save As SPC.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As SPC.vi"/>
-				<Item Name="Save As Tiff.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As Tiff.vi"/>
-				<Item Name="Save To Clip Board.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save To Clip Board.vi"/>
-				<Item Name="Tango_DLL.dll" Type="Document" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.dll"/>
+				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
 				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
@@ -105,6 +97,7 @@
 			<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFeed.vi"/>
 			<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFlush.vi"/>
 			<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoPump.vi"/>
+			<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoSingleValveControl.vi"/>
 			<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
 			<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
 			<Item Name="Disconnect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Disconnect.vi"/>
