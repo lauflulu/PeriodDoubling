@@ -1,0 +1,41 @@
+26.09.2019 15:34:45
+[General]
+Project: C:\Users\e14user\Documents\LabVIEW software\GitRepo\UI-Project\UI_Project.lvproj
+Target: My Computer
+Build Specification: BUILD_V1.1_UI
+OS: Windows NT 10.0
+
+[Open Top Level VIs]
+C:\Users\e14user\Documents\LabVIEW software\GitRepo\UI-Project\VIs\V1.1_UI.vi	26.09.2019 15:23:21
+
+
+[ERROR]
+Code:7
+LabVIEW cannot find a file that is a dependency of a Startup, Exported, or Always Included VI.
+
+File Not Found: C:\Program Files (x86)\National Instruments\LabVIEW 2018\user.lib\LumencorDLL32\VIs\lm Assign LE Colors.vi
+
+The missing file might be referenced by one of the libraries included in the build or by the file - V1.1_UI.vi. To fix this issue:
+
+- Open all Startup, Exported, or Always Included VIs, recompile them (CTRL+SHIFT Click the Run arrow) and save them to update their dependencies.
+- Open all libraries included in the build and verify the existence and locations of referenced files. Also, try building with the additional exclusion option, "Remove unused members of project libraries", checked.
+
+
+<Call Chain>Error 7 occurred at AB_Engine_HandleLinkErrors.vi -> AB_Engine_Update_Source_from_Linker.vi -> AB_Build.lvclass:CalculateDependencies.vi -> AB_EXE.lvclass:CalculateDependencies.vi -> AB_Build.lvclass:Build.vi -> AB_Application.lvclass:Build.vi -> AB_EXE.lvclass:Build.vi -> AB_Build.lvclass:Build_from_Wizard.vi -> AB_UI_Frmwk_Build.lvclass:Build.vi -> AB_UI_FRAMEWORK.vi -> AB_Item_OnDoProperties.vi -> AB_Item_OnDoProperties.vi.ProxyCaller
+
+Possible reason(s):
+
+LabVIEW: (Hex 0x7) File not found. The file might be in a different location or deleted. Use the command prompt or the file explorer to verify that the path is correct.
+
+[Output Files]
+
+
+[Errors]
+Click the link below to visit the Application Builder support page. Use the following information as a reference:
+
+Error 7 occurred at AB_Engine_HandleLinkErrors.vi -> AB_Engine_Update_Source_from_Linker.vi -> AB_Build.lvclass:CalculateDependencies.vi -> AB_EXE.lvclass:CalculateDependencies.vi -> AB_Build.lvclass:Build.vi -> AB_Application.lvclass:Build.vi -> AB_EXE.lvclass:Build.vi -> AB_Build.lvclass:Build_from_Wizard.vi -> AB_UI_Frmwk_Build.lvclass:Build.vi -> AB_UI_FRAMEWORK.vi -> AB_Item_OnDoProperties.vi -> AB_Item_OnDoProperties.vi.ProxyCaller
+
+Possible reason(s):
+
+LabVIEW: (Hex 0x7) File not found. The file might be in a different location or deleted. Use the command prompt or the file explorer to verify that the path is correct.
+26.09.2019 15:34:53

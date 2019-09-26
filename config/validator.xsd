@@ -18,7 +18,7 @@
 							<xs:element name="Duration" type="dur"/>
 							<xs:element name="Image" type="img"/>								
 							<xs:element name="Microscope" type="micro" maxOccurs="6"/>
-							<xs:element name="Position" type="pos" maxOccurs="50"/>				
+							<xs:element name="Position" type="pos" minOccurs="0" maxOccurs="50"/>				
 							<xs:element name="Arduino" type="ardno"/>
 						</xs:sequence>
 					</xs:complexType>
@@ -96,14 +96,14 @@
 
 	<xs:simpleType name="lin">
 		<xs:restriction base="xs:decimal">
-			<xs:minInclusive value="0.0"/>
-			<xs:maxInclusive value="100.00"/>
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="focus">
 		<xs:restriction base="xs:decimal">
-			<xs:minInclusive value="0.0"/>
+			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="3000000.00"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -112,7 +112,7 @@
 	<!-- Configures the SOLA Engine -->
 	<xs:simpleType name="sin">
 		<xs:restriction base="xs:decimal">
-			<xs:minInclusive value="0.0"/>
+			<xs:minInclusive value="0"/>
 			<xs:maxInclusive value="100.00"/>
 		</xs:restriction>
 	</xs:simpleType>
@@ -174,15 +174,14 @@
 
 	<!-- Container for microscope Configuration-->
 	<xs:complexType name="micro">
-		<xs:all>
+		<xs:sequence>
 			<xs:element name="Objective" type="obj"/>
-			<xs:element name="Filter" type="flt"/>
-			<xs:element name="Prism" type="pri"/>
-			<xs:element name="Lamp" type="lin"/>				
-			<xs:element name="SOLA" type="sin"/>
+			<xs:element name="Filter" type="flt" minOccurs="0"/>
+			<xs:element name="Prism" type="pri" minOccurs="0"/>
+			<xs:element name="Intensity" type="sin"/>
 			<xs:element name="Exposure" type="xs:decimal" minOccurs="0"/>			
 			<xs:element name="Focus" type="focus" minOccurs="0"/>
-		</xs:all>
+		</xs:sequence>
 	</xs:complexType>
 
 

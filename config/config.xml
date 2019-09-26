@@ -1,15 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="validator.xsd">
-	<Configuration>
-		<Microscope>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\config\validator.xsd">
+	<Configuration>		
+		<Microscope>		
 			<Objective>4</Objective>
 			<Filter>BF</Filter>
 			<Prism>Ocular</Prism>
-			<Lamp>0</Lamp>			
-			<SOLA>0.0</SOLA>			
+			<Intensity>0.0</Intensity>				
 			<Exposure>50</Exposure>
 		</Microscope>
-
 	</Configuration>
 	<Loop>  
 		<Duration>00:12:00</Duration>
@@ -22,49 +20,16 @@
 			<Objective>20</Objective>
 			<Filter>BF</Filter>
 			<Prism>Camera</Prism>
-			<Lamp>9.5</Lamp>			
-			<SOLA>0.0</SOLA>
+			<Intensity>9.5</Intensity>
 			<Exposure>50</Exposure>
 		</Microscope>
 		<Microscope>
 			<Objective>20</Objective>
 			<Filter>GFP</Filter>
 			<Prism>Camera</Prism>
-			<Lamp>0</Lamp>			
-			<SOLA>2.5</SOLA>			
+			<Intensity>2.5</Intensity>			
 			<Exposure>150</Exposure>
-		</Microscope>
-		<Position>
-			<X>0</X>
-			<Y>0</Y>
-			<Focus>486.265</Focus>
-		</Position>
-		<Position>
-			<X>3.5</X>
-			<Y>7.5</Y>			
-			<Focus>486.265</Focus>
-			<Settings>
-				<Objective>4</Objective>
-				<Filter>BF</Filter>			
-				<Prism>Camera</Prism>	
-				<Lamp>10.0</Lamp>	
-				<SOLA>0</SOLA>				
-				<Exposure>50</Exposure>
-			</Settings>
-		</Position>
-		<Position>
-			<X>-1.6</X>
-			<Y>2.5</Y>			
-			<Focus>486.265</Focus>
-			<Settings>
-				<Objective>4</Objective>
-				<Filter>BF</Filter>			
-				<Prism>Camera</Prism>	
-				<Lamp>10.0</Lamp>	
-				<SOLA>0</SOLA>				
-				<Exposure>50</Exposure>
-			</Settings>
-		</Position>
+		</Microscope>		
 		<Arduino>
 			<Step>
 				<Time>00:00:10.0000</Time>

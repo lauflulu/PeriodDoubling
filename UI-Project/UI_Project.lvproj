@@ -14,13 +14,31 @@
 		<Item Name="VIs" Type="Folder" URL="../VIs">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
+		<Item Name="AndorCreaterErrorCluster.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorCreaterErrorCluster.vi"/>
+		<Item Name="AndorLiveMode.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorLiveMode.vi"/>
 		<Item Name="AndorReturn2Error.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorReturn2Error.vi"/>
+		<Item Name="AndorSDK.lvlib" Type="Library" URL="../../lib/ANDOR/Andor SDK/AndorSDK.lvlib"/>
 		<Item Name="ArdnoAllValvesClosed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoAllValvesClosed.vi"/>
+		<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoAllValvesOpened.vi"/>
+		<Item Name="ArdnoChannel2Valves.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoChannel2Valves.vi"/>
+		<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFeed.vi"/>
+		<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFlush.vi"/>
+		<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoPump.vi"/>
+		<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoSingleValveControl.vi"/>
+		<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
 		<Item Name="Connect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Connect.vi"/>
+		<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
+		<Item Name="Disconnect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Disconnect.vi"/>
 		<Item Name="ExportPosList.vi" Type="VI" URL="../../config/ExportPosList.vi"/>
+		<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
 		<Item Name="Olympus IX BX Series.lvlib" Type="Library" URL="../../lib/Olympus IX BX Series/Olympus IX BX Series.lvlib"/>
+		<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
+		<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/Tango/VIs/TangoCalibrate.vi"/>
 		<Item Name="TangoConnect.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnect.vi"/>
+		<Item Name="TangoConnectSub.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnectSub.vi"/>
+		<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../../lib/Tango/VIs/TangoPositions2MultiList.vi"/>
 		<Item Name="TangoSelectPos.vi" Type="VI" URL="../../lib/Tango/VIs/TangoSelectPos.vi"/>
+		<Item Name="XMLAppendPosToConfig.vi" Type="VI" URL="../../config/XMLAppendPosToConfig.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
@@ -78,6 +96,7 @@
 				<Item Name="mouseAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/mouseAcquire.vi"/>
 				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 				<Item Name="NI_XML.lvlib" Type="Library" URL="/&lt;vilib&gt;/xml/NI_XML.lvlib"/>
+				<Item Name="Normalize End Of Line.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Normalize End Of Line.vi"/>
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
 				<Item Name="Open_Create_Replace File.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/Open_Create_Replace File.vi"/>
 				<Item Name="ParseXMLFragments.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/ParseXMLFragments.vi"/>
@@ -104,18 +123,6 @@
 				<Item Name="Write to XML File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Write to XML File.vi"/>
 				<Item Name="Write.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Write.vi"/>
 			</Item>
-			<Item Name="AndorCreaterErrorCluster.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorCreaterErrorCluster.vi"/>
-			<Item Name="AndorLiveMode.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorLiveMode.vi"/>
-			<Item Name="AndorSDK.lvlib" Type="Library" URL="../../lib/ANDOR/Andor SDK/AndorSDK.lvlib"/>
-			<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoAllValvesOpened.vi"/>
-			<Item Name="ArdnoChannel2Valves.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoChannel2Valves.vi"/>
-			<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFeed.vi"/>
-			<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoFlush.vi"/>
-			<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoPump.vi"/>
-			<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoSingleValveControl.vi"/>
-			<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
-			<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
-			<Item Name="Disconnect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Disconnect.vi"/>
 			<Item Name="DOMUserDefRef.dll" Type="Document" URL="DOMUserDefRef.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -123,7 +130,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LumencorDLL32.dll" Type="Document" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.dll"/>
-			<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -131,11 +137,68 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
-			<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/Tango/VIs/TangoCalibrate.vi"/>
-			<Item Name="TangoConnectSub.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnectSub.vi"/>
-			<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../../lib/Tango/VIs/TangoPositions2MultiList.vi"/>
 		</Item>
-		<Item Name="Build Specifications" Type="Build"/>
+		<Item Name="Build Specifications" Type="Build">
+			<Item Name="BUILD_V1.1_UI" Type="EXE">
+				<Property Name="App_copyErrors" Type="Bool">true</Property>
+				<Property Name="App_INI_aliasGUID" Type="Str">{BB88D6B3-56C7-476C-8870-CDFE78D14031}</Property>
+				<Property Name="App_INI_GUID" Type="Str">{18FBCF5D-FDA0-42A3-B6A0-FE669799F8B9}</Property>
+				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
+				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
+				<Property Name="Bld_buildCacheID" Type="Str">{F99458F3-B4A4-4C88-9372-A5A85D94875D}</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_previewCacheID" Type="Str">{180767D5-288E-4B0C-87DE-D0DEC2C8ECF6}</Property>
+				<Property Name="Bld_userLogFile" Type="Path">../builds/UI_Project/BUILD_V1.1_UI/UI_Project_BUILD_V1.1_UI_log.txt</Property>
+				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_version.build" Type="Int">4</Property>
+				<Property Name="Bld_version.major" Type="Int">1</Property>
+				<Property Name="Destination[0].destName" Type="Str">UserInterface.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI/UserInterface.exe</Property>
+				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="Destination[0].type" Type="Str">App</Property>
+				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI/data</Property>
+				<Property Name="DestinationCount" Type="Int">2</Property>
+				<Property Name="Source[0].itemID" Type="Str">{D25789C9-37E0-425F-BF42-634F5C5BC6FD}</Property>
+				<Property Name="Source[0].type" Type="Str">Container</Property>
+				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[1].itemID" Type="Ref">/My Computer/VIs/V1.1_UI.vi</Property>
+				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
+				<Property Name="Source[1].type" Type="Str">VI</Property>
+				<Property Name="Source[2].itemID" Type="Ref">/My Computer/AndorCreaterErrorCluster.vi</Property>
+				<Property Name="Source[2].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[2].properties[0].value" Type="Bool">false</Property>
+				<Property Name="Source[2].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[2].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[2].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[2].type" Type="Str">VI</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/AndorReturn2Error.vi</Property>
+				<Property Name="Source[3].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[3].properties[0].value" Type="Bool">false</Property>
+				<Property Name="Source[3].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[3].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[3].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[3].type" Type="Str">VI</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/ConvertErrCodeToMessage.vi</Property>
+				<Property Name="Source[4].properties[0].type" Type="Str">Remove front panel</Property>
+				<Property Name="Source[4].properties[0].value" Type="Bool">false</Property>
+				<Property Name="Source[4].properties[1].type" Type="Str">Remove block diagram</Property>
+				<Property Name="Source[4].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[4].propertiesCount" Type="Int">2</Property>
+				<Property Name="Source[4].type" Type="Str">VI</Property>
+				<Property Name="SourceCount" Type="Int">5</Property>
+				<Property Name="TgtF_companyName" Type="Str">TUM Fakultät für Physik</Property>
+				<Property Name="TgtF_enableDebugging" Type="Bool">true</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="TgtF_internalName" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2019 TUM Fakultät für Physik</Property>
+				<Property Name="TgtF_productName" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="TgtF_targetfileGUID" Type="Str">{D3808586-AEAD-4262-B2C2-1618F22E4E6B}</Property>
+				<Property Name="TgtF_targetfileName" Type="Str">UserInterface.exe</Property>
+				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
+			</Item>
+		</Item>
 	</Item>
 </Project>
