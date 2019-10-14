@@ -129,7 +129,6 @@
 			<Item Name="liblinxdevice.dll" Type="Document" URL="liblinxdevice.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="LumencorDLL32.dll" Type="Document" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.dll"/>
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -139,29 +138,29 @@
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
-			<Item Name="BUILD_V1.1_UI" Type="EXE">
+			<Item Name="BUILD_UI" Type="EXE">
 				<Property Name="App_copyErrors" Type="Bool">true</Property>
 				<Property Name="App_INI_aliasGUID" Type="Str">{BB88D6B3-56C7-476C-8870-CDFE78D14031}</Property>
 				<Property Name="App_INI_GUID" Type="Str">{18FBCF5D-FDA0-42A3-B6A0-FE669799F8B9}</Property>
 				<Property Name="App_serverConfig.httpPort" Type="Int">8002</Property>
 				<Property Name="Bld_autoIncrement" Type="Bool">true</Property>
 				<Property Name="Bld_buildCacheID" Type="Str">{F99458F3-B4A4-4C88-9372-A5A85D94875D}</Property>
-				<Property Name="Bld_buildSpecName" Type="Str">BUILD_V1.1_UI</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">BUILD_UI</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_UI</Property>
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{180767D5-288E-4B0C-87DE-D0DEC2C8ECF6}</Property>
 				<Property Name="Bld_userLogFile" Type="Path">../builds/UI_Project/BUILD_V1.1_UI/UI_Project_BUILD_V1.1_UI_log.txt</Property>
 				<Property Name="Bld_userLogFile.pathType" Type="Str">relativeToCommon</Property>
-				<Property Name="Bld_version.build" Type="Int">4</Property>
+				<Property Name="Bld_version.build" Type="Int">5</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">UserInterface.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI/UserInterface.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_UI/UserInterface.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_V1.1_UI/data</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/BUILD_UI/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{D25789C9-37E0-425F-BF42-634F5C5BC6FD}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{6A5651A3-B186-41D9-ABB3-C3092F13AC53}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/VIs/V1.1_UI.vi</Property>
@@ -191,10 +190,10 @@
 				<Property Name="SourceCount" Type="Int">5</Property>
 				<Property Name="TgtF_companyName" Type="Str">TUM Fakultät für Physik</Property>
 				<Property Name="TgtF_enableDebugging" Type="Bool">true</Property>
-				<Property Name="TgtF_fileDescription" Type="Str">BUILD_V1.1_UI</Property>
-				<Property Name="TgtF_internalName" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">BUILD_UI</Property>
+				<Property Name="TgtF_internalName" Type="Str">BUILD_UI</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2019 TUM Fakultät für Physik</Property>
-				<Property Name="TgtF_productName" Type="Str">BUILD_V1.1_UI</Property>
+				<Property Name="TgtF_productName" Type="Str">BUILD_UI</Property>
 				<Property Name="TgtF_targetfileGUID" Type="Str">{D3808586-AEAD-4262-B2C2-1618F22E4E6B}</Property>
 				<Property Name="TgtF_targetfileName" Type="Str">UserInterface.exe</Property>
 				<Property Name="TgtF_versionIndependent" Type="Bool">true</Property>
