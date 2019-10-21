@@ -16,7 +16,7 @@ p = uicontrol('style','pushbutton','units','pixels',...
                 'callback',@p_Callback);
             
 function updateChecks(vals)
-    reactors = find([vals{:}]);
+    reactors = find(vals(:));
     close(f)
 end
 
