@@ -30,16 +30,16 @@ averageRefreshRatiosPerReactor = mean(refreshRatios(:,:),2);
 figure(1)
 plot(correctedIntensities')
 title('Intensities per Reactor');
-legend('Channel 1','Channel 2','Channel 3','Channel 4','Channel 5','Channel 6',...
-    'Channel 7','Channel 8');
+legend('Channel 1');%,'Channel 2','Channel 3','Channel 4','Channel 5','Channel 6',...
+    %'Channel 7','Channel 8');
 xlabel('Dilution Steps'); ylabel('Intensity [A.U.]');
 
 % Plot the final refresh ratios
 figure(2)
 plot(refreshRatios')
 title('Refresh Ratios per Reactor');
-legend('Channel 1','Channel 2','Channel 3','Channel 4','Channel 5','Channel 6',...
-    'Channel 7','Channel 8');
+legend('Channel 1');%,'Channel 2','Channel 3','Channel 4','Channel 5','Channel 6',...
+    %'Channel 7','Channel 8');
 xlabel('Dilution Steps'); ylabel('Refresh Ratio')
 
 
