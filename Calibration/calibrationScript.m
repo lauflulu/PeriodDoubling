@@ -36,6 +36,7 @@ intensities = intensityDetermination(img, xCoordinates, yCoordinates);
 
 %% Plot the intensity curves and view the refresh ratio
 [final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities);
+RR1 = refreshPerReactor
 % RR1 = refreshPerReactor(1,1)
 % RR2 = refreshPerReactor(2,1)
 % RR3 = refreshPerReactor(3,1)

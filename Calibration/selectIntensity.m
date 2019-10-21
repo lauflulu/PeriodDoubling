@@ -9,6 +9,7 @@
 % maxIntensity = max(max(testImage));
 maxIntensity = 65000;
 minIntensity = min(min(testImage));
+
 desiredIntensity = maxIntensity;
 
 % Show First Image of ND2 file:
