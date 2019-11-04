@@ -28,6 +28,7 @@
 		<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
 		<Item Name="Connect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Connect.vi"/>
 		<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
+		<Item Name="CreateProgram.vi" Type="VI" URL="../../config/CreateProgram.vi"/>
 		<Item Name="Disconnect.vi" Type="VI" URL="../../lib/Tango/SubVIs/Disconnect.vi"/>
 		<Item Name="ExportPosList.vi" Type="VI" URL="../../config/ExportPosList.vi"/>
 		<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
