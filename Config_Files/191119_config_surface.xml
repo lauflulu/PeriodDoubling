@@ -59,12 +59,21 @@
 			</Pump>
 			<IterationStart>
 				<ID>1</ID>
-				<Iterations>100</Iterations>
+				<Iterations>4</Iterations>
 			</IterationStart>
+			<IterationStart>
+				<ID>2</ID>
+				<Iterations>2</Iterations>
+			</IterationStart>
+			<Feed>
+				<Ratio>25</Ratio>
+			</Feed>
 			<Pump>
 				<Duration>00:00:20</Duration>
 				<Frequency>5</Frequency>
 			</Pump>
+			<IterationEnd>2</IterationEnd>
+
 			<Incubate>00:05:00</Incubate>
 			<IterationEnd>1</IterationEnd>
 		</Program>

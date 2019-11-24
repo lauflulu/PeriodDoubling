@@ -40,6 +40,7 @@
 		<Item Name="ConfigParseProgram.vi" Type="VI" URL="../../lib/Config/ConfigParseProgram.vi"/>
 		<Item Name="Connect.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Connect.vi"/>
 		<Item Name="ContBuildProgamQueue.vi" Type="VI" URL="../../Continuous_Loop/ContBuildProgamQueue.vi"/>
+		<Item Name="ContDecodeProgramIterations.vi" Type="VI" URL="../../Continuous_Loop/ContDecodeProgramIterations.vi"/>
 		<Item Name="ContinousLoopMain.vi" Type="VI" URL="../../Continuous_Loop/ContinousLoopMain.vi"/>
 		<Item Name="ContinuosSplitMicroSettings.vi" Type="VI" URL="../../Continuous_Loop/ContinuosSplitMicroSettings.vi"/>
 		<Item Name="ContSplitGeneralSettings.vi" Type="VI" URL="../../Continuous_Loop/ContSplitGeneralSettings.vi"/>
@@ -55,6 +56,7 @@
 		<Item Name="TangoConnectSub.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnectSub.vi"/>
 		<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoPositions2MultiList.vi"/>
 		<Item Name="TangoSelectPos.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoSelectPos.vi"/>
+		<Item Name="Time2Sec.vi" Type="VI" URL="../../Continuous_Loop/Time2Sec.vi"/>
 		<Item Name="XMLAppendPosToConfig.vi" Type="VI" URL="../../config/XMLAppendPosToConfig.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
@@ -93,6 +95,7 @@
 				<Item Name="FindFirstTag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/FindFirstTag.vi"/>
 				<Item Name="FindMatchingCloseTag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/FindMatchingCloseTag.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
+				<Item Name="FormatTime String.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/FormatTime String.vi"/>
 				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
 				<Item Name="Get String Text Bounds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Get String Text Bounds.vi"/>
@@ -132,6 +135,7 @@
 				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
 				<Item Name="Smart Open.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Smart Open.vi"/>
 				<Item Name="Space Constant.vi" Type="VI" URL="/&lt;vilib&gt;/dlg_ctls.llb/Space Constant.vi"/>
+				<Item Name="subElapsedTime.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/ElapsedTimeBlock.llb/subElapsedTime.vi"/>
 				<Item Name="subFile Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/express/express input/FileDialogBlock.llb/subFile Dialog.vi"/>
 				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
