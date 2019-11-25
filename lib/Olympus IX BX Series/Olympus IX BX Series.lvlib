@@ -75,4 +75,5 @@
 		<Item Name="Remove Termination Character.vi" Type="VI" URL="../Public/Remove Termination Character.vi"/>
 	</Item>
 	<Item Name="Olympus IX BX Series Readme.html" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Olympus IX BX Series Readme.html"/>
+	<Item Name="OlympusQuery.vi" Type="VI" URL="../OwnVIs/OlympusQuery.vi"/>
 </Library>

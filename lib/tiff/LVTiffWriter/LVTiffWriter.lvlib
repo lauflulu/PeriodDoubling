@@ -24,4 +24,5 @@ Close it with tiffClose.</Property>
 	<Item Name="tiffWriteImaqToTiff.vi" Type="VI" URL="../tiffWriteImaqToTiff.vi"/>
 	<Item Name="tiffClose.vi" Type="VI" URL="../tiffClose.vi"/>
 	<Item Name="BitMiracle.LibTiff.NET.dll" Type="Document" URL="../BitMiracle.LibTiff.NET.dll"/>
+	<Item Name="TestWriteMultipleImages.vi" Type="VI" URL="../TestWriteMultipleImages.vi"/>
 </Library>

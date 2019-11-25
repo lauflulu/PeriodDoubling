@@ -2,6 +2,7 @@
 <Project Type="Project" LVVersion="18008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="My Computer" Type="My Computer">
+		<Property Name="NI.SortType" Type="Int">3</Property>
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.tcp.enabled" Type="Bool">false</Property>
@@ -14,50 +15,17 @@
 		<Item Name="VIs" Type="Folder" URL="../VIs">
 			<Property Name="NI.DISK" Type="Bool">true</Property>
 		</Item>
-		<Item Name="AcqSingleImageToTiff.vi" Type="VI" URL="../../config/AcqSingleImageToTiff.vi"/>
-		<Item Name="AndorCreaterErrorCluster.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorCreaterErrorCluster.vi"/>
-		<Item Name="AndorIdle.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorIdle.vi"/>
-		<Item Name="AndorLiveMode.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorLiveMode.vi"/>
-		<Item Name="AndorReturn2Error.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorReturn2Error.vi"/>
+		<Item Name="AndorOWN.lvlib" Type="Library" URL="../../lib/ANDOR/OwnVIs/AndorOWN.lvlib"/>
 		<Item Name="AndorSDK.lvlib" Type="Library" URL="../../lib/ANDOR/Andor SDK/AndorSDK.lvlib"/>
-		<Item Name="ArdnoAllValvesClosed.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoAllValvesClosed.vi"/>
-		<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoAllValvesOpened.vi"/>
-		<Item Name="ArdnoChannel2Valves.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoChannel2Valves.vi"/>
-		<Item Name="ArdnoDilutionStep.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoDilutionStep.vi"/>
-		<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoFeed.vi"/>
-		<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoFlush.vi"/>
-		<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoPump.vi"/>
-		<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoSingleValveControl.vi"/>
-		<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/ARDUINO/VIs/ArdnoValve2Linx.vi"/>
-		<Item Name="CalibComputeRatio.vi" Type="VI" URL="../../Calibration/CalibComputeRatio.vi"/>
-		<Item Name="ConfigFormatToXMLElement.vi" Type="VI" URL="../../lib/Config/ConfigFormatToXMLElement.vi"/>
-		<Item Name="ConfigParseImage.vi" Type="VI" URL="../../lib/Config/ConfigParseImage.vi"/>
-		<Item Name="ConfigParseInitialConfiguration.vi" Type="VI" URL="../../lib/Config/ConfigParseInitialConfiguration.vi"/>
-		<Item Name="ConfigParseLoop.vi" Type="VI" URL="../../lib/Config/ConfigParseLoop.vi"/>
-		<Item Name="ConfigParseMicroscope.vi" Type="VI" URL="../../config/ConfigParseMicroscope.vi"/>
-		<Item Name="ConfigParseMultipleMicroscopes.vi" Type="VI" URL="../../lib/Config/ConfigParseMultipleMicroscopes.vi"/>
-		<Item Name="ConfigParsePos.vi" Type="VI" URL="../../lib/Config/ConfigParsePos.vi"/>
-		<Item Name="ConfigParseProgram.vi" Type="VI" URL="../../lib/Config/ConfigParseProgram.vi"/>
-		<Item Name="Connect.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Connect.vi"/>
-		<Item Name="ContBuildProgamQueue.vi" Type="VI" URL="../../Continuous_Loop/ContBuildProgamQueue.vi"/>
-		<Item Name="ContDecodeProgramIterations.vi" Type="VI" URL="../../Continuous_Loop/ContDecodeProgramIterations.vi"/>
-		<Item Name="ContinousLoopMain.vi" Type="VI" URL="../../Continuous_Loop/ContinousLoopMain.vi"/>
-		<Item Name="ContinuosSplitMicroSettings.vi" Type="VI" URL="../../Continuous_Loop/ContinuosSplitMicroSettings.vi"/>
-		<Item Name="ContSplitGeneralSettings.vi" Type="VI" URL="../../Continuous_Loop/ContSplitGeneralSettings.vi"/>
-		<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
-		<Item Name="CreateProgram.vi" Type="VI" URL="../../config/CreateProgram.vi"/>
-		<Item Name="Disconnect.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_SQL/Access/CONNECTa.llb/Disconnect.vi"/>
-		<Item Name="ExportPosList.vi" Type="VI" URL="../../config/ExportPosList.vi"/>
+		<Item Name="Arduino.lvlib" Type="Library" URL="../../lib/ARDUINO/VIs/Arduino.lvlib"/>
+		<Item Name="Config.lvlib" Type="Library" URL="../../lib/Config/Config.lvlib"/>
+		<Item Name="ContinousLoop.lvlib" Type="Library" URL="../../lib/ContinuousLoop/ContinousLoop.lvlib"/>
 		<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
 		<Item Name="Olympus IX BX Series.lvlib" Type="Library" URL="../../lib/Olympus IX BX Series/Olympus IX BX Series.lvlib"/>
-		<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
-		<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoCalibrate.vi"/>
-		<Item Name="TangoConnect.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoConnect.vi"/>
-		<Item Name="TangoConnectSub.vi" Type="VI" URL="../../lib/Tango/VIs/TangoConnectSub.vi"/>
-		<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoPositions2MultiList.vi"/>
-		<Item Name="TangoSelectPos.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoSelectPos.vi"/>
-		<Item Name="Time2Sec.vi" Type="VI" URL="../../Continuous_Loop/Time2Sec.vi"/>
-		<Item Name="XMLAppendPosToConfig.vi" Type="VI" URL="../../config/XMLAppendPosToConfig.vi"/>
+		<Item Name="TangoOWN.lvlib" Type="Library" URL="../../lib/TANGO Stage/TangoOWN.lvlib"/>
+		<Item Name="LVTiffWriter.lvlib" Type="Library" URL="../../lib/tiff/LVTiffWriter/LVTiffWriter.lvlib"/>
+		<Item Name="Calibration.lvlib" Type="Library" URL="../../lib/Calib/Calibration.lvlib"/>
+		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/ARDUINO/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Tango_DLL.dll" Type="Document" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.dll"/>
@@ -111,7 +79,6 @@
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="IMAQ ImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ImageToArray"/>
 				<Item Name="Intialize Keyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Intialize Keyboard.vi"/>
-				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
 				<Item Name="joystickAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/joystickAcquire.vi"/>
 				<Item Name="keyboardAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/keyboardAcquire.vi"/>
 				<Item Name="LMH-LINX.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/LINX/LMH-LINX.lvlib"/>
@@ -150,12 +117,14 @@
 				<Item Name="Write to XML File(string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Write to XML File(string).vi"/>
 				<Item Name="Write to XML File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/xml.llb/Write to XML File.vi"/>
 				<Item Name="Write.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Write.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
+				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
+				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
+				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
+				<Item Name="Disconnect.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_SQL/Access/CONNECTa.llb/Disconnect.vi"/>
+				<Item Name="IMAQ ReadFile" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ ReadFile"/>
+				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
 			</Item>
-			<Item Name="AndorAcqSingleImageToTiff.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorAcqSingleImageToTiff.vi"/>
-			<Item Name="AndorConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/ANDOR/OwnVIs/AndorConvertErrCodeToMessage.vi"/>
-			<Item Name="ConfigAppendPosToConfig.vi" Type="VI" URL="../../lib/Config/ConfigAppendPosToConfig.vi"/>
-			<Item Name="ConfigExportPosList.vi" Type="VI" URL="../../lib/Config/ConfigExportPosList.vi"/>
-			<Item Name="ConfigFileParser.vi" Type="VI" URL="../../lib/Config/ConfigFileParser.vi"/>
 			<Item Name="DOMUserDefRef.dll" Type="Document" URL="DOMUserDefRef.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -163,7 +132,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
-			<Item Name="LVTiffWriter.lvlib" Type="Library" URL="../../lib/tiff/LVTiffWriter/LVTiffWriter.lvlib"/>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -173,8 +141,16 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/Tango/VIs/TangoCalibrate.vi"/>
-			<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../../lib/Tango/VIs/TangoPositions2MultiList.vi"/>
+			<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoFeed.vi"/>
+			<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoPump.vi"/>
+			<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoFlush.vi"/>
+			<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
+			<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoAllValvesOpened.vi"/>
+			<Item Name="Connect.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Connect.vi"/>
+			<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
+			<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/lib/TANGO Stage/VIs/TangoCalibrate.vi"/>
+			<Item Name="matscript.dll" Type="Document"/>
+			<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="BUILD_UI" Type="EXE">
@@ -205,21 +181,21 @@
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/VIs/V1.1_UI.vi</Property>
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">VI</Property>
-				<Property Name="Source[2].itemID" Type="Ref">/My Computer/AndorCreaterErrorCluster.vi</Property>
+				<Property Name="Source[2].itemID" Type="Ref">/My Computer/AndorOWN.lvlib/AndorCreaterErrorCluster.vi</Property>
 				<Property Name="Source[2].properties[0].type" Type="Str">Remove front panel</Property>
 				<Property Name="Source[2].properties[0].value" Type="Bool">false</Property>
 				<Property Name="Source[2].properties[1].type" Type="Str">Remove block diagram</Property>
 				<Property Name="Source[2].properties[1].value" Type="Bool">true</Property>
 				<Property Name="Source[2].propertiesCount" Type="Int">2</Property>
 				<Property Name="Source[2].type" Type="Str">VI</Property>
-				<Property Name="Source[3].itemID" Type="Ref">/My Computer/AndorReturn2Error.vi</Property>
+				<Property Name="Source[3].itemID" Type="Ref">/My Computer/AndorOWN.lvlib/AndorReturn2Error.vi</Property>
 				<Property Name="Source[3].properties[0].type" Type="Str">Remove front panel</Property>
 				<Property Name="Source[3].properties[0].value" Type="Bool">false</Property>
 				<Property Name="Source[3].properties[1].type" Type="Str">Remove block diagram</Property>
 				<Property Name="Source[3].properties[1].value" Type="Bool">true</Property>
 				<Property Name="Source[3].propertiesCount" Type="Int">2</Property>
 				<Property Name="Source[3].type" Type="Str">VI</Property>
-				<Property Name="Source[4].itemID" Type="Ref">/My Computer/ConvertErrCodeToMessage.vi</Property>
+				<Property Name="Source[4].itemID" Type="Ref"></Property>
 				<Property Name="Source[4].properties[0].type" Type="Str">Remove front panel</Property>
 				<Property Name="Source[4].properties[0].value" Type="Bool">false</Property>
 				<Property Name="Source[4].properties[1].type" Type="Str">Remove block diagram</Property>
