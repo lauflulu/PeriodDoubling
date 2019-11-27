@@ -10,14 +10,14 @@
 		<Microscope>
 			<Objective>20</Objective>
 			<Filter>BF</Filter>
-			<Prism>Camera</Prism>
+			<Prism>Side</Prism>
 			<Intensity>9.5</Intensity>
 			<Exposure>50</Exposure>
 		</Microscope>
 		<Microscope>
 			<Objective>20</Objective>
 			<Filter>GFP</Filter>
-			<Prism>Camera</Prism>
+			<Prism>Side</Prism>
 			<Intensity>2.5</Intensity>
 			<Exposure>150</Exposure>
 		</Microscope>
