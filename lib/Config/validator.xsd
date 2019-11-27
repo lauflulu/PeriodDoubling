@@ -72,8 +72,8 @@
 
 	<xs:simpleType name="_prism">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="Ocular"/>
-			<xs:enumeration value="Camera"/>
+			<xs:enumeration value="Bi"/>
+			<xs:enumeration value="Side"/>
 		</xs:restriction>
 	</xs:simpleType>
 
