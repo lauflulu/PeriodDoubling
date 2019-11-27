@@ -1,4 +1,4 @@
-function [finalRefreshRatio, averageRefreshRatiosPerReactor] = plotIntensityCurves(intensities)
+function [singlePumpCycleRefreshRatio, finalRefreshRatio, averageRefreshRatiosPerReactor] = plotIntensityCurves(intensities)
 %% This function will plot the intensity curve of the fluorescence 
 %  intensity within the reaction chambers over time as well as determine
 %  the final refresh ratios and plot these as well. 
@@ -58,6 +58,9 @@ averageRefreshRatiosPerReactor2 = mean(refreshRatios(selectedChannels,:),2);
 % selected. This can be used as an estimate when loading all reactors at
 % the same time.
 finalRefreshRatio = mean(averageRefreshRatiosPerReactor2);
+
+% This is the refresh ratio per pumping step 
+singlePumpCycleRefreshRatio = finalRefreshRatio ./ 15
 
 %% Print Results
 correctedIntensities

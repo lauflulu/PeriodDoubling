@@ -7,9 +7,14 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Item Name="ConfigAppendPosToConfig.vi" Type="VI" URL="../ConfigAppendPosToConfig.vi"/>
+	<Item Name="ConfigCalculateMinimalAcquisitionTime.vi" Type="VI" URL="../ConfigCalculateMinimalAcquisitionTime.vi"/>
 	<Item Name="ConfigCreateProgram.vi" Type="VI" URL="../ConfigCreateProgram.vi"/>
+	<Item Name="ConfigDisplayLastRowListBox.vi" Type="VI" URL="../ConfigDisplayLastRowListBox.vi"/>
 	<Item Name="ConfigExportPosList.vi" Type="VI" URL="../ConfigExportPosList.vi"/>
 	<Item Name="ConfigFileParser.vi" Type="VI" URL="../ConfigFileParser.vi"/>
+	<Item Name="ConfigFlattenMicroscopeToXML.vi" Type="VI" URL="../ConfigFlattenMicroscopeToXML.vi"/>
+	<Item Name="ConfigFlattenPositionsToXML.vi" Type="VI" URL="../ConfigFlattenPositionsToXML.vi"/>
+	<Item Name="ConfigFlattenProgramToXML.vi" Type="VI" URL="../ConfigFlattenProgramToXML.vi"/>
 	<Item Name="ConfigFormatToXMLElement.vi" Type="VI" URL="../ConfigFormatToXMLElement.vi"/>
 	<Item Name="ConfigParseImage.vi" Type="VI" URL="../ConfigParseImage.vi"/>
 	<Item Name="ConfigParseInitialConfiguration.vi" Type="VI" URL="../ConfigParseInitialConfiguration.vi"/>
@@ -18,5 +23,7 @@
 	<Item Name="ConfigParseMultipleMicroscopes.vi" Type="VI" URL="../ConfigParseMultipleMicroscopes.vi"/>
 	<Item Name="ConfigParsePos.vi" Type="VI" URL="../ConfigParsePos.vi"/>
 	<Item Name="ConfigParseProgram.vi" Type="VI" URL="../ConfigParseProgram.vi"/>
+	<Item Name="ContFindAcquisition.vi" Type="VI" URL="../../ContinuousLoop/ContFindAcquisition.vi"/>
+	<Item Name="ContFindIterationStart.vi" Type="VI" URL="../../ContinuousLoop/ContFindIterationStart.vi"/>
 	<Item Name="validator.xsd" Type="Document" URL="../validator.xsd"/>
 </Library>

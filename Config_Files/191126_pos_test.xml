@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\johan\Downloads\LabVIEW software\LabVIEW software\IX-81 Software\lib\Config\validator.xsd">
+	<Loop>
+		<Duration>03:00:00</Duration>
+		<Image>
+			<Prefix>img</Prefix>
+			<AcquisitionInterval>00:03:00</AcquisitionInterval>
+			<SaveDir>C:\Users\johan\Downloads\LabVIEW software\LabVIEW software\IX-81 Software\Config_Files</SaveDir>
+		</Image>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>BF</Filter>
+			<Prism>Camera</Prism>
+			<Intensity>9.5</Intensity>
+			<Exposure>50</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>GFP</Filter>
+			<Prism>Camera</Prism>
+			<Intensity>2.5</Intensity>
+			<Exposure>150</Exposure>
+		</Microscope>
+		<Position>
+			<X>60415.1</X>
+			<Y>40337.1</Y>
+			<Focus>419.78</Focus>
+		</Position>
+		<Position>
+			<X>57455.3</X>
+			<Y>43292.3</Y>
+			<Focus>419.78</Focus>
+		</Position>
+		<Position>
+			<X>57455.3</X>
+			<Y>43292.3</Y>
+			<Focus>408.78</Focus>
+		</Position>
+		<Program>
+			<Feed>
+				<Ratio>33</Ratio>
+			</Feed>
+			<ChangeReagent>
+				<Duration>00:00:05</Duration>
+				<ReagentNr>3</ReagentNr>
+			</ChangeReagent>
+			<Pump>
+				<Duration>00:00:10</Duration>
+				<Frequency>7</Frequency>
+			</Pump>
+			<IterationStart>
+				<ID>0</ID>
+				<Iterations>20</Iterations>
+			</IterationStart>
+			<Pump>
+				<Duration>00:01:00</Duration>
+				<Frequency>8</Frequency>
+			</Pump>
+			<Incubate>00:01:30</Incubate>
+			<Acquire />
+			<Feed>
+				<Ratio>10</Ratio>
+			</Feed>
+			<IterationEnd>0</IterationEnd>
+		</Program>
+	</Loop>
+</Measurement>
