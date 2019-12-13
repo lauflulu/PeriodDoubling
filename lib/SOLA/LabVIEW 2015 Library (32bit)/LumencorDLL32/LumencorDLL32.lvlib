@@ -9,5 +9,7 @@
 	<Item Name="lm Get LE State.vi" Type="VI" URL="../VIs/lm Get LE State.vi"/>
 	<Item Name="lm Init.vi" Type="VI" URL="../VIs/lm Init.vi"/>
 	<Item Name="lm Shut Down.vi" Type="VI" URL="../VIs/lm Shut Down.vi"/>
+	<Item Name="Lumencor DLL LabVIEW Library DLL V4.0.1a.pdf" Type="Document" URL="../../../Lumencor DLL LabVIEW Library DLL V4.0.1a.pdf"/>
 	<Item Name="LumencorDLL32.dll" Type="Document" URL="../LumencorDLL32.dll"/>
+	<Item Name="SOLA-LEAPI-Reference.pdf" Type="Document" URL="../../../SOLA-LEAPI-Reference.pdf"/>
 </Library>
