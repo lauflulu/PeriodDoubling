@@ -13,36 +13,34 @@ DONE Adapt Matlab for tif stack (former .nd2 file --> not possible on Olympus HW
 DONE Only-Pos List instead of complete-Pos List
 DONE Decimal Separator of Position List
 DONE Fokus am Mikroskop (Test Jogsens, INITORIG und INITSTART)
-
-CRUCIAL
-- Writing to config file from UI
-- Review Time Calculation procedure
-  + Timing of physical change
-  + Timing of pumps
-  + Duration for light source availability
-  + Transfer Timing and Process Finish Events/Handlers
-- Queue for continuous loop still buggy
-- Change Parser for optimized config file scheme
+DONE Writing to config file from UI
+DONE Change Parser for optimized config file scheme
   + <Exposure>
   + <Pos> Focus,
   + general Microscope settings for every image
-  + 
-- General Microscope Settings
+DONE Asynchrous Pumpcycles with feedback
+DONE Exposure-Quelle-Filter kopppeln
+DONE Andor Temp Color if stabilized
+DONE Umstrukturierung mit Queued Message Handler (mehr Events und Sub-VIs)
+
+
+CRUCIAL
+
+- Review Time Calculation procedure
+  + Timing of physical change
+  DONE Timing of pumps
+  DONE Duration for light source availability
+  + Transfer Timing and Process Finish Events/Handlers
+- Queue for continuous loop still buggy
+
+- Adjust Jogsens with objective
+- Limit z-Movement with Objective
+- Histogram
 
 
 
 PRIO0
-
-- Asynchrone Pumpzyklen mit Feedback !
-- Exposure-Quelle-Filter kopppeln
-- Objektiv - z-Movement koppeln
-
 - Lampenknöpfe
-- Andor Temp Color if stabilized
-
-
-
-
 
 
 PRIO1
@@ -50,7 +48,7 @@ PRIO1
 - Dokumentation
 
 PRIO2
-- Umstrukturierung mit Queued Message Handler (mehr Events und Sub-VIs)
+
 
 IDEA
 - Correct PDMS angle in camera pictures and implement it also in the Stage movement
