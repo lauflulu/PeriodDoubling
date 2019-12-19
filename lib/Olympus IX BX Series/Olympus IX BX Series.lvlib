@@ -77,4 +77,5 @@
 	<Item Name="Olympus IX BX Series Readme.html" Type="Document" URL="/&lt;instrlib&gt;/Olympus IX BX Series/Olympus IX BX Series Readme.html"/>
 	<Item Name="OlympusQuery.vi" Type="VI" URL="../OwnVIs/OlympusQuery.vi"/>
 	<Item Name="OlympusInitialize.vi" Type="VI" URL="../OwnVIs/OlympusInitialize.vi"/>
+	<Item Name="OlympusTest.vi" Type="VI" URL="../OwnVIs/OlympusTest.vi"/>
 </Library>

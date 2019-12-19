@@ -25,13 +25,12 @@
 		<Item Name="TangoOWN.lvlib" Type="Library" URL="../../lib/TANGO Stage/TangoOWN.lvlib"/>
 		<Item Name="LVTiffWriter.lvlib" Type="Library" URL="../../lib/tiff/LVTiffWriter/LVTiffWriter.lvlib"/>
 		<Item Name="Calibration.lvlib" Type="Library" URL="../../lib/Calib/Calibration.lvlib"/>
-		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/ARDUINO/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
+		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/Arduino/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
 		<Item Name="Sec2Timestamp.vi" Type="VI" URL="../../lib/ContinuousLoop/Sec2Timestamp.vi"/>
-		<Item Name="00 - TODOs.txt" Type="Document" URL="../../00 - TODOs.txt"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
-				<Item Name="Tango_DLL.dll" Type="Document" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.dll"/>
+				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
@@ -159,7 +158,7 @@
 				<Property Name="Source[0].itemID" Type="Str">{6A5651A3-B186-41D9-ABB3-C3092F13AC53}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[1].itemID" Type="Ref">/My Computer/VIs/V1.1_UI.vi</Property>
+				<Property Name="Source[1].itemID" Type="Ref"></Property>
 				<Property Name="Source[1].sourceInclusion" Type="Str">TopLevel</Property>
 				<Property Name="Source[1].type" Type="Str">VI</Property>
 				<Property Name="Source[2].itemID" Type="Ref">/My Computer/AndorOWN.lvlib/AndorCreaterErrorCluster.vi</Property>
