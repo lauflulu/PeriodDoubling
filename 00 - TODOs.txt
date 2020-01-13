@@ -36,6 +36,7 @@ CRUCIAL
 - Adjust Jogsens with objective
 - Limit z-Movement with Objective
 - Histogram
+- Adapt everything for Maerkl reactor
 
 
 

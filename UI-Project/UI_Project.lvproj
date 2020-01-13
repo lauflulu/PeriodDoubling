@@ -28,6 +28,7 @@
 		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/ARDUINO/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
 		<Item Name="Sec2Timestamp.vi" Type="VI" URL="../../lib/ContinuousLoop/Sec2Timestamp.vi"/>
 		<Item Name="00 - TODOs.txt" Type="Document" URL="../../00 - TODOs.txt"/>
+		<Item Name="CalibratePositions.vi" Type="VI" URL="../../lib/Calib/CalibratePositions.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
