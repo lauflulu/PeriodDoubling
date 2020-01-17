@@ -22,6 +22,7 @@ DONE Asynchrous Pumpcycles with feedback
 DONE Exposure-Quelle-Filter kopppeln
 DONE Andor Temp Color if stabilized
 DONE Umstrukturierung mit Queued Message Handler (mehr Events und Sub-VIs)
+DONE Histogram
 
 
 CRUCIAL
@@ -35,8 +36,10 @@ CRUCIAL
 
 - Adjust Jogsens with objective
 - Limit z-Movement with Objective
-- Histogram
+
 - Adapt everything for Maerkl reactor
+- Handle the Camera Events properly (Performance enhancing):
+	Make a dynamic event (LV), register it (LV). Make an event case for it (LV). Then, create the event handle (dll) and start a dynamic vi (LV) that waits for it (dll). When it's done, trigger the event (generate user event).
 
 
 
