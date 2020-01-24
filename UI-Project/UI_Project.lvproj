@@ -22,6 +22,7 @@
 		<Item Name="ContinousLoop.lvlib" Type="Library" URL="../../lib/ContinuousLoop/ContinousLoop.lvlib"/>
 		<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
 		<Item Name="Olympus IX BX Series.lvlib" Type="Library" URL="../../lib/Olympus IX BX Series/Olympus IX BX Series.lvlib"/>
+		<Item Name="Tango.lvlib" Type="Library" URL="../../lib/TANGO Stage/SDK/Tango.lvlib"/>
 		<Item Name="TangoOWN.lvlib" Type="Library" URL="../../lib/TANGO Stage/TangoOWN.lvlib"/>
 		<Item Name="LVTiffWriter.lvlib" Type="Library" URL="../../lib/tiff/LVTiffWriter/LVTiffWriter.lvlib"/>
 		<Item Name="Calibration.lvlib" Type="Library" URL="../../lib/Calib/Calibration.lvlib"/>
@@ -134,6 +135,19 @@
 			<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
 			<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/lib/TANGO Stage/VIs/TangoCalibrate.vi"/>
 			<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
+			<Item Name="AxisControl.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/AxisControl.ctl"/>
+			<Item Name="Axis_Switch.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Axis_Switch.ctl"/>
+			<Item Name="DequeueWithParameters.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/DequeueWithParameters.vi"/>
+			<Item Name="Timout_Operations.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Timout_Operations.vi"/>
+			<Item Name="GetAnalogOutValues.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/GetAnalogOutValues.vi"/>
+			<Item Name="CheckLimitSwitches.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/CheckLimitSwitches.vi"/>
+			<Item Name="MaeanderDemo_Dlg.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/MaeanderDemo_Dlg.vi"/>
+			<Item Name="Maeander_Param.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Maeander_Param.ctl"/>
+			<Item Name="MaeanderDemo.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/MaeanderDemo.vi"/>
+			<Item Name="DialogSpeed.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/DialogSpeed.vi"/>
+			<Item Name="SequenceDemo_dlg.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo_dlg.vi"/>
+			<Item Name="SequenceParam.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceParam.ctl"/>
+			<Item Name="SequenceDemo.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="BUILD_UI" Type="EXE">
