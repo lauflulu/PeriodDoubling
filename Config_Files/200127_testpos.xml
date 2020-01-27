@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\lib\Config\validator.xsd">
+<Loop>
+<Position>
+<X>0.000</X>
+<Y>0.000</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>1131.200</X>
+<Y>2002.200</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>5199.000</X>
+<Y>2002.200</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>2047.400</X>
+<Y>11623.400</Y>
+<Focus>436.24</Focus>
+</Position>
+</Loop>
+</Measurement>

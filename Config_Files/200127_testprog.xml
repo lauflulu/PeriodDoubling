@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\lib\Config\validator.xsd"><Loop>
+<Duration>00:10:00</Duration>
+<Image>
+<Prefix>test1</Prefix>
+<AcquisitionInterval>00:01:30</AcquisitionInterval>
+<SaveDir>C:\Users\e14user\Documents\LabVIEW software\GitRepo\Test_N_Eval_Images\200127_ProgramTest</SaveDir>
+</Image>
+<Microscope>
+<Objective>4</Objective>
+<Filter>GFP</Filter>
+<Prism>Side</Prism>
+<Intensity>12.5</Intensity>
+<Exposure>50</Exposure>
+</Microscope>
+<Position>
+<X>0.000</X>
+<Y>0.000</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>1131.200</X>
+<Y>2002.200</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>5199.000</X>
+<Y>2002.200</Y>
+<Focus>379.49</Focus>
+</Position>
+<Position>
+<X>2047.400</X>
+<Y>11623.400</Y>
+<Focus>436.24</Focus>
+</Position>
+<Program>
+<IterationStart>
+<ID>0</ID>
+<Iterations>5</Iterations>
+</IterationStart>
+<Acquire />
+<Incubate>00:00:30</Incubate>
+<IterationEnd>0</IterationEnd>
+</Program>
+</Loop>
+</Measurement>
