@@ -6,34 +6,79 @@ Integration software for the following devices:
 - SOLA Light Engine
 - ANDOR iXon3-888 DU8201_BV (Controller CCI-20)
 - A custom made 24-valve controller, based on an Arduino Mega 2560
-- TODO: Elveflow OB1 Pressure Controller
+- __TODO:__ Elveflow OB1 Pressure Controller
+
+## Provided functionalities
++ Microsocope Actuation:
+  + Light Source Intensity
+  + Exposure Time Adjustment
+  + Filter
+  + Prism (Camera/Ocular)
+  + Focus
+  + Stage Control
+    + Calibration
+    + Waypoint Acquisition
+    + Waypoint XML-Export
++ Image Acquisition
+  + Live Image Mode
+  + Single Image Acquisition and Export to multiple formats
+  + Histogram Analysis and Adjustment
++ Valve Operation
+  + manual single valve actuation
+  + for the purpose of microfluidic single and multiring reactors:
+    + Dilution (_Feed_)
+    + Mixing (_Pump_)
+    + Usage of (up to 8) different Reactants (_Flush_)
+    + Calibration of exchanged volume fraction by dilution
++ Execution of custom microscopy programs
+  + Import/Export of microscope settings and waypoints
+  + Programming of custom schedules
+    + Pump (Duration, Frequency)
+    + Feed (Ratio)
+    + Change Reagent (Duration, Reagent Number)
+    + Incubate (Duration)
+    + Acquire Images 
+    + Loop Program Parts (Loop ID, Iteration Count)
+
+## Neccessary packages and settings
+The software has been designed in LabView 2018 32-bit or higher with the following packages and tools installed:
+- Labview 2018 32-bit or higher
+
+Via _NI Package Manager_:
+- JKI VI Package Manager
+- NI Vision
+- NI Vision Development Module
+- NI IMAQ(/dx) for LV2018
+- NI Vision Assistant
+
+Via _VI Package Manager_:
+- Makerhub Toolbox (V 2.0.0.35)
+- Diligent LINX (V 3.0.1.1.92)
 
 ## Open ToDos
 
 ### CRUCIAL
 
+- Program Settings GFP-BrightField
 - Review Time Calculation procedure 
-
-  __DONE__ Timing of pumps
-
-  __DONE__ Duration for light source availability
-
-  + Timing of physical change
-    +  SingleRing:
-		- Feed: 6-7 ms per Valve Action Step
-		- Pump: 
-  + Transfer Timing and Process Finish Events/Handlers
- 
+  + Transfer Timing and Process Finish Events/Handlers 
 - Queue for continuous loop still buggy
 - Adjust Jogsens with objective
 - Limit z-Movement with Objective
 - Adapt everything for Maerkl reactor
 - Handle the Camera Events properly (Performance enhancing):
-	Make a dynamic event (LV), register it (LV). Make an event case for it (LV). Then, create the event handle (dll) and start a dynamic vi (LV) that waits for it (dll). When it's done, trigger the event (generate user event).
+  - Make a dynamic event (LV)
+  - register it (LV)
+  - Make an event case for it (LV)
+  - Then, create the event handle (dll) and start a dynamic vi (LV) that waits for it (dll)
+  - When it's done, trigger the event (generate user event).
 
 
 ### PRIO0
-- Lampenknöpfe
+- Microscope Buttons
+- Better focus control (maybe a slider?)
+- Generalize Valve actuation for easier portability
+  - Global variable with valve configuration
 
 ### PRIO1
 - allgemeines Error-Handling
@@ -46,7 +91,7 @@ Integration software for the following devices:
 
 
 
-## Initial LabView Package Configuration
+## Initial API Package Configuration
 Generally, every library can be configured standalone from the _lib_ folder of the project. Instructions for every API are supplied in the respective folder. In the following, several basic fixes for common bugs as well as usage hints with the project are explained.
 
 ### Olympus IX 81 Control
