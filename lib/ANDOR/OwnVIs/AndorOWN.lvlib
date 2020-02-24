@@ -7,6 +7,8 @@
 	<Item Name="AndorAcqSingleImgToIMAQ.vi" Type="VI" URL="../AndorAcqSingleImgToIMAQ.vi"/>
 	<Item Name="AndorAcqSingleImgToTiffStack.vi" Type="VI" URL="../AndorAcqSingleImgToTiffStack.vi"/>
 	<Item Name="AndorAdjustHistogram.vi" Type="VI" URL="../AndorAdjustHistogram.vi"/>
+	<Item Name="AndorAdjustSliderRange.vi" Type="VI" URL="../AndorAdjustSliderRange.vi"/>
+	<Item Name="AndorCalculateImageAreaPixelScale.vi" Type="VI" URL="../AndorCalculateImageAreaPixelScale.vi"/>
 	<Item Name="AndorCamera.vi" Type="VI" URL="../AndorCamera.vi"/>
 	<Item Name="AndorConvertErrCodeToMessage.vi" Type="VI" URL="../AndorConvertErrCodeToMessage.vi"/>
 	<Item Name="AndorCreaterErrorCluster.vi" Type="VI" URL="../AndorCreaterErrorCluster.vi"/>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\lib\Config\validator.xsd"><Loop>
+<Duration>15:03:00</Duration>
+<Image>
+<Prefix>img</Prefix>
+<AcquisitionInterval>00:00:23</AcquisitionInterval>
+<SaveDir>C:\Users\e14user\Documents\LabVIEW software\GitRepo\Config_Files\TestFolder</SaveDir>
+</Image>
+<Program>
+<Feed>
+<Ratio>20</Ratio>
+<Ring>1</Ring>
+</Feed>
+</Program>
+</Loop>
+</Measurement>
