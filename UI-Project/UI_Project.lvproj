@@ -28,68 +28,15 @@
 		<Item Name="TangoOWN.lvlib" Type="Library" URL="../../lib/TANGO Stage/TangoOWN.lvlib"/>
 		<Item Name="LVTiffWriter.lvlib" Type="Library" URL="../../lib/tiff/LVTiffWriter/LVTiffWriter.lvlib"/>
 		<Item Name="Calibration.lvlib" Type="Library" URL="../../lib/Calib/Calibration.lvlib"/>
-		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/ARDUINO/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
+		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/Arduino/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
 		<Item Name="Sec2Timestamp.vi" Type="VI" URL="../../lib/ContinuousLoop/Sec2Timestamp.vi"/>
 		<Item Name="00 - TODOs.txt" Type="Document" URL="../../00 - TODOs.txt"/>
 		<Item Name="TangoMove.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoMove.vi"/>
+		<Item Name="ArdnoGetValveState.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoGetValveState.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
-				<Item Name="Tango_DLL.dll" Type="Document" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.dll"/>
-				<Item Name="LSX Get Error.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Error.vi"/>
-				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango/Tango_DLL.lvlib"/>
-				<Item Name="LSX Send String.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Send String.vi"/>
-				<Item Name="LSX Get Switches.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Switches.vi"/>
-				<Item Name="LSX Set Analog Output.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Set Analog Output.vi"/>
-				<Item Name="LSX Get Switch Active.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Switch Active.vi"/>
-				<Item Name="LSX Move Abs Single Axis.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Move Abs Single Axis.vi"/>
-				<Item Name="LSX Move Rel Single Axis.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Move Rel Single Axis.vi"/>
-				<Item Name="LSX Get Accel.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Accel.vi"/>
-				<Item Name="LSX Get Vel.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Vel.vi"/>
-				<Item Name="LSX Set Accel.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Set Accel.vi"/>
-				<Item Name="LSX Set Vel.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Set Vel.vi"/>
-				<Item Name="LSX Get Limit.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Limit.vi"/>
-				<Item Name="LSX Get Active Axes.vi" Type="VI" URL="/&lt;userlib&gt;/TANGO_DLL/VIs/LSX Get Active Axes.vi"/>
-				<Item Name="Cooler ON.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Cooler ON.vi"/>
-				<Item Name="Cooler OFF.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Cooler OFF.vi"/>
-				<Item Name="Get HS Speed.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get HS Speed.vi"/>
-				<Item Name="Get Start Up Time.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Start Up Time.vi"/>
-				<Item Name="Get Status.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Status.vi"/>
-				<Item Name="Get Temperature Range.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Temperature Range.vi"/>
-				<Item Name="Get Temperature Status.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Temperature Status.vi"/>
-				<Item Name="Get Temperature.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Temperature.vi"/>
-				<Item Name="Get Temperature F.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Temperature F.vi"/>
-				<Item Name="Is Cooler On.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Is Cooler On.vi"/>
-				<Item Name="Save As Tiff.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Save As Tiff.vi"/>
-				<Item Name="Set Fan Mode.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Fan Mode.vi"/>
-				<Item Name="Set Shutter.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Shutter.vi"/>
-				<Item Name="Shut Down.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Shut Down.vi"/>
-				<Item Name="Start Acquisition.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Start Acquisition.vi"/>
-				<Item Name="White Balance.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/White Balance.vi"/>
-				<Item Name="Get Hardware Version.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Hardware Version.vi"/>
-				<Item Name="Get Number VS Speeds.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Number VS Speeds.vi"/>
-				<Item Name="Get VS Speed.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get VS Speed.vi"/>
-				<Item Name="Get Software Version.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Software Version.vi"/>
-				<Item Name="Get Number HS Speeds.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Number HS Speeds.vi"/>
-				<Item Name="Set Temperature.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Temperature.vi"/>
-				<Item Name="Set Acquisition Mode.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Acquisition Mode.vi"/>
-				<Item Name="Set Accumulation Cycle Time.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Accumulation Cycle Time.vi"/>
-				<Item Name="Set Exposure Time.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Exposure Time.vi"/>
-				<Item Name="Set HS Speed.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set HS Speed.vi"/>
-				<Item Name="Set Read Mode.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Read Mode.vi"/>
-				<Item Name="Set Trigger Mode.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Trigger Mode.vi"/>
-				<Item Name="Set VS Speed.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set VS Speed.vi"/>
-				<Item Name="Set Number Accumulations.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Number Accumulations.vi"/>
-				<Item Name="Set Number Kinetics.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Number Kinetics.vi"/>
-				<Item Name="Set Kinetic Cycle Time.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Set Kinetic Cycle Time.vi"/>
-				<Item Name="Get Acquisition Timings.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Acquisition Timings.vi"/>
-				<Item Name="Get Acquired Data.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Acquired Data.vi"/>
-				<Item Name="Get Camera Information.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Camera Information.vi"/>
-				<Item Name="Get Camera Serial Number.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Camera Serial Number.vi"/>
-				<Item Name="Get Controller Card Model.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Controller Card Model.vi"/>
-				<Item Name="Get Available Cameras.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Available Cameras.vi"/>
-				<Item Name="Get Camera Handle.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Get Camera Handle.vi"/>
-				<Item Name="Initialize.vi" Type="VI" URL="/&lt;userlib&gt;/Andor SDK/VIs/Initialize.vi"/>
+				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
@@ -171,6 +118,7 @@
 				<Item Name="Set Cursor (Cursor ID).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Cursor ID).vi"/>
 				<Item Name="Set Cursor.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor.vi"/>
 				<Item Name="Unset Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Unset Busy.vi"/>
+				<Item Name="Read.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Read.vi"/>
 			</Item>
 			<Item Name="DOMUserDefRef.dll" Type="Document" URL="DOMUserDefRef.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
