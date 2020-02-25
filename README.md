@@ -66,6 +66,8 @@ Via _VI Package Manager_:
 - Adjust Jogsens with objective
 - Limit z-Movement with Objective
 - Adapt everything for Maerkl reactor
+	- Solution for Feed Function: 3 Parameters (Supply Channel, Ring, Fraction)
+	- Maybe save Supply channel from previous flush cmd
 - Handle the Camera Events properly (Performance enhancing):
   - Make a dynamic event (LV)
   - register it (LV)
