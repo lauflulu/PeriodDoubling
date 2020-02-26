@@ -6,8 +6,8 @@
 
 %% Determine Correct Intensity to View Images
 % Variables
-% maxIntensity = max(max(testImage));
-maxIntensity = 65000;
+maxIntensity = max(max(testImage));
+%maxIntensity = 65000;
 minIntensity = min(min(testImage));
 
 desiredIntensity = maxIntensity;
