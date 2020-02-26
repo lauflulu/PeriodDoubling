@@ -33,6 +33,8 @@
 		<Item Name="00 - TODOs.txt" Type="Document" URL="../../00 - TODOs.txt"/>
 		<Item Name="TangoMove.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoMove.vi"/>
 		<Item Name="ArdnoGetValveState.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoGetValveState.vi"/>
+		<Item Name="Global.vi" Type="VI" URL="../../lib/UI/Global.vi"/>
+		<Item Name="test_buttons.vi" Type="VI" URL="../../lib/Arduino/test_buttons.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>

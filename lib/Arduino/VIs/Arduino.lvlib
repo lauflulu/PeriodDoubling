@@ -10,6 +10,7 @@
 	<Item Name="ArdnoFeed.vi" Type="VI" URL="../ArdnoFeed.vi"/>
 	<Item Name="ArdnoFlush.vi" Type="VI" URL="../ArdnoFlush.vi"/>
 	<Item Name="ArdnoLED.vi" Type="VI" URL="../ArdnoLED.vi"/>
+	<Item Name="ArdnoLoad.vi" Type="VI" URL="../ArdnoLoad.vi"/>
 	<Item Name="ArdnoManualControl.vi" Type="VI" URL="../ArdnoManualControl.vi"/>
 	<Item Name="ArdnoManualValves.vi" Type="VI" URL="../ArdnoManualValves.vi"/>
 	<Item Name="ArdnoPump.vi" Type="VI" URL="../ArdnoPump.vi"/>

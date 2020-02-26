@@ -19,6 +19,7 @@ if ~exist(blankPath,'file') || ~exist(dilPath,'file') || ~exist(fulIIntPath,'fil
     error("the folder and/or file structure is invalid.");
 else
     dil = loadTiffFast(dilPath);
+    blank = loadTiffFast(blankPath);
     
     %%
     if ndims(dil) < 3
@@ -33,16 +34,16 @@ else
     %% Reorder images to 4d Matrix with positions and frames
     rep = (size(dil,3)/numReactor);
     dilSorted = zeros(size(dil,1),size(dil,2), rep, numReactor);
-    
+    dilSorted(:,:,1,:) = blank;
     for i = 1:numReactor
         for j = 1:rep
-            dilSorted(:,:,j,i) = dil(:,:,i+i*(j-1));
+            dilSorted(:,:,j+1,i) = dil(:,:, i + (j-1)*numReactor);
         end
     end
     clear dil
     %% Set the intensity range with which to view all images during ROI selection
     for i = 1:numReactor
-        desiredIntensity = selectIntensity(dilSorted(:,:,1,i));
+        desiredIntensity = selectIntensity(dilSorted(:,:,2,i));
         intensityRange(:,i) = [0, desiredIntensity];
     end
     
@@ -64,14 +65,14 @@ else
     end
     %% Plot the intensity curves and view the refresh ratio
     [singlePumpCycleRefreshRatio, final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities);
-    RR1 = singlePumpCycleRefreshRatio
-    % RR1 = refreshPerReactor(1,1)
-    % RR2 = refreshPerReactor(2,1)
-    % RR3 = refreshPerReactor(3,1)
-    % RR4 = refreshPerReactor(4,1)
-    % RR5 = refreshPerReactor(5,1)
-    % RR6 = refreshPerReactor(6,1)
-    % RR7 = refreshPerReactor(7,1)
-    % RR8 = refreshPerReactor(8,1)
+    singlePumpCycleRefreshRatio
+    RR1 = refreshPerReactor(1,1)
+    RR2 = refreshPerReactor(2,1)
+    RR3 = refreshPerReactor(3,1)
+    RR4 = refreshPerReactor(4,1)
+    RR5 = refreshPerReactor(5,1)
+    RR6 = refreshPerReactor(6,1)
+    RR7 = refreshPerReactor(7,1)
+    RR8 = refreshPerReactor(8,1)
 end
 %% This is the end of the script.
