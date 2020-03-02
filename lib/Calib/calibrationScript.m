@@ -8,7 +8,7 @@
 % https://docs.openmicroscopy.org/bio-formats/5.7.1/users/matlab/index.html
 %
 clear all
-
+ENABLE_BLANK_SUBTRACTION = false;
 %% Select the correct .Tiff file:
 [pathName]  = uigetdir();
 blankPath   = fullfile(pathName,'blank.tif');
@@ -28,8 +28,12 @@ else
     
     prompt= 'How many different positions did you evaluate?';
     dlgtitle = 'Number of positions';
-    numReactor = inputdlg(prompt,dlgtitle);
-    numReactor = str2double(numReactor{1});
+    dims = [1 35];
+    definput = {'8','50'};
+    answer = inputdlg(prompt,dlgtitle,dims,definput)
+    numReactor = str2double(answer{1});
+    %feedSteps = str2double(answer{2});
+    feedSteps = 50;
     
     %% Reorder images to 4d Matrix with positions and frames
     rep = (size(dil,3)/numReactor);
@@ -42,9 +46,9 @@ else
     end
     clear dil
     %% Set the intensity range with which to view all images during ROI selection
+    intensityRange = zeros(2,numReactor);
     for i = 1:numReactor
-        desiredIntensity = selectIntensity(dilSorted(:,:,2,i));
-        intensityRange(:,i) = [0, desiredIntensity];
+        intensityRange(:,i) = [min(min(dilSorted(:,:,2,i))), max(max(dilSorted(:,:,2,i)))];
     end
     
     %% ROI selection for all chambers
@@ -55,17 +59,13 @@ else
     % of the microfluidic flow channel. Draw the area by selecting the corners
     % of a polygon (left mouse click) and accept the polygon by
     % double-clicking within the borders of the polygon.
-    for i = 1:numReactor
-        [xCoordinates(:,i), yCoordinates(:,i)] = regionOfInterestDetermination(dilSorted(:,:,:,i), intensityRange(:,i));
-    end
+    [xCoordinates, yCoordinates] = regionOfInterestDetermination(dilSorted, intensityRange);
     
     %% Determine the intensities of the ROI within all images
-    for i = 1:numReactor
-        intensities(:,i) = intensityDetermination(dilSorted(:,:,:,i), xCoordinates(:,i), yCoordinates(:,i));
-    end
+    intensities = intensityDetermination(dilSorted, xCoordinates, yCoordinates);
     %% Plot the intensity curves and view the refresh ratio
-    [singlePumpCycleRefreshRatio, final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities);
-    singlePumpCycleRefreshRatio
+    [final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities,ENABLE_BLANK_SUBTRACTION);
+    
     RR1 = refreshPerReactor(1,1)
     RR2 = refreshPerReactor(2,1)
     RR3 = refreshPerReactor(3,1)
@@ -74,5 +74,8 @@ else
     RR6 = refreshPerReactor(6,1)
     RR7 = refreshPerReactor(7,1)
     RR8 = refreshPerReactor(8,1)
+    final_Refresh_Ratio
+    final_Refresh_RatioPerFeed / feedSteps
+    refreshPerReactorPerFeed = refreshPerReactor./feedSteps
 end
 %% This is the end of the script.

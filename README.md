@@ -58,24 +58,32 @@ Via _VI Package Manager_:
 ## Open ToDos
 
 ### CRUCIAL
-- Make own valve actutation window
-	- Functions
-		- Pump For thorough mixing ~500 cycles are required
-		- Feed
-		- Flush
-		- Load
-	- Manual
-		- Single valve actuation
-		- originally closed.
-- Generalize Valve actuation for easier portability
-  - Global variable with valve configuration
-- Program Settings GFP-BrightField
-- Review Time Calculation procedure 
-  + Transfer Timing and Process Finish Events/Handlers 
 
+- Program Settings GFP-BrightField
 - Adapt everything for Maerkl reactor
 	- Solution for Feed Function: 3 Parameters (Supply Channel, Ring, Fraction)
 	- Maybe save Supply channel from previous flush cmd
+- __Remove Air Button__
+	- Close B5, open Channel, "open all"
+- Return single valve states after execution:
+	- [ ] Feed
+	- [ ] Pump
+	- [ ] Load
+	- [ ] Close
+	- [ ] Open
+	- [ ] Flush
+	- [ ] Remove Air
+- Review calibration timing
+- Update single Position (replace operation)
+- Run program with current settings per default
+- Let "Remaining Time" count down
+- Test Program procedure
+- Review Time Calculation procedure 
+  + Transfer Timing and Process Finish Events/Handlers 
+
+
+### PRIO0
+
 - Handle the Camera Events properly (Performance enhancing):
   - Make a dynamic event (LV)
   - register it (LV)
@@ -84,15 +92,12 @@ Via _VI Package Manager_:
   - When it's done, trigger the event (generate user event).
 
 
-### PRIO0
+
+### PRIO1
 - Adjust Jogsens with objective
 - Limit z-Movement with Objective
 - Microscope Buttons
 - Better focus control (maybe a slider?)
-
-
-### PRIO1
-- allgemeines Error-Handling
 - Dokumentation
 
 ### PRIO2

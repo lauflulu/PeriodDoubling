@@ -173,7 +173,9 @@
 
   <xs:complexType name="_feed">
     <xs:sequence>
-      <xs:element name="Ratio" type="_percent"/>
+      <xs:element name="Ratio" type="_percent"/>	  
+      <xs:element name="Ring" type="xs:integer"/>
+	  
     </xs:sequence>
   </xs:complexType>
 
