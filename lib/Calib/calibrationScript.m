@@ -26,14 +26,13 @@ else
         error('Image Stack required');
     end
     
-    prompt= 'How many different positions did you evaluate?';
-    dlgtitle = 'Number of positions';
+    dlgtitle = 'How many different positions did you evaluate?';
+    prompt= {'Number of positions','Number of Feed Steps'};
     dims = [1 35];
     definput = {'8','50'};
     answer = inputdlg(prompt,dlgtitle,dims,definput)
     numReactor = str2double(answer{1});
-    %feedSteps = str2double(answer{2});
-    feedSteps = 50;
+    feedSteps = str2double(answer{2});
     
     %% Reorder images to 4d Matrix with positions and frames
     rep = (size(dil,3)/numReactor);
@@ -64,7 +63,7 @@ else
     %% Determine the intensities of the ROI within all images
     intensities = intensityDetermination(dilSorted, xCoordinates, yCoordinates);
     %% Plot the intensity curves and view the refresh ratio
-    [final_Refresh_Ratio, refreshPerReactor] = plotIntensityCurves(intensities,ENABLE_BLANK_SUBTRACTION);
+    [finalRefreshRatio, refreshPerReactor] = plotIntensityCurves(intensities,pathName, ENABLE_BLANK_SUBTRACTION);
     
     RR1 = refreshPerReactor(1,1)
     RR2 = refreshPerReactor(2,1)
@@ -74,8 +73,8 @@ else
     RR6 = refreshPerReactor(6,1)
     RR7 = refreshPerReactor(7,1)
     RR8 = refreshPerReactor(8,1)
-    final_Refresh_Ratio
-    final_Refresh_RatioPerFeed / feedSteps
-    refreshPerReactorPerFeed = refreshPerReactor./feedSteps
+    finalRefreshRatio
+    finalRefreshRatioPerFeed = finalRefreshRatio / feedSteps
+    refreshPerReactorPerFeed = refreshPerReactor ./ feedSteps
 end
 %% This is the end of the script.

@@ -1,4 +1,4 @@
-function [finalRefreshRatio, averageRefreshRatiosPerReactor] = plotIntensityCurves(intensities, ENABLE_BLANK_SUBTRACTION)
+function [finalRefreshRatio, averageRefreshRatiosPerReactor] = plotIntensityCurves(intensities, folder, ENABLE_BLANK_SUBTRACTION)
 %% This function will plot the intensity curve of the fluorescence 
 %  intensity within the reaction chambers over time as well as determine
 %  the final refresh ratios and plot these as well. 
@@ -40,6 +40,7 @@ plot(correctedIntensities')
 title('Intensities per Reactor');
 legend(legendNames);
 xlabel('Dilution Steps'); ylabel('Intensity [A.U.]');
+savefig(gcf,fullfile(folder, 'Intensities.fig'));
 
 % Plot the final refresh ratios
 figure(2)
@@ -48,6 +49,7 @@ title('Refresh Ratios per Reactor');
 legend(legendNames);
 ylim([0 1]);
 xlabel('Dilution Steps'); ylabel('Refresh Ratio')
+savefig(gcf, fullfile(folder, 'RefreshRatios.fig'));
 
 %% Determine Average Refresh Ratios
 % This is the average refresh ration of each individual reactor which has 

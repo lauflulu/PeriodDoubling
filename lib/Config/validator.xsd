@@ -145,7 +145,7 @@
 	<xs:complexType name="_arduino">
 		<xs:choice maxOccurs="50">
 			<xs:element name="Feed" type="_feed"/>
-      <xs:element name="Pump" type="_pump"/>
+      <xs:element name="Pump" type="_duration"/>
       <xs:element name="ChangeReagent" type="_changeReagent"/>
       <xs:element name="Incubate" type="_duration"/>
       <xs:element name="IterationStart" type="_iterationStart"/>
@@ -163,13 +163,6 @@
 		</xs:sequence>
 	</xs:complexType>
 
-
-	<xs:complexType name="_pump">
-		<xs:sequence>
-			<xs:element name="Duration" type="_duration"/>
-			<xs:element name="Frequency" type="xs:decimal"/>
-		</xs:sequence>
-	</xs:complexType>
 
   <xs:complexType name="_feed">
     <xs:sequence>
