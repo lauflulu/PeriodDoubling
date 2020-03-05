@@ -64,6 +64,7 @@
 			<xs:enumeration value="UV"/>
 			<xs:enumeration value="Cy5"/>
 			<xs:enumeration value="RFP"/>
+			<xs:enumeration value="YFP"/>
 			<xs:enumeration value="CFP"/>
 			<xs:enumeration value="GFP"/>
 			<xs:enumeration value="BF"/>

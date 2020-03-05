@@ -65,16 +65,19 @@ else
     %% Plot the intensity curves and view the refresh ratio
     [finalRefreshRatio, refreshPerReactor] = plotIntensityCurves(intensities,pathName, ENABLE_BLANK_SUBTRACTION);
     
-    RR1 = refreshPerReactor(1,1)
-    RR2 = refreshPerReactor(2,1)
-    RR3 = refreshPerReactor(3,1)
-    RR4 = refreshPerReactor(4,1)
-    RR5 = refreshPerReactor(5,1)
-    RR6 = refreshPerReactor(6,1)
-    RR7 = refreshPerReactor(7,1)
-    RR8 = refreshPerReactor(8,1)
+    refreshPerReactorPerFeed = refreshPerReactor ./ feedSteps
+    RR1 = refreshPerReactorPerFeed(1,1)
+    RR2 = refreshPerReactorPerFeed(2,1)
+    RR3 = refreshPerReactorPerFeed(3,1)
+    RR4 = refreshPerReactorPerFeed(4,1)
+    RR5 = refreshPerReactorPerFeed(5,1)
+    RR6 = refreshPerReactorPerFeed(6,1)
+    RR7 = refreshPerReactorPerFeed(7,1)
+    RR8 = refreshPerReactorPerFeed(8,1)
     finalRefreshRatio
     finalRefreshRatioPerFeed = finalRefreshRatio / feedSteps
-    refreshPerReactorPerFeed = refreshPerReactor ./ feedSteps
+    save(fullfile(pathName, 'RefreshRatios.mat'),'refreshPerReactor',...
+        'refreshPerReactorPerFeed', 'finalRefreshRatio',...
+        'finalRefreshRatioPerFeed');
 end
 %% This is the end of the script.
