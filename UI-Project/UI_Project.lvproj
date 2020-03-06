@@ -115,6 +115,7 @@
 				<Item Name="Cast Image 2 Method.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Management.llb/Cast Image 2 Method.ctl"/>
 				<Item Name="IMAQ Cast Image 2" Type="VI" URL="/&lt;vilib&gt;/vision/Management.llb/IMAQ Cast Image 2"/>
 				<Item Name="Read.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Read.vi"/>
+				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 			</Item>
 			<Item Name="DOMUserDefRef.dll" Type="Document" URL="DOMUserDefRef.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -154,6 +155,7 @@
 			<Item Name="SequenceDemo_dlg.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo_dlg.vi"/>
 			<Item Name="SequenceParam.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceParam.ctl"/>
 			<Item Name="SequenceDemo.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo.vi"/>
+			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="BUILD_UI" Type="EXE">

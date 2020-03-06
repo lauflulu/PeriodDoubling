@@ -1,25 +1,29 @@
 sourceDir = getDirectory("Source Directory");
-Dialog.create("Parameters");
-Dialog.addNumber("Number of Positions", 9)
-Dialog.addNumber("Number of Channels", 2);
-Dialog.show();
-pos = Dialog.getNumber();
-chan = Dialog.getNumber();
+//Dialog.create("Parameters");
+//Dialog.addNumber("Number of Positions", 10)
+//Dialog.addNumber("Number of Channels", 5);
+//Dialog.show();
+//pos = Dialog.getNumber();
+//chan = Dialog.getNumber();
 
-if (File.exists(source_dir)) {
+if (File.exists(sourceDir)) {
     setBatchMode(true);
     
     list = getFileList(sourceDir);
-    for (i = 0; i < pos; i++) {
-    	for (j = 0; j < chan;j++) {
-    		for (k=0; k<list.length; k++) {
-        if (endsWith(list[k], ".tif")) {
-			img(i,j,k) = open(sourceDir + list[k], k+j+1);
-			saveAs("tiff", sourceDir + "/Full.tif");
-    	}
-    }
-
-        }        
-	    showProgress(i, pos.length);
-    }
+    open(sourceDir + list[0]);       
+	rename("tmp");
+        
+	for (t=1; t<list.length; t++) {	 
+		open(sourceDir + list[t]);
+		run("Interleave", "stack_1=tmp stack_1=" + list[t]);
+		close("tmp");
+		close(list[t]);
+		selectWindow("Combined Stacks");
+		rename("tmp");
+	    showProgress(t, list.length);
+    }    
+    
+    setBatchMode(false);
+	saveAs("tiff", sourceDir + "/Full.tif");
 }
+
