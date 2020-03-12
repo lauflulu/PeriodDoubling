@@ -17,9 +17,10 @@ end
 % EGFP, thus providing a measure of the background. This background is
 % removed from each of the other images. 
 if ENABLE_BLANK_SUBTRACTION
-    correctedIntensities = intensities(2:end,:) - intensities(1,:);
+    correctedIntensities = intensities(:,2:end) - intensities(:,1);
+    correctedIntensities = correctedIntensities - correctedIntensities(:,end);
 else
-    correctedIntensities = intensities(1:end,:) - intensities(:, end);
+    correctedIntensities = intensities(:,1:end) - intensities(:, end);
 end
 
 %% Determine Refresh Ratios

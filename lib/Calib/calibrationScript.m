@@ -8,7 +8,6 @@
 % https://docs.openmicroscopy.org/bio-formats/5.7.1/users/matlab/index.html
 %
 clear all
-ENABLE_BLANK_SUBTRACTION = false;
 %% Select the correct .Tiff file:
 [pathName]  = uigetdir();
 blankPath   = fullfile(pathName,'blank.tif');
@@ -63,6 +62,11 @@ else
     %% Determine the intensities of the ROI within all images
     intensities = intensityDetermination(dilSorted, xCoordinates, yCoordinates);
     %% Plot the intensity curves and view the refresh ratio
+    if isempty(blank)
+        ENABLE_BLANK_SUBTRACTION = false;
+    else
+        ENABLE_BLANK_SUBTRACTION = true;
+    end
     [finalRefreshRatio, refreshPerReactor] = plotIntensityCurves(intensities,pathName, ENABLE_BLANK_SUBTRACTION);
     
     refreshPerReactorPerFeed = refreshPerReactor ./ feedSteps
