@@ -14,12 +14,12 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="VIs" Type="Folder" URL="../VIs">
-			<Property Name="NI.DISK" Type="Bool">true</Property>
+		<Item Name="VIs" Type="Folder">
+			<Item Name="V1.2_UI.vi" Type="VI" URL="../VIs/V1.2_UI.vi"/>
 		</Item>
 		<Item Name="AndorOWN.lvlib" Type="Library" URL="../../lib/ANDOR/OwnVIs/AndorOWN.lvlib"/>
 		<Item Name="AndorSDK.lvlib" Type="Library" URL="../../lib/ANDOR/Andor SDK/AndorSDK.lvlib"/>
-		<Item Name="Arduino.lvlib" Type="Library" URL="../../lib/ARDUINO/VIs/Arduino.lvlib"/>
+		<Item Name="Arduino.lvlib" Type="Library" URL="../../lib/Arduino/VIs/Arduino.lvlib"/>
 		<Item Name="Config.lvlib" Type="Library" URL="../../lib/Config/Config.lvlib"/>
 		<Item Name="ContinousLoop.lvlib" Type="Library" URL="../../lib/ContinuousLoop/ContinousLoop.lvlib"/>
 		<Item Name="LumencorDLL32.lvlib" Type="Library" URL="../../lib/SOLA/LabVIEW 2015 Library (32bit)/LumencorDLL32/LumencorDLL32.lvlib"/>
@@ -30,32 +30,17 @@
 		<Item Name="Calibration.lvlib" Type="Library" URL="../../lib/Calib/Calibration.lvlib"/>
 		<Item Name="LVH-LINX.lvlib" Type="Library" URL="../../lib/Arduino/Backup LabVIEW Arduino Connection/LINX/LVH-LINX.lvlib"/>
 		<Item Name="Sec2Timestamp.vi" Type="VI" URL="../../lib/ContinuousLoop/Sec2Timestamp.vi"/>
-		<Item Name="TangoMove.vi" Type="VI" URL="../../lib/TANGO Stage/VIs/TangoMove.vi"/>
-		<Item Name="ArdnoGetValveState.vi" Type="VI" URL="../../lib/Arduino/VIs/ArdnoGetValveState.vi"/>
-		<Item Name="Global.vi" Type="VI" URL="../../lib/UI/Global.vi"/>
-		<Item Name="test_buttons.vi" Type="VI" URL="../../lib/Arduino/test_buttons.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
-			<Item Name="user.lib" Type="Folder">
-				<Item Name="Tango_DLL.lvlib" Type="Library" URL="/&lt;userlib&gt;/Tango_DLL/Tango_DLL.lvlib"/>
-				<Item Name="Andor SDK.lvlib" Type="Library" URL="/&lt;userlib&gt;/Andor SDK/Andor SDK.lvlib"/>
-			</Item>
 			<Item Name="vi.lib" Type="Folder">
-				<Item Name="Acquire Input Data.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Acquire Input Data.vi"/>
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
 				<Item Name="Check Special Tags.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Check Special Tags.vi"/>
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
-				<Item Name="Close Input Device.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Close Input Device.vi"/>
-				<Item Name="closeJoystick.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeJoystick.vi"/>
-				<Item Name="closeKeyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeKeyboard.vi"/>
-				<Item Name="closeMouse.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/closeMouse.vi"/>
 				<Item Name="Convert property node font to graphics font.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Convert property node font to graphics font.vi"/>
 				<Item Name="Details Display Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Details Display Dialog.vi"/>
 				<Item Name="DialogType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogType.ctl"/>
 				<Item Name="DialogTypeEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogTypeEnum.ctl"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="Error Code Database.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Code Database.vi"/>
-				<Item Name="ErrorDescriptions.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/ErrorDescriptions.vi"/>
-				<Item Name="errorList.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/errorList.vi"/>
 				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
@@ -75,15 +60,10 @@
 				<Item Name="IMAQ GetImageSize" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ GetImageSize"/>
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="IMAQ ImageToArray" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ ImageToArray"/>
-				<Item Name="Intialize Keyboard.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/Intialize Keyboard.vi"/>
-				<Item Name="joystickAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/joystickAcquire.vi"/>
-				<Item Name="keyboardAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/keyboardAcquire.vi"/>
 				<Item Name="LMH-LINX.lvlib" Type="Library" URL="/&lt;vilib&gt;/MakerHub/LINX/LMH-LINX.lvlib"/>
 				<Item Name="Longest Line Length in Pixels.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Longest Line Length in Pixels.vi"/>
 				<Item Name="LVBoundsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVBoundsTypeDef.ctl"/>
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
-				<Item Name="mouseAcquire.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/inputDevices.llb/mouseAcquire.vi"/>
-				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 				<Item Name="NI_XML.lvlib" Type="Library" URL="/&lt;vilib&gt;/xml/NI_XML.lvlib"/>
 				<Item Name="Normalize End Of Line.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Normalize End Of Line.vi"/>
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
@@ -116,6 +96,7 @@
 				<Item Name="IMAQ Cast Image 2" Type="VI" URL="/&lt;vilib&gt;/vision/Management.llb/IMAQ Cast Image 2"/>
 				<Item Name="Read.vi" Type="VI" URL="/&lt;vilib&gt;/myRIO/Instrument Drivers/Onboard IO/DIO/vis/Read.vi"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
+				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 			</Item>
 			<Item Name="DOMUserDefRef.dll" Type="Document" URL="DOMUserDefRef.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -123,7 +104,6 @@
 			<Item Name="liblinxdevice.dll" Type="Document" URL="liblinxdevice.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="lvinput.dll" Type="Document" URL="/&lt;resource&gt;/lvinput.dll"/>
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -133,28 +113,6 @@
 			<Item Name="nivissvc.dll" Type="Document" URL="nivissvc.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="ArdnoFeed.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoFeed.vi"/>
-			<Item Name="ArdnoPump.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoPump.vi"/>
-			<Item Name="ArdnoFlush.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoFlush.vi"/>
-			<Item Name="ConvertErrCodeToMessage.vi" Type="VI" URL="../../lib/lib/ANDOR/OwnVIs/ConvertErrCodeToMessage.vi"/>
-			<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoAllValvesOpened.vi"/>
-			<Item Name="Connect.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Connect.vi"/>
-			<Item Name="OlympusQuery.vi" Type="VI" URL="../../lib/lib/Olympus IX BX Series/OwnVIs/OlympusQuery.vi"/>
-			<Item Name="TangoCalibrate.vi" Type="VI" URL="../../lib/lib/TANGO Stage/VIs/TangoCalibrate.vi"/>
-			<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../../lib/lib/Arduino/VIs/ArdnoValve2Linx.vi"/>
-			<Item Name="AxisControl.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/AxisControl.ctl"/>
-			<Item Name="Axis_Switch.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Axis_Switch.ctl"/>
-			<Item Name="DequeueWithParameters.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/DequeueWithParameters.vi"/>
-			<Item Name="Timout_Operations.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Timout_Operations.vi"/>
-			<Item Name="GetAnalogOutValues.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/GetAnalogOutValues.vi"/>
-			<Item Name="CheckLimitSwitches.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/CheckLimitSwitches.vi"/>
-			<Item Name="MaeanderDemo_Dlg.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/MaeanderDemo_Dlg.vi"/>
-			<Item Name="Maeander_Param.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/Maeander_Param.ctl"/>
-			<Item Name="MaeanderDemo.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/MaeanderDemo.vi"/>
-			<Item Name="DialogSpeed.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/DialogSpeed.vi"/>
-			<Item Name="SequenceDemo_dlg.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo_dlg.vi"/>
-			<Item Name="SequenceParam.ctl" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceParam.ctl"/>
-			<Item Name="SequenceDemo.vi" Type="VI" URL="../../lib/TANGO Stage/SubVIs/SequenceDemo.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">

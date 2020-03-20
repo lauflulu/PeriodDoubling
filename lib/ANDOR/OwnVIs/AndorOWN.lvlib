@@ -16,7 +16,6 @@
 	<Item Name="AndorIdle.vi" Type="VI" URL="../AndorIdle.vi"/>
 	<Item Name="AndorInitCamera.vi" Type="VI" URL="../AndorInitCamera.vi"/>
 	<Item Name="AndorLiveMode.vi" Type="VI" URL="../AndorLiveMode.vi"/>
-	<Item Name="AndorMISSINGPARTS.vi" Type="VI" URL="../AndorMISSINGPARTS.vi"/>
 	<Item Name="AndorResizeImage.vi" Type="VI" URL="../AndorResizeImage.vi"/>
 	<Item Name="AndorReturn2Error.vi" Type="VI" URL="../AndorReturn2Error.vi"/>
 </Library>

@@ -46,10 +46,16 @@ The software has been designed in LabView 2018 32-bit or higher with the followi
 
 Via _NI Package Manager_:
 - JKI VI Package Manager
-- NI Vision
-- NI Vision Development Module
-- NI IMAQ(/dx) for LV2018
-- NI Vision Assistant
+- NI Vision Acquisition Software 19.5
+- NI-Vision Development Module (2018 or 18.5.1), which includes also
+  - NI IMAQ(/dx) for LV2018
+  - NI Vision Assistant
+- NI MathScript RT Module
+- NI-DAQ (15.01)
+- NI-IMAQ (19.0.0)
+- NI-Vision (2018)
+- NI-Serial (18.5)
+- NI-VISA (complete)
 
 Via _VI Package Manager_:
 - Makerhub Toolbox (V 2.0.0.35)
@@ -59,10 +65,10 @@ Via _VI Package Manager_:
 
 ### CRUCIAL
 
-- Program Settings GFP-BrightField
-- Adapt everything for Maerkl reactor
-	- Solution for Feed Function: 3 Parameters (Supply Channel, Ring, Fraction)
-	- Maybe save Supply channel from previous flush cmd
+- Rename __Pump__ to __Mix__
+- Merge Program Loop into main loop
+- Update State Display
+-  Program Settings GFP-BrightField
 - __Remove Air Button__
 	- Close B5, open Channel, "open all"
 - Return single valve states after execution:
@@ -110,11 +116,25 @@ Via _VI Package Manager_:
 ## Initial API Package Configuration
 Generally, every library can be configured standalone from the _lib_ folder of the project. Instructions for every API are supplied in the respective folder. In the following, several basic fixes for common bugs as well as usage hints with the project are explained.
 
+Maybe it is neccessary to use the "Import .dll" function to get the libraries loaded correctly. (go to Tools>Import>Shared Library (.dll))
+- How to load a dynamically linked library (dll) correctly? (this could be necessary for SOLA, ANDOR and TANGO)
+- An importable dll consists of a precompiled library (.dll) and a (C/++) header (.h) file.
+- Specify the corresponding paths in the Github project at first. ("Full Path to Repo\lib\instrument\...)
+- Copy-Paste the preprocessor definitions from the instrument folder
+- Follow any further instructions
+- In case the VIs are not visible on the palette, go to Tools>Advanced>Edit Palette Set and select the missing ones
+
 ### Olympus IX 81 Control
-In order to work with the LabView package, the library and the IX81 successfully, configure the SubVI _Olympus Command.vi_ to terminate with ```\n\r```. Append ASCII text termination Carriage Return and Line Feed to the communication string for successful connection. Further, change the __filter-change-command__ in the SubVI _Select_ _Filter_ _Wheel.vi_ from "FW" to "MU".
+In order to work with the LabView package, the library and the IX81 successfully, configure the SubVI _Olympus Command.vi_ to terminate with ```\n\r```. Append ASCII text termination Carriage Return and Line Feed to the  communication string for successful connection.
+
+![](./doc/img/Mod_Olympus_command.png)
+
+Further, change the __filter-change-command__ in the SubVI _Select_ _Filter_ _Wheel.vi_ from "FW" to "MU".
+
+![](./doc/img/Mod_Olympus_Filter.png)
 - Find the SubVIs in the Instrument Menu
 - Only use the IX SubVIs (Text on symbol)
-
+- 
 ### Initialization
 
 - Bright Field Lamp Configuration
@@ -147,7 +167,15 @@ In order to work with the LabView package, the library and the IX81 successfully
 
 ### Configuration:
 
-Import _Tango.dll_ and header file via the __Import Shared Library__ function.
+Import _Tango.dll_ and header file via the __Import Shared Library__ function. Copy paste the preprocessor definitions from `lib/TANGO Stage/SubVIs/preprocessor_definitions.txt`
+The following preprocessor definitions are essential:
+```c
+#ifndef _TANGOLSXAPI_INCLUDED_;
+#define _TANGOLSXAPI_INCLUDED_;
+#define TANGOAPI __declspec (dllimport);
+#define TANGOCALL __stdcall;
+#pragma pack(1);
+```
 
  
 ## SOLA Light Control
@@ -165,6 +193,27 @@ Imported the C/C++ functions via the __Import Shared Library__ function with the
 
 
 ## Custom Arduino-Valve-Controller
+The Valve Controller consists of the following components:
+- Arduino Mega 2560 Rev 3
+- Custom Hole Raster Board for Current Amplification and Protection
+- Festo valve manifolds
+    ```
+    2x MH1-A-12VDC-N-TC-8V-PR-K05-QB-AD-BD-CX-DX
+    1x MH1-A-12VDC-N-TC-5V-PR-K05-QB-AD-BD-CX-DX
+    1x MH1-A-12VDC-N-TC-3V-PR-K05-QB-AD-BD-CX-DX
+    manual pressure regulators MS4-LR-1/4-D5-AS
+    ```
+- 230V - 12V Power Adapter
+- PC with LabView 2013 x86 (32-bit) or higher!
+
+### Amplification/Protection Board Layout
+
+- Driver for a single Valve, 24 parallel on Board
+- Input: Arduino Digital Signal (5V:high,0V:low, Blue Cables), 12 V
+- Output: Valve Connections (Grey Cables)
+- Ground must be common with Arduino (Black Pins)
+![](./doc/img/Valve_Circuit.png)
+
 
 ### LabView + Arduino Mega 2560 Setup
 #### For older versions
@@ -190,13 +239,4 @@ VISA Ressource Name: COM Port of USB-connection to Arduino (see Windows Device M
 [Initialized VISA Ressource, Error Out] = DigitalWriteNChans.vi(Initialized VISA Ressource, Bool Valve_State[n], Integer Pin_Numbers[n])
 [Error Out] = Close.vi(Initialized VISA Ressource, Error In)
 ```
- 
-
- 
-
- 
-
- 
-
- 
 

@@ -2,3 +2,7 @@ Test_N_Eval_Images
 *.orig
 *.aliases
 .vs*
+*.aux
+*.out
+*.synctex.gz
+*.toc

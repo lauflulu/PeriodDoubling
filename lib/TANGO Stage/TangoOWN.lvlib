@@ -4,6 +4,25 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">402685952</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.SortType" Type="Int">3</Property>
+	<Item Name="SubVIs" Type="Folder">
+		<Item Name="Axis_Switch.ctl" Type="VI" URL="../SubVIs/Axis_Switch.ctl"/>
+		<Item Name="AxisControl.ctl" Type="VI" URL="../SubVIs/AxisControl.ctl"/>
+		<Item Name="CheckLimitSwitches.vi" Type="VI" URL="../SubVIs/CheckLimitSwitches.vi"/>
+		<Item Name="Connect.vi" Type="VI" URL="../SubVIs/Connect.vi"/>
+		<Item Name="DequeueWithParameters.vi" Type="VI" URL="../SubVIs/DequeueWithParameters.vi"/>
+		<Item Name="DialogSpeed.vi" Type="VI" URL="../SubVIs/DialogSpeed.vi"/>
+		<Item Name="GetAnalogOutValues.vi" Type="VI" URL="../SubVIs/GetAnalogOutValues.vi"/>
+		<Item Name="Maeander_Param.ctl" Type="VI" URL="../SubVIs/Maeander_Param.ctl"/>
+		<Item Name="MaeanderDemo.vi" Type="VI" URL="../SubVIs/MaeanderDemo.vi"/>
+		<Item Name="MaeanderDemo_Dlg.vi" Type="VI" URL="../SubVIs/MaeanderDemo_Dlg.vi"/>
+		<Item Name="preprocessor definitions.txt" Type="Document" URL="../SubVIs/preprocessor definitions.txt"/>
+		<Item Name="ReadMe.txt" Type="Document" URL="../SubVIs/ReadMe.txt"/>
+		<Item Name="SequenceDemo.vi" Type="VI" URL="../SubVIs/SequenceDemo.vi"/>
+		<Item Name="SequenceDemo_dlg.vi" Type="VI" URL="../SubVIs/SequenceDemo_dlg.vi"/>
+		<Item Name="SequenceParam.ctl" Type="VI" URL="../SubVIs/SequenceParam.ctl"/>
+		<Item Name="TangoLSX_API.h" Type="Document" URL="../SubVIs/TangoLSX_API.h"/>
+		<Item Name="Timout_Operations.vi" Type="VI" URL="../SubVIs/Timout_Operations.vi"/>
+	</Item>
 	<Item Name="TANGO_Example_LV2011.vi" Type="VI" URL="../TANGO_Example_LV2011.vi"/>
 	<Item Name="Disconnect.vi" Type="VI" URL="../SubVIs/Disconnect.vi"/>
 	<Item Name="FindTANGOPort.vi" Type="VI" URL="../SubVIs/FindTANGOPort.vi"/>
@@ -12,4 +31,5 @@
 	<Item Name="TangoConnectSub.vi" Type="VI" URL="../VIs/TangoConnectSub.vi"/>
 	<Item Name="TangoPositions2MultiList.vi" Type="VI" URL="../VIs/TangoPositions2MultiList.vi"/>
 	<Item Name="TangoSelectPos.vi" Type="VI" URL="../VIs/TangoSelectPos.vi"/>
+	<Item Name="TangoMove.vi" Type="VI" URL="../VIs/TangoMove.vi"/>
 </Library>

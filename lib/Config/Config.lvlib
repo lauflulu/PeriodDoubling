@@ -9,6 +9,7 @@
 	<Item Name="ConfigAppendPosToConfig.vi" Type="VI" URL="../ConfigAppendPosToConfig.vi"/>
 	<Item Name="ConfigCalculateMinimalAcquisitionTime.vi" Type="VI" URL="../ConfigCalculateMinimalAcquisitionTime.vi"/>
 	<Item Name="ConfigCreateProgram.vi" Type="VI" URL="../ConfigCreateProgram.vi"/>
+	<Item Name="ConfigCreateXMLHeader.vi" Type="VI" URL="../ConfigCreateXMLHeader.vi"/>
 	<Item Name="ConfigDisplayLastRowListBox.vi" Type="VI" URL="../ConfigDisplayLastRowListBox.vi"/>
 	<Item Name="ConfigExportPosList.vi" Type="VI" URL="../ConfigExportPosList.vi"/>
 	<Item Name="ConfigFileParser.vi" Type="VI" URL="../ConfigFileParser.vi"/>
@@ -16,6 +17,13 @@
 	<Item Name="ConfigFlattenPositionsToXML.vi" Type="VI" URL="../ConfigFlattenPositionsToXML.vi"/>
 	<Item Name="ConfigFlattenProgramToXML.vi" Type="VI" URL="../ConfigFlattenProgramToXML.vi"/>
 	<Item Name="ConfigFormatToXMLElement.vi" Type="VI" URL="../ConfigFormatToXMLElement.vi"/>
+	<Item Name="ConfigInputAcquire.vi" Type="VI" URL="../ConfigInputAcquire.vi"/>
+	<Item Name="ConfigInputChangeReagent.vi" Type="VI" URL="../ConfigInputChangeReagent.vi"/>
+	<Item Name="ConfigInputFeed.vi" Type="VI" URL="../ConfigInputFeed.vi"/>
+	<Item Name="ConfigInputIncubate.vi" Type="VI" URL="../ConfigInputIncubate.vi"/>
+	<Item Name="ConfigInputLoopEnd.vi" Type="VI" URL="../ConfigInputLoopEnd.vi"/>
+	<Item Name="ConfigInputLoopStart.vi" Type="VI" URL="../ConfigInputLoopStart.vi"/>
+	<Item Name="ConfigInputMix.vi" Type="VI" URL="../ConfigInputMix.vi"/>
 	<Item Name="ConfigParseImage.vi" Type="VI" URL="../ConfigParseImage.vi"/>
 	<Item Name="ConfigParseInitialConfiguration.vi" Type="VI" URL="../ConfigParseInitialConfiguration.vi"/>
 	<Item Name="ConfigParseLoop.vi" Type="VI" URL="../ConfigParseLoop.vi"/>
@@ -23,7 +31,10 @@
 	<Item Name="ConfigParseMultipleMicroscopes.vi" Type="VI" URL="../ConfigParseMultipleMicroscopes.vi"/>
 	<Item Name="ConfigParsePos.vi" Type="VI" URL="../ConfigParsePos.vi"/>
 	<Item Name="ConfigParseProgram.vi" Type="VI" URL="../ConfigParseProgram.vi"/>
+	<Item Name="ConfigProgram2XML.vi" Type="VI" URL="../ConfigProgram2XML.vi"/>
+	<Item Name="ConfigUpdateProgram.vi" Type="VI" URL="../ConfigUpdateProgram.vi"/>
 	<Item Name="ContFindAcquisition.vi" Type="VI" URL="../../ContinuousLoop/ContFindAcquisition.vi"/>
 	<Item Name="ContFindIterationStart.vi" Type="VI" URL="../../ContinuousLoop/ContFindIterationStart.vi"/>
+	<Item Name="CreatePaths.vi" Type="VI" URL="../../UI/CreatePaths.vi"/>
 	<Item Name="validator.xsd" Type="Document" URL="../validator.xsd"/>
 </Library>

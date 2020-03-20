@@ -12,5 +12,4 @@
 	<Item Name="plotIntensityCurves.m" Type="Document" URL="../plotIntensityCurves.m"/>
 	<Item Name="regionOfInterestDetermination.m" Type="Document" URL="../regionOfInterestDetermination.m"/>
 	<Item Name="selectIntensity.m" Type="Document" URL="../selectIntensity.m"/>
-	<Item Name="ZZ_OLD_Calibration.vi" Type="VI" URL="../ZZ_OLD_Calibration.vi"/>
 </Library>
