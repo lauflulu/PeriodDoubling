@@ -1,0 +1,623 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Olympus IX-81 Chassis Commands</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="author" content="Johann Brenner / Frederic Ross" />
+    <meta name="date" content="2020-04-03" />
+</head>
+<body>
+    <h1 class="title">
+        Olympus IX-81 Chassis Commands
+    </h1><p>Adopted from Frederic Ross (EPFL) -> Last updated 1 October 2009. (but still valid)</p>
+    <h1 id="introduction">Introduction</h1>
+    <p>The Olympus IX-81 is a fully automated microscope. If you are buying one, you should get it with the ZDC hardware autofocus system. It, or Nikon's Perfect Focus system, or an equivalent piece of equipment, should be standard on all microscopes with motorized objective position.</p><p>The core of the microscope is the chassis, which includes the entire optical path, plus the transmitted light source. Olympus refuses to release the specifications to communicate with the microscope chassis without a non-disclosure agreement. This is deeply unethical, but I have reverse engineered most of the command set to atone for their sin.</p><p>Things to keep in mind:</p><ul>
+        <li>
+            <p>When talking about the z-axis of a microscope, use &quot;near&quot; and &quot;far&quot; instead of &quot;up&quot; and &quot;down.&quot; &quot;Nearer&quot; always means the objective ends closer to the sample; &quot;farther&quot; means the objective ends farther away. On an inverted microscope, &quot;near&quot; is up and &quot;far&quot; is down; on an upright microscope it is exactly the reverse. Better to use &quot;near&quot; and &quot;far&quot; to avoid confusion.</p>
+        </li>
+        <li>
+            <p>
+                You can always get the current state of the system by sending the command you would use to change that state followed by <code>?</code>. For example, to get the current objective position, send <code>1OB?</code>. The microscope returns <code>1OB 3</code>, say, if the current objective is position 3 on the nosepiece.
+            </p>
+        </li>
+        <li>
+            <p>The microscope only understands positive integers, no negative numbers, no floating point. All distances are sent as positive integers measured in hundredths of a micron. All voltages are sent as tenths of a volt. Where negative numbers are needed, such as to specify relative motion, an extra argument is used to tell the microscope the sign of the number.</p>
+        </li>
+    </ul><h1 id="communicating-with-the-microscope">
+        Communicating with the microscope
+    </h1><p>The IX-81 chassis is connected to a computer by an RS-232 serial cable. You need the right settings for the RS-232 communication, as reported by PortMon, are</p><pre><code>Rate: 19200
+StopBits: ERROR Parity: EVEN WordLength: 8
+EOF:0 ERR:0 BRK:0 EVT:0 XON:0 XOFF:0
+Shake:1 Replace:40 XonLimit:1 XoffLimit:1
+RI:10 RM:1 RC:10 WM:100 WC:500
+Mask: RXCHAR CTS
+			</code></pre><p>
+        All commands are ASCII text terminated by CR LF (0x0d 0x0a, the DOS newline). The microscope responds in the same way. A command consists of a command name followed by a space then a series of comma separated arguments containing no spaces, or a command name followed directly by a question mark (<code>?</code>) to query the current state of what that command would change. For example, <code>1LMPSW ON</code> turns on the transmitted light lamp, <code>2MOV N,50,1,300000,49</code> issues a command to move the objective along the z-axis, and <code>1LMPSW?</code> asks for the current state of the transmitted light lamp.
+    </p><p>
+        When you query the state, the microscope returns the command, followed by a space, followed by the state. So <code>1LMPSW?</code> returns <code>1LMPSW ON</code> if the lamp is on or <code>1LMPSW OFF</code> if it is off.
+    </p><p>
+        When you issue a command to change the state, the microscope returns the command, followed by a space, followed by a plus sign (<code>+</code>). So <code>1LMPSW ON</code> returns <code>1LMPSW +</code> if it succeeds. If a command fails, the microscope responds with an <code>X</code> in place of the <code>+</code>.
+    </p><p>
+        You can continue to issue commands even while a current command is processing. You know a command is complete when you receive the response with that command's name and <code>+</code> or <code>X</code>.
+    </p><p>
+        The microscope ignores all lines of text it receives that don't begin with 1 or 2. Invalid commands that do start with 1 or 2 produce <code>1x</code> and <code>2x</code> as a response, respectively. For example,
+    </p><pre><code>1rubbish -&gt; 1x
+2rubbish -&gt; 2x
+			</code></pre><h1 id="configuring-the-hardware">
+        Configuring the hardware
+    </h1><p>You can always use commands to get the state of the microscope, but if you want to change the state, you have to log in:</p><pre><code>1LOG IN
+2LOG IN
+			</code></pre><p>
+        When you log in, it blocks the controls on the microscope unless you explicitly reenable them. This is why there are two separate commands. <code>1LOG</code> enables all commands beginning with 1, which control selecting condensors and objectives, turning lamps on and off, and opening and closing shutters. <code>2LOG</code> controls z-motion and autofocus. Having them separate means you can use the microscope's focus wheel as if it were a manual scope, while still controlling the choice of objective from the computer.
+    </p><p>
+        To reenable the focus wheel on the microscope after <code>2LOG IN</code>, use
+    </p><pre><code>2JOG ON
+2JOGSNS 10
+2joglmt ON
+			</code></pre><p>
+        <code>2JOG</code> enables or disables the wheel. <code>2JOGSNS</code> sets its sensitivity, and <code>2joglmt</code> stops the wheel motion from going beyond the near and far limits of the objective position (see <code>2FARLMT</code> and <code>2NEARLMT</code>).
+    </p><p>
+        The <code>1LOG IN</code> line lets you affect the state of all commands beginning with 1; the <code>2LOG IN</code> line does the same for command beginning with 2. This is actually fairly reasonable. All commands to control lamps, condensors, objectives, and shutters begin with 1; z-axis motion of the objective and autofocusing begin with 2.
+    </p><h1 id="using-the-buttons-on-the-chassis">
+        Using the buttons on the chassis
+    </h1><p>The Olympus IX-81 has a number of buttons for focusing up and down, controlling the lamp, switching between coarse and fine focus, and often a keypad with a number of buttons. When you have sent the login commands, none of these function as they did. You have to handle their events yourself.</p><p>First, send</p><pre><code>1SW ON
+			</code></pre><p>
+        which will make the IX-81 send a string everytime one of the buttons is pressed or released. It uses the same string for any button release, so you cannot work with any combinations of buttons, only one at a time. When any button is released, the IX-81 sends <code>1SW 0</code>.
+    </p><p>
+        When a button is pressed it sends <code>1SW</code> <IMG SRC="fjr0021-ix81_command/eqn000.png" WIDTH=12 HEIGHT=10 STYLE="vertical-align: -1px; margin: 0;" /> where <IMG SRC="fjr0021-ix81_command/eqn000.png" WIDTH=12 HEIGHT=10 STYLE="vertical-align: -1px; margin: 0;" /> is an integer indicating the button. The buttons are (written in scientific notation -- for actual use, write them out with no commas, so 1e4 will appear as 10000)
+    </p><p>
+        <img src="fjr0021-ix81_command/front_panel.jpg" alt="front panel" />
+    </p><p>
+        <img src="fjr0021-ix81_command/side_panel.jpg" alt="side panel" />
+    </p><p>
+        <img src="fjr0021-ix81_command/button_pad.jpg" alt="button pad" />
+    </p><p>
+        If you do not have precisely the keypad shown above, this is no great problem. Simply run HyperTerminal or Termite, log in and turn on <code>1SW ON</code>, then start hitting the buttons and write down the numbers which are sent to the terminal.
+    </p><p>
+        To disable the button commands, send <code>1SW OFF</code>.
+    </p><h1 id="objectives-condensors-etc">
+        Objectives, condensors, etc.
+    </h1><p>
+        This section is organized along the lightpath, beginning at the lamp. Only lightsources such as the transmitted light lamp which are mounted directly on the chassis are controlled by this command set. Most mercury or xenon lamps for fluorescence microscopy are external. If you do have a second internal light source, the command to change between light sources is <code>1LMPSEL</code>. To select the transmitted light source, issue
+    </p><pre><code>1LMPSEL DIA
+					</code></pre><p>I have no other light sources on my chassis, and so no idea what the relevant commands might be.</p><p>You can turn lamps on and off with</p><pre><code>1LMPSW ON
+1LMPSW OFF
+					</code></pre><p>Its intensity is controlled by the supplied voltage. For the transmitted light lamp the voltage ranges from 0V to 12V. The chassis accepts voltages given in tenths of volts, so setting the intensity to 0V, to 5.6V, and to 12V, would be</p><pre><code>1LMP 0
+1LMP 56
+1LMP 12
+					</code></pre><p>The chassis's control panel has two shutter ports, labelled SHA1 and SHA2. Generally SHA1 is connected to the transmitted light shutter, and SHA2 to the fluorescence shutter. If you have additional light sources and shutters, they will be controlled directly, not through the chassis. To open and close shutter 1, then shutter 2, issue</p><pre><code>1SHUT1 OUT
+1SHUT1 IN
+1SHUT2 OUT
+1SHUT2 IN
+					</code></pre><p>
+        Mnemonically, a shutter is closed if it has put something in the light path, and open if it has taken it out. There is a third command to control the external shutter for a fluorescent light source: <code>1LED</code>. It accepts one argument, either 1 or 2. Which one opens or closes the shutter depends on whether your particular external shutter is open or closed when it receives a low voltage on its control wire (2 is low voltage; 1 is high voltage).
+    </p><p>
+        If you have a motorized condensor, <code>1CD #</code> selected item <code>#</code> in the condensor wheel.
+    </p><p>The positions on your objective nosepiece are numbered 1, 2, etc. To switch to the objective in position 3, issue</p><pre><code>1OB 3
+					</code></pre><p>Beyond the objective is your filter cube. Again, the positions in the wheel containing these cubes are labelled 1, 2, etc. To select the filter in position 2, issue</p><pre><code>1MU 2
+					</code></pre><p>
+        Beyond the filter cube is the prism which directs the light either to the camera port or to the eyepiece. <code>1PRISM 1</code> shifts to the eyepiece, <code>1PRISM 2</code> to the camera. If you have a lower back port for an additional camera, <code>1BPORT</code> controls this, but I don't have one and can't test it. For safety reasons, you should always close the external fluorescence shutter with <code>1LED</code> when you use <code>1PRISM</code> to switch to the eyepiece.
+    </p><h1 id="motion">
+        Motion
+    </h1><p>The only motion controlled by the chassis is the z-position of the objective. Before you start moving it, you should set the near and far limits, such as with</p><pre><code>2FARLMT 10
+2NEARLMT 3000000
+					</code></pre><p>
+        To get the current position, use <code>2POS?</code>. The microscope returns something like <code>2POS 539031</code>, where 539,031 is the current z-position in hundredths of a micron from its farthest position.
+    </p><p>
+        To actually move the objective, use <code>2MOV</code>.
+    </p><pre><code>2MOV F,2500,1,300000,49
+2MOV N,300,1,300000,49
+2MOV d,539031,1,300000,49
+					</code></pre><p>
+        The first argument is one of <code>N</code>, <code>F</code>, and <code>d</code>, and it changes the meaning of the second argument. <code>N</code> and <code>F</code> make the second argument a distance to move relative to the current position, <code>N</code> to move nearer, <code>F</code> to move farther. With <code>d</code>, the second argument is an absolute position, such as is returned by <code>2POS?</code>.
+    </p><p>The third and fifth arguments set the acceleration at the beginning and deceleration at the end of the z motion, though I have not yet figured out in what units. The fourth argument is the speed at which to move in units of a tenth of a micron per second (this is inconsistent with the distance measurements in the chassis!).</p><p>
+        <code>2POS?</code> and <code>2MOV</code> are inconsistent with the rest of the commands: the chassis responds to <code>2POS</code> and <code>2MOV?</code> as errors. If you issue <code>2MOV</code> when the chassis is already executing another <code>2MOV</code> command it returns <code>2MOV !,E02110</code>. To stop a motion in progress, send <code>2STOP</code>. It will return <code>2STOP +</code>, and the currently executing motion will return an error with <code>2MOV !,E02133</code>.
+    </p><h1 id="autofocus">
+        Autofocus
+    </h1><p>
+        I only deal with the ZDC hardware autofocus system. Software autofocus is entirely independent of the microscope, and is inevitably a bad hack to work around the absence of a hardware autofocus. <em>All motorized microscopes should have a hardware autofocus.</em> Unfortunately, most microscope software persists in treating it like software autofocus.
+    </p><p>ZDC works by firing a laser through the objective at the sample. The laser reflects off the near side of the coverslip (its interface with air) for air immersion and low magnification objectives, or off the far side of the coverslip where it meets the sample in oil and water immersion and high magnification objectives. One side effect of this is that the microscope knows which way it needs to move to go towards focus. This is distinctly different from software autofocus.</p><p>
+        ZDC commands begin with <code>2AF</code>. To set the near and far limits of the range in which the ZDC can search, use
+    </p><pre><code>2AFFLMT 536531
+2AFNLMT 541531
+					</code></pre><p>
+        You can give yourself plenty of space. Unlike software autofocus, hardware autofocus is slowed only by how far it is from correct focus, not by how large a search range you allow it. You also have to set the <code>2NEARLMT</code> and <code>2FARLMT</code> commands or the ZDC will fail with <code>2AF !,E02311</code>.
+    </p><p>At least before the first time using the ZDC in a session (though you can do so as often as you want), issue the magic command</p><pre><code>2aftim 4
+					</code></pre><p>I couldn't find any conditions on my microscope which changed this, which makes it impossible to reverse engineer. Then you have to set up your objective with</p><pre><code>2AFTBL nn
+					</code></pre><p>
+        where <code>nn</code> is a number corresponding to your objective (see the table in the appendix for the command <code>2AFTBL</code> for its values). Finally, to actually move the objective where it is focused on the edge of the coverslip, use
+    </p><pre><code>2AF SHOT
+					</code></pre><p>
+        If it succeeds, it will reply <code>2AF +</code>. If it fails, it returns an error code:
+    </p><ul>
+        <li>
+            <code>2AF !,E02312</code> = the coverslip's boundary is outside the far range limit
+        </li>
+        <li>
+            <code>2AF !,E02313</code> = the coverslip's boundary is outside the near range limit
+        </li>
+        <li>
+            <code>2AF !,E02331</code> = the ZDC could not find a coverslip boundary
+        </li>
+    </ul><p>The first two mean you are probably using too small a search range. If you get the third, or you get one of the first two and you know your search range is adequate, then make sure you have adequate oil with no bubbles on your objective, and that your sample is sufficiently rigid and heavy not to be shifted by the microscope. For example, ZDC usually fails if you are using only coverslips for your sample. If you mount your sample between a coverslip and a heavy glass slide instead of two coverslips, this often fixed the problem. Similarly, a colleague found that if she made her microfluidic devices much thicker (and so much heavier), the ZDC magically started working consistently.</p><h1 id="unknown">
+        Unknown
+    </h1><p>1SNDOB 1SW 2AFSTS</p><h1 id="appendix-command-reference">
+        Appendix: Command Reference
+    </h1><h2 id="BPORT">
+        <code>1BPORT</code>
+    </h2><p>Switches to the back port of the chassis, if it has one. Not tested.</p><h2 id="CD">
+        <code>1CD</code>
+    </h2><p>
+        Usage: <code>1CD</code> <em>pos</em><br />Switch to position <em>pos</em> of the motorized condensor.
+    </p><h2 id="LED">
+        <code>1LED</code>
+    </h2><p>
+        Usage: <code>1LED (1|0)</code><br />Open or close the external shutter for the fluorescent light source. Whether 1 corresponds to open or closed depends on your shutter. 1 corresponds to high voltage on the control line.
+    </p><h2 id="LMP">
+        <code>1LMP</code>
+    </h2><p>
+        Usage: <code>1LMP</code> <em>inten</em><br />Set the intensity of the transmitted light source to <em>inten</em>, measured in tenths of a voltage between 0V (<code>1LMP 0</code>) and 12V (<code>1LMP 120</code>).
+    </p><h2 id="LMPSEL">
+        <code>1LMPSEL</code>
+    </h2><p>
+        Usage: <code>1LMPSEL</code> <em>lamp</em><br />Select illumination source <em>lamp</em>. Almost always <em>lamp</em> will be <code>DIA</code>.
+    </p><h2 id="LMPSW">
+        <code>1LMPSW</code>
+    </h2><p>
+        Usage: <code>1LMPSW (ON|OFF)</code> Turn the currently selected lamp (usually the transmitted light source) on and off.
+    </p><h2 id="LOG">
+        <code>1LOG</code>
+    </h2><p>
+        Usage: <code>1LOG (IN|OUT)</code><br /><code>IN</code> means place all commands beginning with 1 under computer control, locking out the microscope chassis's physical controls unless specifically reenabled. <code>OUT</code> means to return control to the chassis's physical controls, and prevent the computer from making changes to the microscope's state. Mnemonic: &quot;log in&quot;
+    </p><h2 id="MU">
+        <code>1MU</code>
+    </h2><p>
+        Usage: <code>1MU</code> <em>pos</em><br />Sets the filter wheel to position <em>pos</em>.
+    </p><h2 id="OB">
+        <code>1OB</code>
+    </h2><p>
+        Usage: <code>1OB</code> <em>pos</em><br />Sets the objective nosepiece to position <em>pos</em>.
+    </p><h2 id="PRISM">
+        <code>1PRISM</code>
+    </h2><p>
+        Usage: <code>1PRISM (1|2)</code><br />1 diverts the light path to the ocular. 2 diverts it to the camera. You should probably close the external fluorescence shutter with <code>1LED</code> when you have diverted light to the ocular.
+    </p><h2 id="SHUT1">
+        <code>1SHUT1</code>
+    </h2><p>
+        Usage: <code>1SHUT1 (IN|OUT)</code><br />Opens (<code>OUT</code>) and closes (<code>IN</code>) shutter 1 (connected to port SHA1 on the chassis -- usually transmitted light).
+    </p><h2 id="SHUT2">
+        <code>1SHUT2</code>
+    </h2><p>
+        Usage: <code>1SHUT2 (IN|OUT)</code> Opens (<code>OUT</code>) and closes (<code>IN</code>) shutter 2 (connected to port SHA2 on the chassis -- usually transmitted light).
+    </p><h2 id="SNDOB">
+        <code>1SNDOB</code>
+    </h2><p>Unknown.</p><h2 id="SW">
+        <code>1SW</code>
+    </h2><p>
+        Usage: <code>1SW (ON|OFF)</code> Turns on/off using the buttons on the microscope chassis. When on, all button releases result in <code>1SW 0</code> being sent to the computer. Button presses result in <code>1SW</code> <IMG SRC="fjr0021-ix81_command/eqn000.png" WIDTH=12 HEIGHT=10 STYLE="vertical-align: -1px; margin: 0;" />, where <IMG SRC="fjr0021-ix81_command/eqn000.png" WIDTH=12 HEIGHT=10 STYLE="vertical-align: -1px; margin: 0;" /> is an integer indicating the button.
+    </p><h2 id="UNIT">
+        <code>1UNIT</code>
+    </h2><p>
+        Usage: <code>1UNIT?</code><br />Returns a string describing the microscope. Our scope returns <code>1UNIT IX2,FRM,RV1,FO,MU6,HS</code>.
+    </p><h2 id="peekb">
+        <code>1peekb</code>
+    </h2><p>
+        Usage: <code>1peekb</code> <em>reg</em><br />Looks at the value in register <em>reg</em>. CellR sends <code>1peekb D0003</code> during startup and receives the response <code>1peekb C7</code>.
+    </p><h2 id="AF">
+        <code>2AF</code>
+    </h2><p>
+        Usage: <code>2AF SHOT</code><br />Autofocus with the ZDC. For air immersion, low magnification objectives, it leaves the objective's focal plane at the air/coverslip interface nearest the objective. For water or oil immersion objectives, it leaves the focal plane at the interface farthest from the objective. If it succeeds in doing so, it returns <code>2AF +</code>. If it fails, it returns one of the three following errors:
+    </p><ul>
+        <li>
+            <code>2AF !,E02312</code> = the coverslip's boundary is outside the far range limit
+        </li>
+        <li>
+            <code>2AF !,E02313</code> = the coverslip's boundary is outside the near range limit
+        </li>
+        <li>
+            <code>2AF !,E02331</code> = the ZDC could not find a coverslip boundary
+        </li>
+        <li>
+            <code>2AF !,E02311</code> = you haven't set <code>2NEARLMT</code> and <code>2FARLMT</code>
+        </li>
+    </ul><p>
+        Errors 2312 (outside the far range limit) and 2313 (outside the near range limit) can be fixed by extending the range with <code>2AFFLMT</code> and <code>2AFNLMT</code>. 2331 (could not find boundary) usually results from one of three things: your oil on the objective is inadequate or foil of bubbles; your sample beyond the coverslip is dried out; or your assembly around your sample isn't heavy enough, such as if you put your sample between two 24x60mm coverslips instead of a coverslip and a heavy glass slide.
+    </p><p>
+        Before you execute <code>2AF SHOT</code>, you need to send the commands <code>2AFFLMT</code>, <code>2AFNLMT</code>, <code>2AFTBL</code>, and <code>2aftim</code>.
+    </p><h2 id="AFFLMT">
+        <code>2AFFLMT</code>
+    </h2><p>
+        Usage: <code>2AFFLMT</code> <em>pos</em><br />Set the far limit of the range of z-positions in which the ZDC can search for the coverslip position to <em>pos</em>, measured in hundredths of a micron, and from the same origin as the positions returns by <code>2POS?</code>.
+    </p><h2 id="AFNLMT">
+        <code>2AFNLMT</code>
+    </h2><p>
+        Usage: <code>2AFNLMT</code> <em>pos</em><br />Set the near limit of the range of z-positions in which the ZDC can search for the coverslip position to <em>pos</em>, measured in hundredths of a micron, and from the same origin as the positions returns by <code>2POS?</code>.
+    </p><h2 id="AFSTS">
+        <code>2AFSTS</code>
+    </h2><p>Unknown.</p><h2 id="AFTBL">
+        <code>2AFTBL</code>
+    </h2><p>
+        Usage: <code>2AFTBL</code> <em>num</em><br />This configures the ZDC to use a particular objective. It must be done before using <code>2AF SHOT</code>. The numbers for the different objectives are
+    </p><table>
+        <tr class="header">
+            <th align="center" style="width: 13%;">
+                <em>num</em>
+            </th>
+            <th align="center" style="width: 27%;">Objective Type</th>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                75
+            </td>
+            <td align="center">
+                LCPlanFl 20x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                76
+            </td>
+            <td align="center">
+                LCPlanFl 40x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                79
+            </td>
+            <td align="center">
+                LCPlanFl 60x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                78
+            </td>
+            <td align="center">
+                LUCPlanFl 40x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                75
+            </td>
+            <td align="center">
+                LUCPlanFlN 20x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                76
+            </td>
+            <td align="center">
+                LUCPlanFlN 40x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                79
+            </td>
+            <td align="center">
+                LUCPlanFlN 60x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                31
+            </td>
+            <td align="center">
+                PlanApo 100x O3
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                70
+            </td>
+            <td align="center">
+                PlanApo 60x O TIRFM-SP
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                62
+            </td>
+            <td align="center">
+                PlanApo 60x O/LSM
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                30
+            </td>
+            <td align="center">
+                PlanApo 60x O3
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                60
+            </td>
+            <td align="center">
+                PlanApo 40x W/LSM
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                30
+            </td>
+            <td align="center">
+                PlanApoN 60x O
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                77
+            </td>
+            <td align="center">
+                SLCPlanFl 40x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                45
+            </td>
+            <td align="center">
+                UApo 30x 3/340
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                47
+            </td>
+            <td align="center">
+                UApo 40x 3/340
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                48
+            </td>
+            <td align="center">
+                UApo 40x W
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                57
+            </td>
+            <td align="center">
+                UPlanFl 60x OI3
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                36
+            </td>
+            <td align="center">
+                UPlanAPO 20x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                43
+            </td>
+            <td align="center">
+                UPlanApo 100x OI3
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                39
+            </td>
+            <td align="center">
+                UPlanApo 40x OI3
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                40
+            </td>
+            <td align="center">
+                UPlanApo 60x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                41
+            </td>
+            <td align="center">
+                UPlanApo 60x W
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                42
+            </td>
+            <td align="center">
+                UPlanApo 60x W/IR
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                58
+            </td>
+            <td align="center">
+                UPlanFl 100x O3
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                55
+            </td>
+            <td align="center">
+                UPlanFl 20x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                71
+            </td>
+            <td align="center">
+                UPlanFl 40x O-SP
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                56
+            </td>
+            <td align="center">
+                UPlanFl 40x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                58
+            </td>
+            <td align="center">
+                UPlanFlN 100x O
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                58
+            </td>
+            <td align="center">
+                UPlanFlN 100x OI
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                55
+            </td>
+            <td align="center">
+                UPlanFlN 20x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                39
+            </td>
+            <td align="center">
+                UPlanFlN 40x O
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                40
+            </td>
+            <td align="center">
+                UPlanFlN 60x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                57
+            </td>
+            <td align="center">
+                UPlanFlN 60x OI
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                43
+            </td>
+            <td align="center">
+                UPlanSApo 100X O
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                36
+            </td>
+            <td align="center">
+                UPlanSApo 20x
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                47
+            </td>
+            <td align="center">
+                UPlanSApo 40x
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                30
+            </td>
+            <td align="center">
+                UPlanSApo 60x O
+            </td>
+        </tr>
+        <tr class="odd">
+            <td align="center">
+                41
+            </td>
+            <td align="center">
+                UPlanSApo 60x W
+            </td>
+        </tr>
+        <tr class="even">
+            <td align="center">
+                56
+            </td>
+            <td align="center">
+                UPlanFlN 40x
+            </td>
+        </tr>
+    </table><h2 id="aftim">
+        <code>2aftim</code>
+    </h2><p>
+        Usage: <code>2aftim n</code><br />This is a magic command which I don't understand, but it needs to be sent to the ZDC before using <code>2AF SHOT</code>. <code>n</code> is 4 as sent by CellM, and can be any of 1, 2, 3, or 4. Perhaps it's a timeout command for when the ZDC fails?
+    </p><h2 id="FARLMT">
+        <code>2FARLMT</code>
+    </h2><p>
+        Usage: <code>2FARLMT</code> <em>pos</em><br />Sets the farthest z position to which you can move the objective to <em>pos</em>, measured in hundredths of a micron from the same origin as <code>2POS?</code>.
+    </p><h2 id="JOG">
+        <code>2JOG</code>
+    </h2><p>
+        Usage: <code>2JOG (ON|OFF)</code> Enables (<code>ON</code>) and disables (<code>OFF</code>) the focus wheel on the microscope chassis after you have executed <code>2LOG IN</code>. See <code>2JOGSNS</code> to set the rate at which the wheel moves the objective.
+    </p><h2 id="JOGSNS">
+        <code>2JOGSNS</code>
+    </h2><p>
+        Usage: <code>2JOGSNS</code> <em>sens</em><br /><code>2JOGSNS</code> sets the rate at which the focus wheel on the microscope chassis moves the objective nosepiece in the z direction. <em>sens</em> is an integer, at least 0 and no more than 10. The speed increasing exponentially with <em>sens</em>, from about 0.2um per turn of the wheel at <em>sens</em> = 0 to 800um per turn of the wheel at <em>sens</em> = 10.
+    </p><h2 id="joglmt">
+        <code>2joglmt</code>
+    </h2><p>
+        Usage: <code>2joglmt (ON|OFF)</code> If the chassis focus wheel is enabled (with <code>2JOG</code>), <code>ON</code> prevents you from going beyond the limits set with <code>2NEARLMT</code> and <code>2FARLMT</code> with the focus wheel. <code>OFF</code> removes that limitation.
+    </p><h2 id="LOG-1">
+        <code>2LOG</code>
+    </h2><p>
+        Usage: <code>2LOG (IN|OUT)</code><br /><code>IN</code> means place all commands beginning with 2 under computer control, locking out the microscope chassis's physical controls unless specifically reenabled. <code>OUT</code> means to return control to the chassis's physical controls, and prevent the computer from making changes to the microscope's state. Mnemonic: &quot;log in&quot;
+    </p><h2 id="MOV">
+        <code>2MOV</code>
+    </h2><p>
+        Usage: <code>2MOV (N,F,d),</code><em>x</em>,<em>start</em>,<em>speed</em>,<em>end</em> Moves the objective's z-position nearer (<code>N</code> for the first argument), farther (<code>F</code> for the first argument), or to an absolute position (<code>d</code> for the first argument). <em>x</em> is the distance to move or the absolute position to move to. <em>speed</em> is the speed at which to move in tenths (not hundredths!) of a micron per second. <em>start</em> and <em>end</em> control how much time at the beginning and end of the move is spend accelerating. Typically <em>start</em> is small, say 1, bringing the objective immediately up to speed, and <em>end</em> is larger, around 50, in hopes of getting better accuracy in the z motion. The four important error conditions for <code>2MOV</code> are:
+    </p><ul>
+        <li>
+            <code>2MOV !,E02414</code> - the motion reached the near limit (as set by <code>2NEARLMT</code>)
+        </li>
+        <li>
+            <code>2MOV !,E02412</code> - the motion reached the far limit (as set by <code>2FARLMT</code>)
+        </li>
+        <li>
+            <code>2MOV !,E02120</code> - the arguments to <code>2MOV</code> are invalid (no motion takes place)
+        </li>
+        <li>
+            <code>2MOV !,E02133</code> - <code>2MOV</code> was ended by <code>2STOP</code>.
+        </li>
+    </ul><h2 id="NEARLMT">
+        <code>2NEARLMT</code>
+    </h2><p>
+        Usage: <code>2NEARLMT</code> <em>pos</em><br />Sets the nearest z position to which you can move the objective to <em>pos</em>, measured in hundredths of a micron from the same origin as <code>2POS?</code>.
+    </p><h2 id="POS?">
+        <code>2POS?</code>
+    </h2><p>
+        Usage: <code>2POS?</code><br />The microscope responds, <code>2POS</code> <em>pos</em>, where <em>pos</em> is an absolute z position of the objective measured in hundredths of a micron.
+    </p><h2 id="STOP">
+        <code>2STOP</code>
+    </h2><p>
+        Usage: <code>2STOP</code><br />Stop any currently executing motion. Always responds with <code>2STOP +</code>. If there is a <code>2MOV</code> command in progress, it also aborts and returns an error condition with <code>2MOV !,E02133</code>.
+    </p>
+</body>
+</html>

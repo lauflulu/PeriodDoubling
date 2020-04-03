@@ -65,10 +65,10 @@ Via _VI Package Manager_:
 
 ### CRUCIAL
 
-- Rename __Pump__ to __Mix__
+- Adjust Focus Button to Limits
+- Limit Olympus Objective Movement
 - Merge Program Loop into main loop
 - Update State Display
--  Program Settings GFP-BrightField
 - __Remove Air Button__
 	- Close B5, open Channel, "open all"
 - Return single valve states after execution:
