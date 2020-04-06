@@ -66,7 +66,8 @@ Via _VI Package Manager_:
 ### CRUCIAL
 
 - Adjust Focus Button to Limits
-- Limit Olympus Objective Movement
+  -  Calculate Limits for every objective
+  - Limit Olympus Objective Movement
 - Merge Program Loop into main loop
 - Update State Display
 - __Remove Air Button__
