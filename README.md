@@ -69,24 +69,13 @@ Via _VI Package Manager_:
   -  Calculate Limits for every objective
   - Limit Olympus Objective Movement
 - Merge Program Loop into main loop
-- Update State Display
-- __Remove Air Button__
-	- Close B5, open Channel, "open all"
-- Return single valve states after execution:
-	- [ ] Feed
-	- [ ] Pump
-	- [ ] Load
-	- [ ] Close
-	- [ ] Open
-	- [ ] Flush
-	- [ ] Remove Air
 - Review calibration timing
-- Update single Position (replace operation)
 - Run program with current settings per default
 - Let "Remaining Time" count down
 - Test Program procedure
 - Review Time Calculation procedure 
   + Transfer Timing and Process Finish Events/Handlers 
+- Automatize Calibration completely
 
 
 ### PRIO0
