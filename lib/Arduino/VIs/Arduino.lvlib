@@ -6,19 +6,25 @@
 	<Item Name="ArdnoAllValvesClosed.vi" Type="VI" URL="../ArdnoAllValvesClosed.vi"/>
 	<Item Name="ArdnoAllValvesOpened.vi" Type="VI" URL="../ArdnoAllValvesOpened.vi"/>
 	<Item Name="ArdnoChannel2Valves.vi" Type="VI" URL="../ArdnoChannel2Valves.vi"/>
+	<Item Name="ArdnoControl.vi" Type="VI" URL="../ArdnoControl.vi"/>
+	<Item Name="ArdnoDilutionComputeRemainingTime.vi" Type="VI" URL="../ArdnoDilutionComputeRemainingTime.vi"/>
 	<Item Name="ArdnoDilutionStep.vi" Type="VI" URL="../ArdnoDilutionStep.vi"/>
 	<Item Name="ArdnoFeed.vi" Type="VI" URL="../ArdnoFeed.vi"/>
 	<Item Name="ArdnoFeedStepsForRefreshRatio.vi" Type="VI" URL="../ArdnoFeedStepsForRefreshRatio.vi"/>
 	<Item Name="ArdnoFlush.vi" Type="VI" URL="../ArdnoFlush.vi"/>
+	<Item Name="ArdnoGetValveNums.vi" Type="VI" URL="../ArdnoGetValveNums.vi"/>
 	<Item Name="ArdnoGetValveState.vi" Type="VI" URL="../ArdnoGetValveState.vi"/>
 	<Item Name="ArdnoLED.vi" Type="VI" URL="../ArdnoLED.vi"/>
 	<Item Name="ArdnoLoad.vi" Type="VI" URL="../ArdnoLoad.vi"/>
 	<Item Name="ArdnoManualControl.vi" Type="VI" URL="../ArdnoManualControl.vi"/>
 	<Item Name="ArdnoManualValves.vi" Type="VI" URL="../ArdnoManualValves.vi"/>
+	<Item Name="ArdnoManualValvesFromUI.vi" Type="VI" URL="../ArdnoManualValvesFromUI.vi"/>
 	<Item Name="ArdnoMix.vi" Type="VI" URL="../ArdnoMix.vi"/>
 	<Item Name="ArdnoRing2Valves.vi" Type="VI" URL="../ArdnoRing2Valves.vi"/>
 	<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../ArdnoSingleValveControl.vi"/>
+	<Item Name="ArdnoString2Array.vi" Type="VI" URL="../ArdnoString2Array.vi"/>
 	<Item Name="ArdnoTestBed.vi" Type="VI" URL="../ArdnoTestBed.vi"/>
 	<Item Name="ArdnoTimedValves.vi" Type="VI" URL="../ArdnoTimedValves.vi"/>
 	<Item Name="ArdnoValve2Linx.vi" Type="VI" URL="../ArdnoValve2Linx.vi"/>
+	<Item Name="ArdnoValveArray2Control.vi" Type="VI" URL="../ArdnoValveArray2Control.vi"/>
 </Library>
