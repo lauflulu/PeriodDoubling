@@ -69,14 +69,16 @@
 Make sure you started the program according to section \ref{sec:software_start}.
 	\subsubsection{Initalization}
 	\begin{enumerate}
-	\item Start the Elveflow device and the \textbf{ESI} software, close all valves
-	\item Pressurize the Elveflow with \SIrange{4}{8}{\bar}.
-	\item Wipe the microfluidic with Acetone, IPA and ddH20 to remove dust etc., which cause imaging artifacts
-	\item 	Fill the control tubing with ddH2O with a \SI{1}{\milli\liter} syringe and connect it to the respective inlet
+	\item Start the Elveflow device and the \textbf{ESI} software
+	\item Disable all 4 valves in the software
+	\item Pressurize the Elveflow with \SIrange{4}{8}{\bar} by turning the right valve (blue) between the pressure regulators above the microscope
+	\item Wipe the microfluidic top and bottom with Acetone, IPA and ddH20 to remove dust etc. (otherwise it will cause imaging artifacts)
+	\item 	Fill the control tubing at least (!) \SI{20}{\centi\meter} with ddH2O with a \SI{1}{\milli\liter} syringe and connect it to the respective inlet
 	\item 	Insert the chip carefully into the microscope
-	\item 	Ensure that the tubing does not interfere with the other devices and can move freely during stage driving
+	\item 	Ensure that the tubing does not interfere with the other devices, corners or edges and can move freely during stage driving. Move a sufficient length into the microscope to avoid pulling at the inlets.
 	\item Connect a \SI{40}{\micro\molar} Fluorescein solution to the Elveflow
 	\begin{itemize}
+		\item Use the small diameter PTFE tubing for the whole length.
 		\item Apply \SIrange{10}{20}{\milli\bar} at the respective \textbf{ESI} channel to move the fluid to the end of the tubing until a drop starts to form
 		\item  Insert the connector to Inlet 1 of the chip
 	\end{itemize}
@@ -87,8 +89,8 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\end{itemize}
 	\item Build a connector from small-diameter PTFE-tubing to big-diameter PTFE-tubing; connect it to a waste container and the outlet of the chip (To minimize the hydraulic resistance and capacitive air effects)
 	\item Start the Labview program
-	\item Click the \textbf{Live} Button, adjust \textbf{Filter}, \textbf{Intensity} and \textbf{Exposure} settings.
-	\item Pressurize the control valves with \SI{1.5}{\bar}
+	\item Click the \textbf{Live} Button, then adjust \textbf{Filter}, \textbf{Intensity} and \textbf{Exposure} settings.
+	\item Open the controle pressure with the left, blue valve on top of the microscope and pressurize the control valves with approx. \SI{1.5}{\bar} by turning the center and left pressure regulator.
 	\item Click the \textbf{No Flow} Button to pressurize all quake valves
 	\setcounter{ListCounter}{\value{enumi}}
 		\end{enumerate}
@@ -96,9 +98,9 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\subsubsection{Loading the chip}
 		\begin{enumerate}
 			\setcounter{enumi}{\value{ListCounter}}
-	\item Check the control inlets for leaks and wait for the channels to fill
+	\item Check the control inlets for leaks and wait for the channels to fill, control it in the Live mode. Now would be a great time for experienced users to save the different calibration positions.
 	\item Pressurize the \textbf{ESI} channels for water and fluorescein to \SI{250}{\milli\bar}
-	\item Select \textit{Reagent 2} and click the \textbf{Flush} Button to inject the fluorescein
+	\item Select \textit{Reagent 1} and click the \textbf{Flush} Button to inject the fluorescein
 		\setcounter{ListCounter}{\value{enumi}}
 	\end{enumerate}
 		
@@ -107,7 +109,7 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\setcounter{enumi}{\value{ListCounter}}
 	\item Upon arrival, deactivate \textbf{Flush} and switch to the \textit{GFP} filter; adjust \textit{exposure} (exit live mode) and \textit{intensity} as well as the histogram sliders
 	\item Use the \textit{10x Objective} and move to a valve in the reagent-multiplexer.
-	\subitem Increase the pressure until you see two meniski, which indicates that the valve closes completely.
+	\subitem Increase the pressure until you see two meniski, which indicate that the valve closes completely.
 	\item Repeat the same procedure for the ring pump	\setcounter{ListCounter}{\value{enumi}}
 \end{enumerate}
 
@@ -116,14 +118,15 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\subsubsection{Remove air}
 			\begin{enumerate}
 		\setcounter{enumi}{\value{ListCounter}}
-	\item select \textit{Reagent 1} and click the \textbf{Flush} Button again to inject the water
-	\subitem For faster flushing, the \textbf{ESI} pressure can be increased up to \SI{500}{\milli \bar}  
+	\item select \textit{Reagent 2} and click the \textbf{Flush} Button again to inject the water
+	\subitem For faster flushing, the \textbf{ESI} pressure can be increased \textbf{temporarily} up to \SI{500}{\milli \bar}  
 	\subitem Upon arrival, let it flush as long as air is in the flushing channel between the rings
 	\item Deactivate the \textbf{Flush}, click \textbf{All Valves} and load all rings with \textbf{Load}
 	\subitem Wait until all rings are partly filled
 	\subitem Activate manually the valve \textit{A5} to load another side of the ring
 	\subitem Deactivate \textit{A5} and open \textit{B5} to close the outlet.
 	\subitem This will pressurize all channel and remove remaining air bubbles.
+	\subitem Test the RemoveAir button. It should do the same.
 		\setcounter{ListCounter}{\value{enumi}}
 \end{enumerate}
 
@@ -135,8 +138,8 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\item Click the \textbf{No Flow} Button
 	\item Ensure the \textit{Position List} is empty
 	\subitem if not, hit the \textbf{Clear Last} button
-	\item Move to every ring, starting at the bottom (of live mode) and capture one position of each ring with \textbf{Save Pos} 
-	\item Exit \textit{Live Mode} and hit \textbf{Capture Blank} of the calibration panel at the bottom; follow the instructions and wait until the acquisition is finished
+	\item Move to every ring, starting at the bottom (of live mode) and capture one position of each ring with \textbf{Save Pos}. (The bottom most ring corresponds to RingNr. 1)
+	\item Exit \textit{Live Mode}, wait some time and hit \textbf{Capture Blank} of the calibration panel at the bottom; follow the instructions and wait until the acquisition is finished
 	\item Change to \textit{GFP}, go into \textbf{Live} and \textbf{Flush} with Fluorescein for \SI{10}{\second}
 	\item Make sure \textbf{All Valves} is still on and load all rings with \textbf{Load}
 	\item Exit \textbf{Live} and \textbf{Capture Full Intensity}
@@ -156,13 +159,14 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\begin{enumerate}
 		\setcounter{enumi}{\value{ListCounter}}
 	\item Clear the \textit{Position List} and capture your desired positions.
-	\subitem \textbf{NOTE:} As the focus is always saved with the position, it makes a difference if the positions are captured in \textit{4x} or \textit{10x} or another magnification
-	\item Save your position list with \textbf{Save List} with the suffix \textit{.xml} in a desired location
-	\item Clear the \textit{Microscope Settings} by clicking the \textbf{Clear Last} Button
+	\subitem \textbf{NOTE:} As the focus is always saved with the position, it makes a difference if the positions are captured in \textit{4x}, \textit{10x} or another magnification
+	\item Save your position list by \textbf{Save List} with the suffix \textit{.xml} in a desired location
+	\item Clear the \textit{Microscope Settings} by clicking the \textbf{Clear} Button
 	\item Choose your desired acquisition settings (\textit{Filter}, \textit{Exposure}, \textit{Intensity}) and \textbf{Save Settings}
 	\subitem Repeat it for every color you want to acquire
-	\item \textbf{Save List} with the suffix \textit{.xml} at the same location as the positions
-	\item Make sure that the Refresh Ratios are set correctly
+	\item \textbf{Save List} with the suffix \textit{.xml} (preferably) at the same location as the positions
+	\item Make sure that the Refresh Ratios are set correctly. This is crucial for any further step!
+	\subitem If you want to change the Refresh Ratios, you can either doubleclick into the respective ratio and change it or hit the \textbf{Input Refresh Ratios} to input all ratios again.
 	\item Start the \textbf{Program Setup}
 	\item If you wish to modify a previously created program, click on \textbf{Load Old Program}
 	\item Select the previouly created \textit{Microscope} and \textit{Position Settings} by clicking the \textbf{Folder Symbol}
@@ -173,13 +177,19 @@ Make sure you started the program according to section \ref{sec:software_start}.
 	\subitem \textbf{Change Reagent}: Flushes the outer channels with the selected reagent for a defined time
 	\subitem \textbf{Loop Start}: Begins a unique Loop with a defined number of iterations 
 	\subitem \textbf{Loop End}: Closes a unique Loop with its specified ID
+	\subitem \textbf{Acquire}: Acquires an image at all positions in all specified colors.
 	\item Hit \textbf{Save} and follow the instructions
 	\subitem The later filename is composed of \textbf{YYMMDD\_{}hh\_{}mm\_{}ss\_{}''YOURPREFIX''.tif}
 	\subitem For simple modifications you can also modify the \textit{.xml} file accordingly.
 	
 		\setcounter{ListCounter}{\value{enumi}}
 \end{enumerate}
-
-
-
+	\subsubsection{Starting a program}
+\begin{enumerate}
+\setcounter{enumi}{\value{ListCounter}}
+\item Hit the \textbf{Run Program} button
+\item Select the previously created \textit{program.xml} file and hit \textbf{Load}
+\item Check if all values and steps are correct
+\item Start the program via the \textbf{Start} button
+\end{enumerate}
 \end{document}
