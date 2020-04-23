@@ -30,16 +30,15 @@
 \section{User Guide}
 
 \subsection{Prequisites}
+	If the software is not already installed on the computer, refer to the README.md file.
+
 \subsubsection*{What NOT to do}
 \begin{itemize}
-	\item	The program is not very fast. In case something does not happen instantly, be patient and try to avoid clicking multiple times. This mostly results in unpredictable behavior.
-	\item	If the software is not already installed on the computer, refer to the README.md file.
-	
-\end{itemize}
-
-Some general things 
-\begin{itemize}
-	\item 
+	\item	The program is not very fast. In case something does not happen instantly, be patient and avoid clicking multiple times. This mostly results in unpredictable behavior.
+	\item Never, I repeat, \textbf{never} use the \textbf{Close}-Button (On Windows $\rightarrow$ the X) on the top right corner of any window. This will crash the program in every case. The same applies to the intrinsic \textit{LabVIEW-Abort Program} button near the top left corner. Always use the special \textbf{Abort}. \textbf{Finish} or \textbf{Stop} buttons inside the UI.
+	\item Normally, the COM ports can stay unmodified. However, (mainly after Windows Updates) these ports tend to change. Their correctness can be verified in the Device-Manager (Geräte-Manager) by plugging them out and back in.
+	\item If a device does not turn green upon program start, do not worry. This happens (unfortunately) quite often. Just click the big \textbf{STOP} Button and restart. If the device is still not recognized try switching the respecive and/or your computer off and back on again.
+	\item Do not open a .tif file, while an acquisition is running. 
 \end{itemize}
 
 
@@ -56,7 +55,6 @@ Some general things
 	\item Start the LabvView project UI\_{}Project.lvproj
 	\item Expand the VIs subfolder and start the latest version of the UI
 	\item Click the Run or Run-Continously button on the top left corner
-	\item Normally, the COM ports can stay unmodified. However, (mainly after Windows Updates) these ports tend to change. Their correctness can be verified in the Device-Manager (Geräte-Manager) by plugging them out and back in.
 	\item The red lamps on the top-left corner turn green upon successful connection to the respective device.
 	\subitem If a lamp stays red:
 	\begin{itemize}
@@ -147,8 +145,9 @@ A general remark: You can capture and modify the positions as well as the micros
 	\item Ensure the \textit{Position List} is empty
 	\subitem if not, hit the \textbf{Clear Last} button
 	\item Move to every ring, starting at the bottom (of live mode) and capture one position of each ring with \textbf{Save Pos}. (The bottom most ring corresponds to RingNr. 1)
+	For this step, the 4x objective is sufficient. However, if you want to use the calibration pictures as reference for your measurement, you should use the same settings as in your later program.
 	\item Exit \textit{Live Mode}, wait some time and hit \textbf{Capture Blank} of the calibration panel at the bottom; follow the instructions and wait until the acquisition is finished
-	\item Change to \textit{GFP}, go into \textbf{Live} and \textbf{Flush} with Fluorescein for \SI{10}{\second}
+	\item Change to \textit{GFP}, select a desired \textit{intensity}, go into \textbf{Live} and \textbf{Flush} with Fluorescein for \SI{10}{\second}
 	\item Make sure \textbf{All Valves} is still on and load all rings with \textbf{Load}
 	\item Exit \textbf{Live} and \textbf{Capture Full Intensity}
 	\item Go into \textbf{Live}, make sure \textbf{All Valves} is still on and \textbf{Load} all rings with Fluorescein
@@ -166,7 +165,7 @@ A general remark: You can capture and modify the positions as well as the micros
 	\subsubsection{Creating a program}
 	\begin{enumerate}
 		\setcounter{enumi}{\value{ListCounter}}
-	\item Clear the \textit{Position List} and capture your desired positions.
+	\item \textbf{Optionally: }Clear the \textit{Position List} and capture your desired positions.
 	\subitem \textbf{NOTE:} As the focus is always saved with the position, it makes a difference if the positions are captured in \textit{4x}, \textit{10x} or another magnification
 	\item Save your position list by \textbf{Save List} with the suffix \textit{.xml} in a desired location
 	\item Clear the \textit{Microscope Settings} by clicking the \textbf{Clear} Button
@@ -185,10 +184,15 @@ A general remark: You can capture and modify the positions as well as the micros
 	\subitem \textbf{Change Reagent}: Flushes the outer channels with the selected reagent for a defined time
 	\subitem \textbf{Loop Start}: Begins a unique Loop with a defined number of iterations 
 	\subitem \textbf{Loop End}: Closes a unique Loop with its specified ID
-	\subitem \textbf{Acquire}: Acquires an image at all positions in all specified colors.
-	\item Hit \textbf{Save} and follow the instructions
-	\subitem The later filename is composed of \textbf{YYMMDD\_{}hh\_{}mm\_{}ss\_{}''YOURPREFIX''.tif}
-	\subitem For simple modifications you can also modify the \textit{.xml} file accordingly.
+	\subitem \textbf{Acquire}: Acquires an image at all positions each with every microscope setting.
+	\item Hit \textbf{Save} 
+	\subitem For simple changes you can also modify an existing \textit{.xml} file accordingly.
+	\item When program reaches the \textbf{Total Acquisition Time}, it terminates automatically
+	\item Until the \textbf{Total Acquisition Time} is reached, the outermost loop is repeated every \textbf{Interval}. We mostly use \SI{15}{\minute}
+	\item The later filename is composed of \textbf{YYMMDD\_{}hh\_{}mm\_{}ss\_{}''YOURPREFIX''.tif}
+	\item All images which are captured during the program will be stored in the \textbf{Image Output Folder}. You can either select an existing directory by moving into the desired folder and selecting \textbf{Verzeichnis wählen} or move to another folder, type in the folder name and selecting \textbf{Save. }Make sure that there is enough free space on the drive.
+	\item The previously created program will be saved in a \textit{.xml} file. Navigate to the desired location, type in the file name with its ending and hit \textbf{Save}. 
+
 	
 		\setcounter{ListCounter}{\value{enumi}}
 \end{enumerate}
@@ -201,4 +205,5 @@ A general remark: You can capture and modify the positions as well as the micros
 \item Check if all values and steps are correct
 \item Start the continuous loop via the \textbf{Start} button
 \end{enumerate}
+After starting the Program, a queue with all program steps is initialized and the timing is computed. Please be patient. This may take some time.
 \end{document}
