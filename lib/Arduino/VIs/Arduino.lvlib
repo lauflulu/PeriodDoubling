@@ -20,6 +20,7 @@
 	<Item Name="ArdnoManualValves.vi" Type="VI" URL="../ArdnoManualValves.vi"/>
 	<Item Name="ArdnoManualValvesFromUI.vi" Type="VI" URL="../ArdnoManualValvesFromUI.vi"/>
 	<Item Name="ArdnoMix.vi" Type="VI" URL="../ArdnoMix.vi"/>
+	<Item Name="ArdnoRemoveAir.vi" Type="VI" URL="../ArdnoRemoveAir.vi"/>
 	<Item Name="ArdnoRing2Valves.vi" Type="VI" URL="../ArdnoRing2Valves.vi"/>
 	<Item Name="ArdnoSingleValveControl.vi" Type="VI" URL="../ArdnoSingleValveControl.vi"/>
 	<Item Name="ArdnoString2Array.vi" Type="VI" URL="../ArdnoString2Array.vi"/>

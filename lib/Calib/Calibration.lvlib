@@ -5,6 +5,7 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="CalibComputeRatio.vi" Type="VI" URL="../CalibComputeRatio.vi"/>
 	<Item Name="CalibratePositions.vi" Type="VI" URL="../CalibratePositions.vi"/>
+	<Item Name="Calibration.vi" Type="VI" URL="../Calibration.vi"/>
 	<Item Name="calibrationScript.m" Type="Document" URL="../calibrationScript.m"/>
 	<Item Name="intensityDetermination.m" Type="Document" URL="../intensityDetermination.m"/>
 	<Item Name="loadTiffFast.m" Type="Document" URL="../loadTiffFast.m"/>

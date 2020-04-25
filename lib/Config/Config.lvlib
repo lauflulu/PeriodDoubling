@@ -32,6 +32,7 @@
 	<Item Name="ConfigParsePos.vi" Type="VI" URL="../ConfigParsePos.vi"/>
 	<Item Name="ConfigParseProgram.vi" Type="VI" URL="../ConfigParseProgram.vi"/>
 	<Item Name="ConfigProgram2XML.vi" Type="VI" URL="../ConfigProgram2XML.vi"/>
+	<Item Name="ConfigTimeDialog.vi" Type="VI" URL="../ConfigTimeDialog.vi"/>
 	<Item Name="ConfigUpdateProgram.vi" Type="VI" URL="../ConfigUpdateProgram.vi"/>
 	<Item Name="ContFindAcquisition.vi" Type="VI" URL="../../ContinuousLoop/ContFindAcquisition.vi"/>
 	<Item Name="ContFindIterationStart.vi" Type="VI" URL="../../ContinuousLoop/ContFindIterationStart.vi"/>
