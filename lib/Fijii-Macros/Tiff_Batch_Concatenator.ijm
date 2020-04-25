@@ -19,12 +19,11 @@ if (File.exists(sourceDir)) {
 		for (t=1; t<frames; t++) {	 
 			open(sourceDir + list[t], c + pos*numChan + 1);
 			run("Concatenate...", "  title=tmp image1=tmp image2=" + list[t]);
-		}  		
+		}
 		saveAs("tiff", mainDir + "SinglePosSingleChan\\Pos_" + pos + 1 + "_Chan_" + c+1 + ".tif");
 		run("Close All");
-    }    
+    }
 	showProgress(pos, numPos);
-    
 }
 setBatchMode(false);}
 

@@ -95,11 +95,10 @@
 
 	<!-- Indicates the duration of a measurement-->
 	<xs:simpleType name="_duration">
-    <xs:restriction base="xs:time">
-        <xs:pattern value="[0-2][0-9]:[0-5][0-9]:[0-5][0-9]"/>
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]?[0-9]?[0-9]:[0-5][0-9]:[0-5][0-9]"/>
     </xs:restriction>
 	</xs:simpleType>
-
 
 	<xs:simpleType name="_elveflowChannel">
 		<xs:restriction base="xs:integer">
@@ -110,12 +109,11 @@
 
 
 
-
 	<!-- Indicates the name, saving directory and aquisition interval of an automatized measurement-->
 	<xs:complexType name="_img">
 		<xs:all>
 			<xs:element name="Prefix" type="xs:string"/>
-			<xs:element name="AcquisitionInterval" type="xs:time"/>
+			<xs:element name="AcquisitionInterval" type="_duration"/>
 			<xs:element name="SaveDir" type="xs:string"/>
 		</xs:all>
 	</xs:complexType>
