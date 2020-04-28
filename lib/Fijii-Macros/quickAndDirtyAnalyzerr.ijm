@@ -1,9 +1,9 @@
 mainDir = getDirectory("Source Directory");
-sourceDir = mainDir + "original\\";
-File.makeDirectory(mainDir + "SinglePosSingleChan");
+//sourceDir = mainDir + "Acquisition_window_3\\";
+sourceDir = mainDir + "SinglePosSingleChan\\";
 
 if (File.exists(sourceDir)) {
-    setBatchMode(true);    
+    setBatchMode(false);    
     list = getFileList(sourceDir);
 	Dialog.create("Parameters");
 	Dialog.addNumber("Number of Positions", 8)
@@ -11,49 +11,65 @@ if (File.exists(sourceDir)) {
 	Dialog.show();
 	numPos = Dialog.getNumber();
 	numChan = Dialog.getNumber();
-	frames = list.length; // 
+	open(sourceDir + "Pos_1_Chan_1.tif");
+	getDimensions(w, h, channels, frames, slices);
+	run("Close All");
+	run("Clear Results");
 	for (pos = 1; pos < numPos+1; pos++) {  
-		open(sourceDir + list[0],c + pos*numChan + 1);
-
+		open(sourceDir + "Pos_" + pos +"_Chan_2.tif");
+		columnHeader=getTitle();
+		run("Subtract Background...", "rolling=200 stack");
 		// user selects rectangle
 		waitForUser("Select a rectangle!");
-		getSelectionBounds(x, y, width, height);
-
-
-
-
-
-
-
+		getSelectionBounds(x1, y1, w1, h1);
+		run("Crop");
 		
+		// then make a montage
+		run("Make Montage...", "columns=1 rows="+frames+" scale=1 increment=1");
+		run("Rotate 90 Degrees Left");
+		// let user select channel
+		waitForUser("Select a rectangle!");
+		getSelectionBounds(x2, y2, w2, h2);
+		run("Crop");
+		// export time and intensity data
+		run("Select All");
+			// Get profile and display values in "Results" window
+		profile = getProfile();
+		for (i=0; i<profile.length; i++)
+		  setResult(columnHeader, i, profile[i]);
+		updateResults;
 		run("Close All");
-
 		
-		
-		
+		// do the same for the other channels in the same position
 		for (c = 3; c < numChan+1; c++) {
-    		open(sourceDir + list[0],c + pos*numChan + 1);
-    	
-
-
-
-		saveAs("tiff", mainDir + "SinglePosSingleChan\\Pos_" + pos + 1 + "_Chan_" + c+1 + ".tif");
-		run("Close All");
-    }
-	showProgress(pos, numPos);
+    		open(sourceDir + "Pos_" + pos +"_Chan_"+c+".tif");
+			columnHeader=getTitle();
+			run("Subtract Background...", "rolling=200 stack");
+	    	// use same rectangle
+			makeRectangle(x1, y1, w1, h1);
+			run("Crop");
+			
+			// then make a montage
+			run("Make Montage...", "columns=1 rows="+frames+" scale=1 increment=1");
+			run("Rotate 90 Degrees Left");
+			// use same rectangle
+			makeRectangle(x2, y2, w2, h2);
+			run("Crop");
+			// export time and intensity data
+			run("Select All");
+				// Get profile and display values in "Results" window
+			profile = getProfile();
+			for (i=0; i<profile.length; i++)
+			  setResult(columnHeader, i, profile[i]);
+			updateResults;
+			run("Close All");
+		    }
+		showProgress(pos, numPos);	
+	}
+	path = mainDir+"profile.csv";
+	saveAs("Results", path);
+	setBatchMode(false);
 }
-setBatchMode(false);}
 
 
 
-run("Crop");
-run("Subtract Background...", "rolling=200 stack");
-// then make a montage
-run("Make Montage...", "columns=1 rows=240 scale=1 increment=1");
-run("Rotate 90 Degrees Left");
-// let user select channel
-makeRectangle(265, 273, 172, 39);
-run("Crop");
-// somehow export time and intensity data
-
-// do the same for the other channels in the same position
