@@ -21,8 +21,8 @@ intensities = zeros(numOfChambers,timePoints); % Zeros(rows, col)
 %% The intensities within the ROI is determined. 
 for i = 1:timePoints
    for j = 1:numOfChambers
-        currIm =  images(:,:,i);
-        intensities(j,i) = mean(currIm(sub2ind(size(currIm),XCoords{j,i},YCoords{j,i})));
+        currIm =  images(:,:,i,j);
+        intensities(j,i) = mean(currIm(sub2ind(size(currIm),YCoords{j,i},XCoords{j,i})));
     end
 end
 

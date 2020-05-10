@@ -34,7 +34,7 @@ for i = 1:numReactors
     
     for j = 1:timePoints
         % Obtain the coordinates of all points within the ROI
-        [XCoordinates{i,j}, YCoordinates{i,j}] = find(mask);
+        [YCoordinates{i,j}, XCoordinates{i,j}] = find(mask);
     end
 end
 

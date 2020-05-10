@@ -6,8 +6,8 @@ if (File.exists(sourceDir)) {
     setBatchMode(true);    
     list = getFileList(sourceDir);
 	Dialog.create("Parameters");
-	Dialog.addNumber("Number of Positions", 10)
-	Dialog.addNumber("Number of Channels", 5);
+	Dialog.addNumber("Number of Positions", 8)
+	Dialog.addNumber("Number of Channels", 3);
 	Dialog.show();
 	numPos = Dialog.getNumber();
 	numChan = Dialog.getNumber();
