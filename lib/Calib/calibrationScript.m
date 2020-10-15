@@ -9,16 +9,17 @@
 %
 clear all
 %% Select the correct .Tiff file:
-[pathName]  = uigetdir();
+[pathName]  = uigetdir();%\\nas.ads.mwn.de\tuph\e14\users\laufinger\Videos\04-8ring\200923_ElliBistable3\200923_calibration
 blankPath   = fullfile(pathName,'blank.tif');
 dilPath     = fullfile(pathName, 'dilutions.tif');
-fulIIntPath = fullfile(pathName, 'full.tif');
+fulIPath = fullfile(pathName, 'full.tif');
 
-if ~exist(blankPath,'file') || ~exist(dilPath,'file') || ~exist(fulIIntPath,'file')
+if ~exist(blankPath,'file') || ~exist(dilPath,'file') || ~exist(fulIPath,'file')
     error("the folder and/or file structure is invalid.");
 else
     dil = loadTiffFast(dilPath);
     blank = loadTiffFast(blankPath);
+    full = loadTiffFast(fulIPath);
     
     %%
     if ndims(dil) < 3
@@ -35,14 +36,16 @@ else
     
     %% Reorder images to 4d Matrix with positions and frames
     rep = (size(dil,3)/numReactor);
-    dilSorted = zeros(size(dil,1),size(dil,2), rep, numReactor);
+    dilSorted = zeros(size(dil,1),size(dil,2), rep+2, numReactor);
     dilSorted(:,:,1,:) = blank;
+    dilSorted(:,:,2,:) = full;
     for i = 1:numReactor
         for j = 1:rep
-            dilSorted(:,:,j+1,i) = dil(:,:, i + (j-1)*numReactor);
+            dilSorted(:,:,j+2,i) = dil(:,:, i + (j-1)*numReactor);
         end
     end
     clear dil
+    clear full
     %% Set the intensity range with which to view all images during ROI selection
     intensityRange = zeros(2,numReactor);
     for i = 1:numReactor
@@ -70,14 +73,14 @@ else
     [finalRefreshRatio, refreshPerReactor] = plotIntensityCurves(intensities,pathName, ENABLE_BLANK_SUBTRACTION);
     
     refreshPerReactorPerFeed = refreshPerReactor ./ feedSteps
-    RR1 = refreshPerReactorPerFeed(1,1)
-    RR2 = refreshPerReactorPerFeed(2,1)
-    RR3 = refreshPerReactorPerFeed(3,1)
-    RR4 = refreshPerReactorPerFeed(4,1)
-    RR5 = refreshPerReactorPerFeed(5,1)
-    RR6 = refreshPerReactorPerFeed(6,1)
-    RR7 = refreshPerReactorPerFeed(7,1)
-    RR8 = refreshPerReactorPerFeed(8,1)
+%     RR1 = refreshPerReactorPerFeed(1,1)
+%     RR2 = refreshPerReactorPerFeed(2,1)
+%     RR3 = refreshPerReactorPerFeed(3,1)
+%     RR4 = refreshPerReactorPerFeed(4,1)
+%     RR5 = refreshPerReactorPerFeed(5,1)
+%     RR6 = refreshPerReactorPerFeed(6,1)
+%     RR7 = refreshPerReactorPerFeed(7,1)
+%     RR8 = refreshPerReactorPerFeed(8,1)
     finalRefreshRatio
     finalRefreshRatioPerFeed = finalRefreshRatio / feedSteps
     save(fullfile(pathName, 'RefreshRatios.mat'),'refreshPerReactor',...

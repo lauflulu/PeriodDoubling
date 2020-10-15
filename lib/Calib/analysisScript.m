@@ -88,15 +88,29 @@ else
         r
     end 
     %% Plot the intensity curves and view the refresh ratio
-    figure(1);
     time=[0:T-1]*0.25; %in hours
-    for r = 1:numReactor
-        subplot(2,4,r)
-        plot(time,squeeze(intensities(r,2:end,3:end)))
-    end
+    figure(1);
+        for r = 1:numReactor
+            subplot(4,4,r) 
+            hold all
+            for c=2:numChannels
+                title(sprintf('Reactor %d',r))
+                plot(time,squeeze(intensities(r,c-1,3:end)))
+            end
+        end
+        box('on')
+        for c=2:numChannels
+            subplot(2,2,c+1)
+            hold all
+            for r = 1:numReactor
+                title(sprintf('Channel %d',c))
+                plot(time,squeeze(intensities(r,c-1,3:end)))
+            end
+            box('on'); legend();
+        end
         
-%     save(fullfile(pathNameCalib, 'RefreshRatios.mat'),'refreshPerReactor',...
-%         'refreshPerReactorPerFeed', 'finalRefreshRatio',...
-%         'finalRefreshRatioPerFeed');
+     save(fullfile(pathNameImages,...
+         [datestr(now,'yymmdd'),'_intensities.mat']),...
+         'intensities','time');
 end
 %% This is the end of the script.
