@@ -144,13 +144,14 @@
 	<xs:complexType name="_arduino">
 		<xs:choice maxOccurs="50">
 			<xs:element name="Feed" type="_feed"/>
-      <xs:element name="Mix" type="_duration"/>
-      <xs:element name="ChangeReagent" type="_changeReagent"/>
-      <xs:element name="Incubate" type="_duration"/>
-      <xs:element name="IterationStart" type="_iterationStart"/>
-      <xs:element name="IterationEnd" type="xs:integer"/>
-      <xs:element name="Acquire" type="_acquire"/>
-    </xs:choice>
+		    <xs:element name="Mix" type="_duration"/>
+		    <xs:element name="ChangeReagent" type="_changeReagent"/>
+			<xs:element name="FlushFeed" type="_flushfeed"/>
+		    <xs:element name="Incubate" type="_duration"/>
+		    <xs:element name="IterationStart" type="_iterationStart"/>
+		    <xs:element name="IterationEnd" type="xs:integer"/>
+		    <xs:element name="Acquire" type="_acquire"/>
+		</xs:choice>
 	</xs:complexType>
 
 
@@ -175,6 +176,13 @@
     <xs:sequence>
       <xs:element name="Duration" type="_duration"/>
       <xs:element name="ReagentNr" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="_flushfeed">
+    <xs:sequence>
+	<xs:element name="ReagentNr" type="xs:integer"/>
+      <xs:element name="Cycles" type="xs:integer"/>	  
     </xs:sequence>
   </xs:complexType>
 
