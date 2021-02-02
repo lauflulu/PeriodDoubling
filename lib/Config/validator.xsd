@@ -168,7 +168,6 @@
     <xs:sequence>
       <xs:element name="Ratio" type="_percent"/>	  
       <xs:element name="Ring" type="xs:integer"/>
-	  
     </xs:sequence>
   </xs:complexType>
 
@@ -186,7 +185,7 @@
     </xs:sequence>
   </xs:complexType>
 
-  <xs:complexType name="_iterationStart">
+<xs:complexType name="_iterationStart">
     <xs:sequence>
       <xs:element name="ID" type="xs:integer"/>
       <xs:element name="Iterations" type="xs:integer"/>
