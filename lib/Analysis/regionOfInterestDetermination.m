@@ -11,30 +11,45 @@ function [XCoordinates, YCoordinates] = regionOfInterestDetermination(img, inten
 % intensity range used to make the images visable.
 
 %% Show each of the images and determine the region of interest.
-numReactors = size(img,4);
-timePoints = size(img,3);
-XCoordinates = cell([numReactors, timePoints]);
-YCoordinates = cell([numReactors, timePoints]);
+numReactors = size(img,3);
+XCoordinates = cell(numReactors,1);
+YCoordinates = cell(numReactors,1);
 
-for i = 1:numReactors
+for r = 1:numReactors
+    % button              
+    confirmHandle = uicontrol('Style', 'ToggleButton', ...
+                         'String', 'Confirm ROIs',...
+                         'Position',[20,40,120,20]);
+    
     % Select each image and proceed to select the desired range.
     % Selection is acheived by selecting the corner points of the region of
     % interest in a clockwise manner, starting at the top-left corner.
     %fig = figure;
     %ax = axes(fig);
-    imageFull = img(:,:,2,i);
-    imshow(imageFull,intensityRange(:,i));
-    
-    roi = drawpolygon(gca,'Color', 'r');
-    mask = createMask(roi);
-    
-    for j = 1:timePoints
-        % Obtain the coordinates of all points within the ROI
-        [YCoordinates{i,j}, XCoordinates{i,j}] = find(mask);
-    end
-end
+    image = img(:,:,r);
 
-close all
+    imshow(image,intensityRange(:,r));
+    I=0;
+    while ~confirmHandle.Value
+        I=I+1;
+        roi(I) = drawrectangle(gca,'Color', 'r','Label',sprintf('%i',I));
+    end
+    title('edit ROIs, then hit any key to continue with next ring')
+    pause
+    
+    o=0;
+    for i=1:I
+        try
+            mask = createMask(roi(i));
+            o=o+1;
+            % Obtain the coordinates of all points within the ROI
+            [YCoordinates{r,o}, XCoordinates{r,o}] = find(mask);
+        catch
+            sprintf('ROI %d was deleted',i)
+        end
+    end
+    close all
+end
 
 end
 

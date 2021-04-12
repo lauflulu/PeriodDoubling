@@ -29,7 +29,7 @@ else
     dlgtitle = 'How many different positions did you evaluate?';
     prompt= {'Number of positions','Number of Feed Steps'};
     dims = [1 35];
-    definput = {'8','30'};
+    definput = {'8','45'};
     answer = inputdlg(prompt,dlgtitle,dims,definput)
     numReactor = str2double(answer{1});
     feedSteps = str2double(answer{2});
