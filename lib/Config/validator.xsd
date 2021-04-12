@@ -142,7 +142,7 @@
 
 	<!-- Container for different valve configuration-->
 	<xs:complexType name="_arduino">
-		<xs:choice maxOccurs="50">
+		<xs:choice maxOccurs="unbounded">
 			<xs:element name="Feed" type="_feed"/>
 		    <xs:element name="Mix" type="_duration"/>
 		    <xs:element name="ChangeReagent" type="_changeReagent"/>
