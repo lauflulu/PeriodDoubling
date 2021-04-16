@@ -116,6 +116,6 @@ else
         
      save(fullfile(pathNameImages,...
          [datestr(now,'yymmdd'),'_intensities.mat']),...
-         'intensities','time');
+         'intensities');
 end
 %% This is the end of the script.
