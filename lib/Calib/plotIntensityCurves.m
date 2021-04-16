@@ -55,10 +55,10 @@ end
 % differences
 %averageRefreshRatiosPerReactor = mean(refreshRatios(:,:),2);
 % fit to log intensities
-%averageRefreshRatiosPerReactor = 1-exp(b(2,:)');
+averageRefreshRatiosPerReactor = 1-exp(b(2,:)');
 % exponential fit (best, because initial dilution steps have more
 % influence)
-averageRefreshRatiosPerReactor = 1-exp(b2(2,:)');
+% averageRefreshRatiosPerReactor = 1-exp(b2(2,:)');
 
 
 %% Display Results
@@ -84,14 +84,15 @@ figure(3)
 hold all
 plot(logCorrectedIntensities,'.','MarkerSize',20); 
 set(gca,'ColorOrderIndex',1);
-plot(X*b2)
+plot(X*b)
+% plot(X*b2)
 title('Refresh Ratios per Reactor');
 legend(legendNames);
 xlabel('Dilution Steps'); ylabel('log(Intensity) (au)')
 xlim([0,timePoints+1]);
 
 %% Determine Average Refresh Ratios
-% This is the average refresh ration of each individual reactor which has 
+% This is the average refresh ratio of each individual reactor which has 
 % been selected. This array is only used to then determine the average
 % refresh ratio across all selected reactors. 
 averageRefreshRatiosPerReactor2 = mean(refreshRatios);

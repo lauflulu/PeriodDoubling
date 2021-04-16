@@ -12,6 +12,7 @@
 	<Item Name="ArdnoFeed.vi" Type="VI" URL="../ArdnoFeed.vi"/>
 	<Item Name="ArdnoFeedStepsForRefreshRatio.vi" Type="VI" URL="../ArdnoFeedStepsForRefreshRatio.vi"/>
 	<Item Name="ArdnoFlush.vi" Type="VI" URL="../ArdnoFlush.vi"/>
+	<Item Name="ArdnoFlushFeed.vi" Type="VI" URL="../ArdnoFlushFeed.vi"/>
 	<Item Name="ArdnoGetValveNums.vi" Type="VI" URL="../ArdnoGetValveNums.vi"/>
 	<Item Name="ArdnoGetValveState.vi" Type="VI" URL="../ArdnoGetValveState.vi"/>
 	<Item Name="ArdnoLED.vi" Type="VI" URL="../ArdnoLED.vi"/>
