@@ -11,16 +11,17 @@ close all
 imagePath   = fullfile(pathNameImages,'SinglePosSingleChan');
 
 warning('off','imageio:tiffmexutils:libtiffWarning')
+warning('off', 'MATLAB:imagesci:tiffmexutils:libtiffWarning')
 
 %%
 dlgtitle = 'How many different positions did you evaluate?';
-prompt= {'Number of rings','Number of channels'};
+prompt= {'Number of rings','Number of channels','ROI channel'};
 dims = [1 35];
-definput = {'8','2'};
+definput = {'8','2','1'};
 answer = inputdlg(prompt,dlgtitle,dims,definput);
 numReactor = str2double(answer{1});
 numChannels = str2double(answer{2});
-
+roiChannel = str2double(answer{3});
 
 lastImagePath = [imagePath,sprintf('\\Pos_%d_Chan_%d.tif',numReactor,numChannels)];
 
@@ -38,8 +39,7 @@ else
     % load first images into 3d Matrix with positions and frames
 
     for r = 1:numReactor
-        c=2; %channel for ROI drawing
-        currImagePath= [imagePath,sprintf('\\Pos_%d_Chan_%d.tif',r,c)];
+        currImagePath= [imagePath,sprintf('\\Pos_%d_Chan_%d.tif',r,roiChannel)];
         roiImages(:,:,r) = imread(currImagePath,1);
     end
 
@@ -84,7 +84,7 @@ else
 
             % Determine the intensities of the ROI within all frames
             for o=1:numROIs
-                intensities(r,c-1,o,:) = intensityDetermination(images, xCoords, yCoords);
+                intensities(r,c-1,o,:) = intensityDetermination(images, xCoords(:,:,o), yCoords(:,:,o));
             end
         end
         r
@@ -106,16 +106,16 @@ else
         
         for c=2:numChannels
             subplot(2,2,c+1)
-            hold all
-            for r = 1:numReactor
-                title(sprintf('Channel %d',c))
-                plot(time,squeeze(intensities(r,c-1,:,:)))
-            end
-            box('on'); legend();
+                hold all
+                for r = 1:numReactor
+                    title(sprintf('Channel %d',c))
+                    plot(time,squeeze(intensities(r,c-1,1,:)))
+                end
+                box('on'); legend();
         end
         
-%      save(fullfile(pathNameImages,...
-%          [datestr(now,'yymmdd'),'_intensities.mat']),...
-%          'intensities','time');
+     save(fullfile(pathNameImages,...
+         [datestr(now,'yymmdd'),'_intensities.mat']),...
+         'intensities','time');
 end
 %% This is the end of the script.
