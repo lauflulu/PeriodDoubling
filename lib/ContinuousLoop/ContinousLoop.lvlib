@@ -7,7 +7,7 @@
 	<Item Name="Sec2Timestamp.vi" Type="VI" URL="../Sec2Timestamp.vi"/>
 	<Item Name="ContBuildProgamQueue.vi" Type="VI" URL="../ContBuildProgamQueue.vi"/>
 	<Item Name="ContCompTime2Feed.vi" Type="VI" URL="../ContCompTime2Feed.vi"/>
-	<Item Name="ContDecodeProgramIterations.vi" Type="VI" URL="../ContDecodeProgramIterations.vi"/>
+	<Item Name="ContDecodeProgramIterations2.vi" Type="VI" URL="../ContDecodeProgramIterations2.vi"/>
 	<Item Name="ContFindIterationEnd.vi" Type="VI" URL="../ContFindIterationEnd.vi"/>
 	<Item Name="ContinousLoopMain.vi" Type="VI" URL="../ContinousLoopMain.vi"/>
 	<Item Name="ContinuosSplitMicroSettings.vi" Type="VI" URL="../ContinuosSplitMicroSettings.vi"/>
