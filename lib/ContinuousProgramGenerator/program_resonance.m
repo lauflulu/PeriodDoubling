@@ -87,10 +87,14 @@ for i=1:numIter
     xml=iterationStart(xml,i,1);
     %reagents
     for s=1:numReagents
-        xml=flushFeed(xml,reagentPorts(s),100);
-        %rings
-        for r=1:numRings
-            xml=feed(xml,feedRatio(i,r,s),r);
+        if sum(feedRatio(i,:,s))>0
+            xml=flushFeed(xml,reagentPorts(s),100);
+            %rings
+            for r=1:numRings
+                if feedRatio(i,r,s)>0
+                    xml=feed(xml,feedRatio(i,r,s),r);
+                end
+            end
         end
     end
     %mix and acquire
