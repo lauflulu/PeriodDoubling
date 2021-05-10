@@ -11,7 +11,7 @@ input=zeros(numIter,numRings,numReagents); % input kinetics
 
 RR=20; % total refresh ratio for each step
 
-reagentPorts=[3,5,7]; % ports with reagents
+reagentPorts=[4,5,2]; % ports with reagents
 waterPort=1;
 reagentLogic=[0,-1,1]; % 0: no input, 1: periodic input, -1: anti-input to fill volume
 
@@ -80,6 +80,7 @@ changeReagent=@(xml,duration,reagentNr) [xml,...
     sprintf('<ChangeReagent>\n<Duration>'),duration,sprintf('</Duration>\n<ReagentNr>%d</ReagentNr>\n</ChangeReagent>\n',reagentNr)];
 mix=@(xml,duration) [xml,'<Mix>',duration,sprintf('</Mix>\n')];
 acquire=@(xml) [xml,sprintf('<Acquire/>\n')];
+incubate=@(xml,duration) [xml,'<Incubate>',duration,sprintf('</Incubate>\n')];
 
 xml=[];
 
@@ -87,20 +88,28 @@ for i=1:numIter
     xml=iterationStart(xml,i,1);
     %reagents
     for s=1:numReagents
-        xml=flushFeed(xml,reagentPorts(s),100);
-        %rings
-        for r=1:numRings
-            xml=feed(xml,feedRatio(i,r,s),r);
+        if sum(feedRatio(i,:,s))
+            xml=flushFeed(xml,reagentPorts(s),75);
+            %rings
+            for r=1:numRings
+                if feedRatio(i,r,s)
+                    xml=feed(xml,feedRatio(i,r,s),r);
+                end
+            end
         end
     end
     %mix and acquire
+    xml=incubate(xml,'00:00:01');
     xml=changeReagent(xml,'00:00:30',waterPort);
-    xml=mix(xml,'00:07:30');
+    xml=mix(xml,'00:05:00');
+    xml=incubate(xml,'00:00:01');
     xml=acquire(xml);
+    xml=incubate(xml,'00:00:01');
     xml=iterationEnd(xml,i);
 end
 
-fid = fopen('test.xml','wt');
+fid = fopen('210505_continuous.xml','wt');
 fprintf(fid, xml);
 fclose(fid);
+'finished'
 

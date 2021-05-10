@@ -8,6 +8,7 @@
 % https://docs.openmicroscopy.org/bio-formats/5.7.1/users/matlab/index.html
 %
 clear all
+close all
 %% Select the correct .Tiff file:
 [pathName]  = uigetdir();%\\nas.ads.mwn.de\tuph\e14\users\laufinger\Videos\04-8ring\200923_ElliBistable3\200923_calibration
 blankPath   = fullfile(pathName,'blank.tif');
