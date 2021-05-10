@@ -105,7 +105,7 @@ else
         end
         
         for c=2:numChannels
-            subplot(2,2,c+1)
+            subplot(2,numChannels-1,c+numChannels-2)
                 hold all
                 for r = 1:numReactor
                     title(sprintf('Channel %d',c))

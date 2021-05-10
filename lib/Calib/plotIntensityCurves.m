@@ -43,12 +43,16 @@ b2=zeros(2,numOfChambers);
 for i=1:numOfChambers
     xi=x(~isnan(logCorrectedIntensities(:,i)));
     yi=logCorrectedIntensities(~isnan(logCorrectedIntensities(:,i)),i);
-    f=fit(xi,yi,'poly1');
-    b(:,i)=[f.p2;f.p1];
-    
-    zi=correctedIntensities(i,:)';
-    f2=fit(x,zi,'a*exp(b*x)');
-    b2(:,i)=[log(f2.a);f2.b];
+    try
+        f=fit(xi,yi,'poly1');
+        b(:,i)=[f.p2;f.p1];
+
+        zi=correctedIntensities(i,:)';
+        f2=fit(x,zi,'a*exp(b*x)');
+        b2(:,i)=[log(f2.a);f2.b];
+    catch
+        b2(:,i)=[nan;nan];
+    end
 end
 
 %% Refresh Ratios
