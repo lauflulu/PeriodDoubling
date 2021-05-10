@@ -85,6 +85,8 @@ else
 %% extract fluorescence data
 % load images into 3d Matrix with positions and frames
     intensities = zeros(numReactor,numChannels-1,numROIs,T);
+    normIntensities =zeros(numReactor,1,numROIs,1);
+    normImages=loadTiffFast(calibrationPath);
 
     for r = 1:numReactor
         for c=2:numChannels
@@ -95,7 +97,7 @@ else
 
             % Determine the intensities of the ROI within all frames
             for o=1:numROIs
-                intensities(r,c-1,o,:) = intensityDetermination(images, xCoords(r,:,o), yCoords(r,:,o));
+                intensities(r,c-1,o,:) = intensityDetermination(images, xCoords(:,:,o), yCoords(:,:,o));
             end
         end
         r
@@ -104,17 +106,15 @@ else
 
     clear roiImages
     
-    % normalization, last ROI is background
-    normIntensities =zeros(numReactor,1,numROIs,1);
-    normImages=loadTiffFast(calibrationPath);
+    %% normalization, last ROI is background
     for r = 1:numReactor
         normImage(:,:,1,1) = normImages(:,:,r);
         for o=1:numROIs
-            normIntensities(r,1,o,1) = intensityDetermination(normImage, xCoords(r,:,o), yCoords(r,:,o));
+            normIntensities(r,1,o,1) = intensityDetermination(normImage, xCoords(:,:,o), yCoords(:,:,o));
         end
     end
     
-    intensities=(intensities-intensities(:,:,end,:))./(normIntensities-normIntensities(:,:,end,:));
+    intensities=(intensities-intensities(:,:,end,:));%./(normIntensities-normIntensities(:,:,end,:));
     %% Plot the intensity curves and view the refresh ratio
     time=[0:T-1]*0.25; %in hours
     figure(1);
