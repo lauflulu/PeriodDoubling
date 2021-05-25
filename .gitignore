@@ -6,3 +6,4 @@ Test_N_Eval_Images
 *.out
 *.synctex.gz
 *.toc
+*.asv
