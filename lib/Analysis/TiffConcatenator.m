@@ -16,15 +16,18 @@ end
 files = dir(fullfile([pathName,'\original'], '*tif'));    
 T=length(files);
 
+info=imfinfo([files(1).folder,'\',files(1).name]);
+numChan=numel(info)/8;
+
 dlgtitle = 'How many different positions did you evaluate?';
 prompt= {'Number of positions','Channels'};
 dims = [1 35];
-definput = {'8','3'};
+definput = {'8',sprintf('%d',numChan)};
 answer = inputdlg(prompt,dlgtitle,dims,definput);
 numReactor = str2double(answer{1});
 numChan = str2double(answer{2});
 
-[Y,X]=size(imread([files(1).folder,'\',files(1).name]));
+Y=info(1).Height; X=info(1).Width;
 
 %%
 time=zeros(T,1);

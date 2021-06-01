@@ -25,10 +25,14 @@ warning('off','imageio:tiffmexutils:libtiffWarning')
 warning('off', 'MATLAB:imagesci:tiffmexutils:libtiffWarning')
 
 %%
+files = dir(fullfile(imagePath, '*tif'));    
+numChannels=numel(files)/8;
+
+
 dlgtitle = 'How many different positions did you evaluate?';
 prompt= {'Number of rings','Number of channels','ROI channel'};
 dims = [1 35];
-definput = {'8','2','1'};
+definput = {'8',sprintf('%d',numChannels),'1'};
 answer = inputdlg(prompt,dlgtitle,dims,definput);
 numReactor = str2double(answer{1});
 numChannels = str2double(answer{2});
@@ -107,17 +111,24 @@ else
     % normalization, last ROI is background
     normIntensities =zeros(numReactor,1,numROIs,1);
     normImages=loadTiffFast(calibrationPath);
+    
+    % register normImages
     for r = 1:numReactor
-        normImage(:,:,1,1) = normImages(:,:,r);
+        I_cal=normImages(:,:,r);
+        I_exp=imread([imagePath,sprintf('\\Pos_%d_Chan_1.tif',r)],1);
+        
+        normImage(:,:,1,1) = registerCalibration(I_cal,I_exp);
+  
         for o=1:numROIs
             normIntensities(r,1,o,1) = intensityDetermination(normImage, xCoords(r,:,o), yCoords(r,:,o));
         end
+        r
     end
     
     intensities=(intensities-intensities(:,:,end,:))./(normIntensities-normIntensities(:,:,end,:));
     %% Plot the intensity curves and view the refresh ratio
     time=[0:T-1]*0.25; %in hours
-    figure(1);
+    figure(numReactor+1);
         for r = 1:numReactor
             subplot(4,4,r) 
                 hold all
