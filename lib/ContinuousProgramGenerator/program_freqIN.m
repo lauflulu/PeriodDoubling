@@ -2,20 +2,20 @@ clear all
 close all
 %% initialize
 
-numIter=100; % number of iterations
+numIter=200; % number of iterations
 numRings=8; % number of reactors
 numReagents=3; % number of reagents
 
 feedRatio=zeros(numIter,numRings,numReagents); % feed ratio for each step and reactor and reagent
 input=zeros(numIter,numRings,numReagents); % input kinetics
 
-RR=20; % total refresh ratio for each step
+RR=25; % total refresh ratio for each step
 
-reagentPorts=[4,5,2]; % ports with reagents
-waterPort=1;
+reagentPorts=[8,6,2]; % ports with reagents
+waterPort=9;
 reagentLogic=[0,-1,1]; % 0: no input, 1: periodic input, -1: anti-input to fill volume
 
-ringInPeriod=[0,6,8,10,12,16,20,0];
+ringInPeriod=[0,8,9,10,12,14,16,0];
 %% generate feed matrix
 for i=1:numIter
     for r=1:numRings
@@ -89,7 +89,7 @@ for i=1:numIter
     %reagents
     for s=1:numReagents
         if sum(feedRatio(i,:,s))
-            xml=flushFeed(xml,reagentPorts(s),75);
+            xml=flushFeed(xml,reagentPorts(s),100);
             %rings
             for r=1:numRings
                 if feedRatio(i,r,s)
@@ -108,7 +108,7 @@ for i=1:numIter
     xml=iterationEnd(xml,i);
 end
 
-fid = fopen('210505_continuous.xml','wt');
+fid = fopen('210924_continuous.xml','wt');
 fprintf(fid, xml);
 fclose(fid);
 'finished'

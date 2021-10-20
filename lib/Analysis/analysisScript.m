@@ -3,9 +3,10 @@
 
 % To succesfully run these scripts, install the bfopen toolbox:
 % https://docs.openmicroscopy.org/bio-formats/5.7.1/users/matlab/index.html
-%
+
 clear all
 close all
+
 %% Select the correct .Tiff file:
 scriptDir=cd;
 [pathNameImages]  = uigetdir();

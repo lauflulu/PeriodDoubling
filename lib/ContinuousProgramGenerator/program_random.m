@@ -8,59 +8,43 @@ numReagents=3; % number of reagents
 
 feedRatio=zeros(numIter,numRings,numReagents); % feed ratio for each step and reactor and reagent
 input=zeros(numIter,numRings,numReagents); % input kinetics
-realInput=zeros(numIter,numRings,numReagents); % input kinetics
-realInput(1,:,1)=0.5; realInput(1,:,2)=0.5; %initial loading
 
-RR=[20,25,30,40,40,30,25,20]; % total refresh ratio for each step
+RR=25; % total refresh ratio for each step
 
-reagentPorts=[3,4,6]; % ports with reagents
-waterPort=1;
+reagentPorts=[3,5,8]; % ports with reagents
+waterPort=9;
 reagentLogic=[0,-1,1]; % 0: no input, 1: periodic input, -1: anti-input to fill volume
 
-%% generate input matrix
+ringInPeriod=[0,8,12,16,20,24,16,0];
+
+%% generate feed matrix
 for i=1:numIter
     for r=1:numRings
+        try
+                isIN=randi(ringInPeriod(r));
+        catch
+            isIN=0;
+        end
+        
         for s=1:numReagents
-            if reagentLogic(s)==1 && i<=50
-                input(i,r,s)=((i-mod(i,4))/48/2);
-            elseif reagentLogic(s)==-1 && i<=50
-                input(i,r,s)=(0.5-(i-mod(i,4))/48/2);
-                
-            elseif reagentLogic(s)==1 && i>50
-                input(i,r,s)=(1-(i-mod(i,4))/48/2);
-            elseif reagentLogic(s)==-1 && i>50
-                input(i,r,s)=((i-mod(i,4))/48/2-0.5);
+            
+            if reagentLogic(s)==1 && isIN==1
+                feedRatio(i,r,s)=RR/2;
+            elseif reagentLogic(s)==-1 && ~(isIN==1)
+                feedRatio(i,r,s)=RR/2;
             elseif reagentLogic(s)==0
-                input(i,r,s)=0.5;
-            end
-       
-        end
-    end
-end
-%% compute feed matrix
-
-calculateFeed=@(RR,input2,input1) (input2-(100-RR)/100*input1)*100;
-
-for i=1:numIter-1
-    for r=1:numRings
-        for s=1:numReagents
-            feedRatio(i,r,s)=calculateFeed(RR(r),input(i+1,r,s),input(i,r,s));
-            % correct for dilution limit
-            if feedRatio(i,r,s)>RR(r)/2
-                feedRatio(i,r,s)=RR(r)/2;
-            elseif feedRatio(i,r,s)<0
-                feedRatio(i,r,s)=0;
+                feedRatio(i,r,s)=RR/2;
             end
         end
     end
 end
 
-%% real input kinetics
+%% forward compute input kinetics
 updateRule=@(RR,n,feed) (100-RR)/100*n + feed/100;
 for i=2:numIter
     for r=1:numRings
         for s=1:numReagents
-            realInput(i,r,s)=updateRule(RR(r),realInput(i-1,r,s),feedRatio(i,r,s));
+            input(i,r,s)=updateRule(RR,input(i-1,r,s),feedRatio(i,r,s));
         end
     end
 end
@@ -69,7 +53,7 @@ end
 colormap('gray')
 figure(1)
 for s=1:numReagents
-    subplot(3,numReagents,s)
+    subplot(2,numReagents,s)
     imagesc(squeeze(feedRatio(:,:,s)))
     title(sprintf('Reagent %d',s))
     xticks(1:numRings)
@@ -81,8 +65,8 @@ end
 
 
 for s=1:numReagents
-    subplot(3,numReagents,s+numReagents)
-    imagesc(squeeze(input(:,:,s)))
+    subplot(2,numReagents,s+numReagents)
+    imagesc(squeeze(input(:,:,s))*100)
     title(sprintf('Reagent %d',s))
     xticks(1:numRings)
     xlabel('Ring Number')
@@ -91,16 +75,7 @@ for s=1:numReagents
     ylabel(hcb,'Input (%)','Rotation',270)
 end
 
-for s=1:numReagents
-    subplot(3,numReagents,s+2*numReagents)
-    imagesc(squeeze(realInput(:,:,s)))
-    title(sprintf('Reagent %d',s))
-    xticks(1:numRings)
-    xlabel('Ring Number')
-    ylabel('Iteration')
-    hcb=colorbar;
-    ylabel(hcb,'Input (%)','Rotation',270)
-end
+
 %% feed matrix into xml
 iterationStart=@(xml,id,iterations) [xml,...
     sprintf('<IterationStart>\n<ID>%d</ID>\n<Iterations>%d</Iterations>\n</IterationStart>\n',id,iterations)];
@@ -122,7 +97,7 @@ for i=1:numIter
     %reagents
     for s=1:numReagents
         if sum(feedRatio(i,:,s))
-            xml=flushFeed(xml,reagentPorts(s),75);
+            xml=flushFeed(xml,reagentPorts(s),100);
             %rings
             for r=1:numRings
                 if feedRatio(i,r,s)
@@ -135,14 +110,13 @@ for i=1:numIter
     xml=incubate(xml,'00:00:01');
     xml=changeReagent(xml,'00:00:30',waterPort);
     xml=mix(xml,'00:05:00');
-    xml=changeReagent(xml,'00:00:05',waterPort);
     xml=incubate(xml,'00:00:01');
     xml=acquire(xml);
     xml=incubate(xml,'00:00:01');
     xml=iterationEnd(xml,i);
 end
 
-fid = fopen('21xxyy_continuous.xml','wt');
+fid = fopen('210715_continuous.xml','wt');
 fprintf(fid, xml);
 fclose(fid);
 'finished'

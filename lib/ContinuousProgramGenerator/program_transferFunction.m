@@ -11,7 +11,7 @@ input=zeros(numIter,numRings,numReagents); % input kinetics
 
 RR=[15,20,25,30,30,25,20,15]; % total refresh ratio for each step
 
-reagentPorts=[4,5,2]; % ports with reagents
+reagentPorts=[3,4,6]; % ports with reagents
 waterPort=1;
 reagentLogic=[0,-1,1]; % 0: no input, 1: periodic input, -1: anti-input to fill volume
 
