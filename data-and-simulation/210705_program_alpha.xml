@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\LabViewDevelopment\lib\Config\validator.xsd">
+	<Loop>
+		<Duration>24:00:00</Duration>
+		<Image>
+			<Prefix>s28osci_alpha</Prefix>
+			<AcquisitionInterval>00:15:00</AcquisitionInterval>
+			<SaveDir>C:\Users\e14user\data\laufinger\210705_s28osci_alpha\210705_images\original</SaveDir>
+		</Image>
+		<Microscope>
+			<Objective>10</Objective>
+			<Filter>BF</Filter>
+			<Prism>Side</Prism>
+			<Intensity>15.0</Intensity>
+			<Exposure>100</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>10</Objective>
+			<Filter>CFP</Filter>
+			<Prism>Side</Prism>
+			<Intensity>50</Intensity>
+			<Exposure>500</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>10</Objective>
+			<Filter>YFP</Filter>
+			<Prism>Side</Prism>
+			<Intensity>50</Intensity>
+			<Exposure>500</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>10</Objective>
+			<Filter>RFP</Filter>
+			<Prism>Side</Prism>
+			<Intensity>50</Intensity>
+			<Exposure>500</Exposure>
+		</Microscope>
+
+		
+		<Position>
+<X>458.300</X>
+<Y>7972.800</Y>
+<Focus>391.40</Focus>
+</Position>
+<Position>
+<X>458.300</X>
+<Y>6135.500</Y>
+<Focus>391.40</Focus>
+</Position>
+<Position>
+<X>600.000</X>
+<Y>4204.600</Y>
+<Focus>394.50</Focus>
+</Position>
+<Position>
+<X>600.000</X>
+<Y>2329.000</Y>
+<Focus>394.50</Focus>
+</Position>
+<Position>
+<X>600.000</X>
+<Y>355.500</Y>
+<Focus>396.50</Focus>
+</Position>
+<Position>
+<X>637.800</X>
+<Y>-1506.800</Y>
+<Focus>396.50</Focus>
+</Position>
+<Position>
+<X>723.700</X>
+<Y>-3444.200</Y>
+<Focus>398.95</Focus>
+</Position>
+<Position>
+<X>741.200</X>
+<Y>-5292.400</Y>
+<Focus>398.95</Focus>
+</Position>
+
+		<Program>
+
+			<IterationStart>
+				<ID>1</ID>
+				<Iterations>100</Iterations>
+			</IterationStart>
+
+			<!--EXTRACT-->
+
+			<FlushFeed>
+				<ReagentNr>2</ReagentNr>
+				<Cycles>100</Cycles>	
+			</FlushFeed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>1</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>2</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>3</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>4</Ring>
+			</Feed>
+			
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>5</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>6</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>7</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>12.5</Ratio>
+				<Ring>8</Ring>
+			</Feed>
+
+			<Incubate>00:00:02</Incubate>
+
+			<!--BUFFER+R-->
+			<FlushFeed>
+				<ReagentNr>6</ReagentNr>
+				<Cycles>100</Cycles>	
+			</FlushFeed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>1</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>2</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>3</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>4</Ring>
+			</Feed>
+			
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>5</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>6</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>7</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2.5</Ratio>
+				<Ring>8</Ring>
+			</Feed>
+		
+
+			<Incubate>00:00:02</Incubate>
+			
+			<!--BUFFER+osci-->
+			<FlushFeed>
+				<ReagentNr>5</ReagentNr>
+				<Cycles>100</Cycles>	
+			</FlushFeed>
+			
+
+
+			<Feed>
+				<Ratio>0.5</Ratio>
+				<Ring>2</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>1</Ratio>
+				<Ring>3</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>2</Ratio>
+				<Ring>4</Ring>
+			</Feed>
+			
+			<Feed>
+				<Ratio>5</Ratio>
+				<Ring>5</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>10</Ratio>
+				<Ring>6</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>5</Ratio>
+				<Ring>7</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>0.5</Ratio>
+				<Ring>8</Ring>
+			</Feed>
+		
+			
+			
+			
+			<!--BUFFER-->
+			<FlushFeed>
+				<ReagentNr>4</ReagentNr>
+				<Cycles>100</Cycles>	
+			</FlushFeed>
+			
+			<Feed>
+				<Ratio>10</Ratio>
+				<Ring>1</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>9.5</Ratio>
+				<Ring>2</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>9</Ratio>
+				<Ring>3</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>8</Ratio>
+				<Ring>4</Ring>
+			</Feed>
+			
+			<Feed>
+				<Ratio>5</Ratio>
+				<Ring>5</Ring>
+			</Feed>
+	
+	
+			<Feed>
+				<Ratio>5</Ratio>
+				<Ring>7</Ring>
+			</Feed>
+			<Feed>
+				<Ratio>9.5</Ratio>
+				<Ring>8</Ring>
+			</Feed>
+		
+
+			<!--Flush with water-->
+			<ChangeReagent>
+				<Duration>00:00:30</Duration>
+				<ReagentNr>9</ReagentNr>
+			</ChangeReagent>
+			<!--Mix-->
+			<Incubate>00:00:02</Incubate>
+			<Mix>00:05:00</Mix>
+			<Incubate>00:00:02</Incubate>
+			<!--Acquire-->
+			<Acquire/>
+			<Incubate>00:00:02</Incubate>
+
+			<IterationEnd>1</IterationEnd>
+			
+
+
+		</Program>
+	</Loop>
+</Measurement>
