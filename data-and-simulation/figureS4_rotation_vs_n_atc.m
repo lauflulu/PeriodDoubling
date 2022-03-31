@@ -6,7 +6,8 @@ k_TL = .02; % 1/s
 t_m = 12*60; % s
 K_s28=20; K_tetR=2; %nM
 n_s28=8; n_tetR=8; 
-nHill=2:6/105:8;
+%nHill=2:6/105:8; %fine
+nHill=2:1:8; %coarse
 
 k= [a_p28,a_pLtetO1,k_TL,t_m,K_s28,K_tetR,n_s28,n_tetR];
 
@@ -19,11 +20,9 @@ t_min=0:t_interval:500*60;
 t_sec= t_min*60; %seconds
 t_hour=t_sec/3600;
 
-% RR=0.1:0.001:0.35;
-% delta=-log(1-RR)/(t_interval*60); %1/s, base e
-% lambda=-log(1-RR)*inPeriod/t_interval/pi();
+%lambda=0.9:0.005:1.95; %fine
+lambda=0.9:0.1:1.95; %coarse
 
-lambda=0.9:0.005:1.95;
 RR=1-exp(-lambda*pi()/inPeriod*t_interval);
 delta=-log(1-RR)/(t_interval*60); %1/s, base e
 
@@ -44,7 +43,7 @@ for n=1:length(nHill)
     k(7)=nHill(n); k(8)=nHill(n);
     for r=1:length(RR)
         [t_semi(r,n,:),c_semi(r,n,:,:)]=...
-            semiContinuousODEatc(@(t,y)ode_simple_mRNA_atc(t,y,k,0),t_sec,y0,RR(r),generateInputAtc(inPeriod/t_interval,inAmplitude,t_sec,y0),semiOut);
+            semiContinuousODE_atc(@(t,y)ode_simple_mRNA_atc(t,y,k,0),t_sec,y0,RR(r),generateInput_atc(inPeriod/t_interval,inAmplitude,t_sec,y0),semiOut);
     end
     sprintf('%d/%d',n,length(nHill))
     toc

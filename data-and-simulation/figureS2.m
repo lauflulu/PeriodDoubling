@@ -2,12 +2,9 @@ clear all
 close all
 
 %%
-load('210612_time.mat')
-load('210612_intensities.mat')
+load('210611_time.mat')
+load('210611_intensities.mat')
 load('cal_data.mat')
-
-leg={'Ring1: RR20%, no input','Ring2: RR20%, 3.25 h','Ring3: RR20%, 3.5 h','Ring4: RR20%, 3.75 h',...
-    'Ring7: RR20%, 4 h','Ring8: RR20%, no input'};
 
 R=size(intensities,1); %numReactors
 C=size(intensities,2); %numChannels

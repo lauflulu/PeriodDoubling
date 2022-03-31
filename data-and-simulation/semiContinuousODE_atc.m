@@ -1,4 +1,4 @@
-function [t,y]=semiContinuousODE(odefun,tspan,y0,RR,yIN,output)
+function [t,y]=semiContinuousODE_atc(odefun,tspan,y0,RR,yIN,output)
     t=0;
 
     y=y0';
