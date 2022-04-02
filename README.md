@@ -1,7 +1,7 @@
 # PeriodDoubling
 Contains raw data, analysis scripts, and simulation scripts for the publication: "Complex Dynamics in a Synchronized Cell-Free Genetic Clock".
 
-# System requirements
+## System requirements
 The scripts were tested in Matlab version 2019b.
 
 # Installation guide
