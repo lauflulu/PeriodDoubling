@@ -1,13 +1,13 @@
 # PeriodDoubling
 Contains raw data, analysis scripts, and simulation scripts for the publication: "Complex Dynamics in a Synchronized Cell-Free Genetic Clock".
 
-# System requirements
+## System requirements
 The scripts were tested in Matlab version 2019b.
 
-# Installation guide
+## Installation guide
 No installation required
 
-# Demo
+## Demo
 - analysis
 Extracts fluorescence intensity data from time-lapse images.
 Should be completed within 10 min.
@@ -19,7 +19,7 @@ The simulation times for the plots in figure 2,6,7, and S4 depend on the number 
 For coarse sampling (default), the scripts should complete witin approximately 10 min.
 Finer sampling, e.g. as shown in figure 7 and S4, may require 1-2 days of computation time, plus approximately 4 GB of free RAM.
 
-# Instructions for use
+## Instructions for use
 - analysis
 Time-lapse image data needs to be available as single channel Tiff-stacks. 
 If images are instead stored as multichannel, single time point, run TiffConcatenator and follow instructions.
