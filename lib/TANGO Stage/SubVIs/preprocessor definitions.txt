@@ -1,0 +1,8 @@
+#ifndef _TANGOLSXAPI_INCLUDED_;
+#define _TANGOLSXAPI_INCLUDED_;
+#define TANGOAPI __declspec (dllimport);
+#define TANGOCALL __stdcall;
+#pragma pack(1);
+#ifdef __cplusplus
+extern "C" 
+#endif;

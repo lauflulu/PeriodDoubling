@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\lib\Config\validator.xsd"><Loop>
+<Duration>00:10:00</Duration>
+<Image>
+<Prefix>pRmS_LPT107</Prefix>
+<AcquisitionInterval>00:01:00</AcquisitionInterval>
+<SaveDir>C:\Users\e14user\Documents\LabVIEW software\GitRepo\Test_N_Eval_Images\200310_TestTiming</SaveDir>
+</Image>
+<Microscope>
+<Objective>10</Objective>
+<Filter>BF</Filter>
+<Prism>Side</Prism>
+<Intensity>12.5</Intensity>
+<Exposure>50</Exposure>
+</Microscope>
+<Position>
+<X>51436.000</X>
+<Y>44081.000</Y>
+<Focus>418.05</Focus>
+</Position>
+<Program>
+<IterationStart>
+<ID>0</ID>
+<Iterations>2</Iterations>
+</IterationStart>
+<Pump>00:00:10</Pump>
+<Acquire />
+<IterationEnd>0</IterationEnd>
+</Program>
+</Loop>
+</Measurement>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<Measurement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Users\e14user\Documents\LabVIEW software\GitRepo\lib\Config\validator.xsd">
+	<Loop>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>BF</Filter>
+			<Prism>Side</Prism>
+			<Intensity>13.3</Intensity>
+			<Exposure>50</Exposure>
+		</Microscope>
+		<Microscope>
+			<Objective>20</Objective>
+			<Filter>GFP</Filter>
+			<Prism>Side</Prism>
+			<Intensity>40.0</Intensity>
+			<Exposure>300</Exposure>
+		</Microscope>
+	</Loop>
+</Measurement>

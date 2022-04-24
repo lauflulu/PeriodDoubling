@@ -1,0 +1,7 @@
+- Filter change: 400 ms
+- Stage Drive: 300 ms
+- Capture Image: Exposure Time + 50 ms
+- Intensity change: SOLA 0ms, BF: 10s
+- Objective Change: 1s
+- Focus change: 300ms
+- Fluid Delay: 10ms

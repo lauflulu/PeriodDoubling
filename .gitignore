@@ -1,6 +1,20 @@
+# Test_N_Eval_Images
+*.orig
+*.aliases
+.vs*
+*.aux
+*.out
+*.synctex.gz
+*.toc
+*.asv
+
 # Libraries
 *.lvlibp
 *.llb
+
+# others
+*.tif
+*.pdf
 
 # Shared objects (inc. Windows DLLs)
 *.dll

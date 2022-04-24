@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--This section defines the data types for later configuration commands-->
+	<xs:element name="Measurement">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Configuration" minOccurs="0">
+					<xs:complexType>
+						<xs:sequence>			
+							<xs:element name="Stage" type="_stage" minOccurs="0" maxOccurs="1"/>
+							<xs:element name="Microscope" type="_microscope" maxOccurs="1"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Loop">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Duration" type="_duration" minOccurs="0"/>
+							<xs:element name="Image" type="_img" minOccurs="0"/>								
+							<xs:element name="Microscope" type="_microscope" minOccurs="0" maxOccurs="10"/>
+							<xs:element name="Position" type="_position" minOccurs="0" maxOccurs="unbounded"/>				
+							<xs:element name="Program" type="_arduino" minOccurs="0"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:simpleType name="_posX">
+		<xs:restriction base="xs:decimal">
+			<!-- TODO Find out the maximum-->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_posY">
+		<xs:restriction base="xs:decimal">
+			<!-- TODO Find out the maximum-->
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_vel_acc">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.1"/>
+			<xs:maxInclusive value="20.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Defines elements for the microscope element-->
+
+	<xs:simpleType name="_obj">
+		<xs:restriction base="xs:integer">
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="40"/>
+			<xs:enumeration value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_filter">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="UV"/>
+			<xs:enumeration value="Cy5"/>
+			<xs:enumeration value="RFP"/>
+			<xs:enumeration value="YFP"/>
+			<xs:enumeration value="CFP"/>
+			<xs:enumeration value="GFP"/>
+			<xs:enumeration value="BF"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_prism">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Bi"/>
+			<xs:enumeration value="Side"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_percent">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_focus">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0"/>
+			<xs:maxInclusive value="3000000.00"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<!-- Indicates the duration of a measurement-->
+	<xs:simpleType name="_duration">
+    <xs:restriction base="xs:string">
+        <xs:pattern value="[0-9]?[0-9]?[0-9]:[0-5][0-9]:[0-5][0-9]"/>
+    </xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="_elveflowChannel">
+		<xs:restriction base="xs:integer">
+			<xs:minInclusive value="1"/>
+			<xs:maxInclusive value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
+	<!-- Indicates the name, saving directory and aquisition interval of an automatized measurement-->
+	<xs:complexType name="_img">
+		<xs:all>
+			<xs:element name="Prefix" type="xs:string"/>
+			<xs:element name="AcquisitionInterval" type="_duration"/>
+			<xs:element name="SaveDir" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+
+
+	<!-- Container for Stage Configuration-->
+	<xs:complexType name="_stage">
+		<xs:all>
+			<xs:element name="VelocityX" type="_vel_acc" />
+			<xs:element name="VelocityY" type="_vel_acc"/>
+			<xs:element name="AccelerationX" type="_vel_acc"/>
+			<xs:element name="AccelerationY" type="_vel_acc"/>
+		</xs:all>
+	</xs:complexType>
+
+	<!-- Container for microscope Configuration-->
+	<xs:complexType name="_microscope">
+		<xs:sequence>
+			<xs:element name="Objective" type="_obj"/>
+			<xs:element name="Filter" type="_filter"/>
+			<xs:element name="Prism" type="_prism"/>
+			<xs:element name="Intensity" type="_percent"/>
+			<xs:element name="Exposure" type="xs:decimal" />			
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Container for different valve configuration-->
+	<xs:complexType name="_arduino">
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Feed" type="_feed"/>
+		    <xs:element name="Mix" type="_duration"/>
+		    <xs:element name="ChangeReagent" type="_changeReagent"/>
+			<xs:element name="FlushFeed" type="_flushfeed"/>
+		    <xs:element name="Incubate" type="_duration"/>
+		    <xs:element name="IterationStart" type="_iterationStart"/>
+		    <xs:element name="IterationEnd" type="xs:integer"/>
+		    <xs:element name="Acquire" type="_acquire"/>
+		</xs:choice>
+	</xs:complexType>
+
+
+	<xs:complexType name="_position">
+		<xs:sequence>
+			<xs:element name="X" type="_posX"/>
+			<xs:element name="Y" type="_posY"/>		
+			<xs:element name="Focus" type="_focus"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+  <xs:complexType name="_feed">
+    <xs:sequence>
+      <xs:element name="Ratio" type="_percent"/>	  
+      <xs:element name="Ring" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="_changeReagent">
+    <xs:sequence>
+      <xs:element name="Duration" type="_duration"/>
+      <xs:element name="ReagentNr" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="_flushfeed">
+    <xs:sequence>
+	<xs:element name="ReagentNr" type="xs:integer"/>
+      <xs:element name="Cycles" type="xs:integer"/>	  
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:complexType name="_iterationStart">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:integer"/>
+      <xs:element name="Iterations" type="xs:integer"/>
+    </xs:sequence>
+  </xs:complexType>
+
+    <xs:complexType name="_acquire"/>
+
+  
+</xs:schema>
