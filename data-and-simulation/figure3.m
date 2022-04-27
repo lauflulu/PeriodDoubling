@@ -159,6 +159,7 @@ hold all
     plot(delta,PIriod)
     plot(delta,simPeriod)
     plot(delta,Panalytical)
+    plot(uniqueDelta,Period,'.r','MarkerSize',5)
     ylim([0,12]);
     xlim([0.4,1.5]);
     box('on')
@@ -167,75 +168,75 @@ hold all
     ylabel('Period (h)')
 
     
-%% sensitivity analysis
-% ##### simulate period
-rr0=0.25;
-alphas=0.005;
-k_TL = .02; % 1/s
-t_m = 12*60; % 1/s
-K_s28=20; K_tetR=2; %nM
-n_s28=3; n_tetR=3; 
-
-k= [alphas,alphas,k_TL,t_m,K_s28,K_tetR,n_s28,n_tetR];
-
-t_interval=15; %min
-t_min=0:t_interval:24*60*7;
-t_sec= t_min*60; %seconds
-t_hour=t_sec/3600;
-
-delta=-log(1-rr0)/(t_interval*60); %1/s, base e
-
-y0=[0;0;0;0;0;0];
-
-var_factor=[0.7,1,1.3];
-
-semiOut='up'; contOut='up';
-if strcmp(semiOut,'up') || strcmp(semiOut,'low')
-    t_semi=zeros(length(k)+1,length(var_factor),length(t_sec));
-    c_semi=zeros(length(k)+1,length(var_factor),length(t_sec),length(y0));
-else
-    t_semi=zeros(length(k)+1,length(var_factor),(length(t_sec)-1)*10);
-    c_semi=zeros(length(k)+1,length(var_factor),(length(t_sec)-1)*10,length(y0));
-end
-
-tic;
-for ki=1:length(k)+1
-        for v=1:length(var_factor)
-            vk=k;
-            RR=rr0;
-            if ki==length(k)+1
-                RR=RR*var_factor(v);
-            else
-                vk(ki)=k(ki)*var_factor(v);
-            end
-            [t_semi(ki,v,:),c_semi(ki,v,:,:)]=...
-                semiContinuousODE(@(t,y)ode_simple_mRNA(t,y,vk,0),t_sec,y0,RR,generateInput(0,0,t_sec,y0),semiOut);
-        end
-end
-toc
-
-contPeriod=zeros(length(var_factor),length(k)+1);
-simPeriod=zeros(length(var_factor),length(k)+1);
-
-i=5;
-
-for ki=1:length(k)+1
-        for v=1:length(var_factor)
-            [pk,locs,w,amp]=findpeaks(squeeze(c_semi(ki,v,:,i)),'MinPeakProminence',.1); %find first minimum
-            simPeriod(v,ki)=mean(diff(t_hour(locs)));
-        end
-end
-
-figure(9)
-    bar([0:8]+0.2,simPeriod(1,:)-simPeriod(2,:))
-    hold all
-    bar([0:8]-0.2,simPeriod(3,:)-simPeriod(2,:))
-    xticks(0:8)
-    xticklabels({'a_{p28}','a_{ptet}','k_{TL}','\tau_m','K_{s28}','K_{tetR}','n_{s28}','n_{tetR}','\delta'})
-    legend('20% decrease','20% increase')
-    xlabel('Changed Parameter')
-    ylabel('\Delta T (h)')
-    
+% %% sensitivity analysis
+% % ##### simulate period
+% rr0=0.25;
+% alphas=0.005;
+% k_TL = .02; % 1/s
+% t_m = 12*60; % 1/s
+% K_s28=20; K_tetR=2; %nM
+% n_s28=3; n_tetR=3; 
+% 
+% k= [alphas,alphas,k_TL,t_m,K_s28,K_tetR,n_s28,n_tetR];
+% 
+% t_interval=15; %min
+% t_min=0:t_interval:24*60*7;
+% t_sec= t_min*60; %seconds
+% t_hour=t_sec/3600;
+% 
+% delta=-log(1-rr0)/(t_interval*60); %1/s, base e
+% 
+% y0=[0;0;0;0;0;0];
+% 
+% var_factor=[0.7,1,1.3];
+% 
+% semiOut='up'; contOut='up';
+% if strcmp(semiOut,'up') || strcmp(semiOut,'low')
+%     t_semi=zeros(length(k)+1,length(var_factor),length(t_sec));
+%     c_semi=zeros(length(k)+1,length(var_factor),length(t_sec),length(y0));
+% else
+%     t_semi=zeros(length(k)+1,length(var_factor),(length(t_sec)-1)*10);
+%     c_semi=zeros(length(k)+1,length(var_factor),(length(t_sec)-1)*10,length(y0));
+% end
+% 
+% tic;
+% for ki=1:length(k)+1
+%         for v=1:length(var_factor)
+%             vk=k;
+%             RR=rr0;
+%             if ki==length(k)+1
+%                 RR=RR*var_factor(v);
+%             else
+%                 vk(ki)=k(ki)*var_factor(v);
+%             end
+%             [t_semi(ki,v,:),c_semi(ki,v,:,:)]=...
+%                 semiContinuousODE(@(t,y)ode_simple_mRNA(t,y,vk,0),t_sec,y0,RR,generateInput(0,0,t_sec,y0),semiOut);
+%         end
+% end
+% toc
+% 
+% contPeriod=zeros(length(var_factor),length(k)+1);
+% simPeriod=zeros(length(var_factor),length(k)+1);
+% 
+% i=5;
+% 
+% for ki=1:length(k)+1
+%         for v=1:length(var_factor)
+%             [pk,locs,w,amp]=findpeaks(squeeze(c_semi(ki,v,:,i)),'MinPeakProminence',.1); %find first minimum
+%             simPeriod(v,ki)=mean(diff(t_hour(locs)));
+%         end
+% end
+% 
+% figure(9)
+%     bar([0:8]+0.2,simPeriod(1,:)-simPeriod(2,:))
+%     hold all
+%     bar([0:8]-0.2,simPeriod(3,:)-simPeriod(2,:))
+%     xticks(0:8)
+%     xticklabels({'a_{p28}','a_{ptet}','k_{TL}','\tau_m','K_{s28}','K_{tetR}','n_{s28}','n_{tetR}','\delta'})
+%     legend('30% decrease','30% increase')
+%     xlabel('Changed Parameter')
+%     ylabel('\Delta T (h)')
+%     
     
     
     
